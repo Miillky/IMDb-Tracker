@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMDbTrackerLibrary", "IMDbTrackerLibrary\IMDbTrackerLibrary.csproj", "{95BCB450-6B80-4B5B-85F1-9450F66C903B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMDbTrackerUI", "IMDbTrackerUI\IMDbTrackerUI.csproj", "{F85CD2CE-E566-4459-8E69-1B82F5DC4EE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95BCB450-6B80-4B5B-85F1-9450F66C903B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95BCB450-6B80-4B5B-85F1-9450F66C903B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95BCB450-6B80-4B5B-85F1-9450F66C903B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95BCB450-6B80-4B5B-85F1-9450F66C903B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F85CD2CE-E566-4459-8E69-1B82F5DC4EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F85CD2CE-E566-4459-8E69-1B82F5DC4EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F85CD2CE-E566-4459-8E69-1B82F5DC4EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F85CD2CE-E566-4459-8E69-1B82F5DC4EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D0553E7-C8A4-4258-9473-CF4E7921951F}
+	EndGlobalSection
+EndGlobal
