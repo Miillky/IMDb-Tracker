@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IMDbTrackerUI {
-    public partial class WelcomeForm : Form {
-        public WelcomeForm() {
+    public partial class RegisterForm : Form {
+        public RegisterForm() {
             InitializeComponent();
         }
 
-        private void logInButton_Click(object sender, EventArgs e) {
+        private void SignUpForm_Load(object sender, EventArgs e) {
 
         }
 

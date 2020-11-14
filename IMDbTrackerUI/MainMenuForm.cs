@@ -9,16 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IMDbTrackerUI {
-    public partial class WelcomeForm : Form {
-        public WelcomeForm() {
+    public partial class MainMenuForm : Form {
+        public MainMenuForm() {
             InitializeComponent();
         }
 
-        private void logInButton_Click(object sender, EventArgs e) {
+        private void moviesButton_Click(object sender, EventArgs e) {
 
         }
 
-        private void registerButton_Click(object sender, EventArgs e) {
+        private void tvShowsButton_Click(object sender, EventArgs e) {
+
+        }
+
+        private void profileButton_Click(object sender, EventArgs e) {
 
         }
     }
