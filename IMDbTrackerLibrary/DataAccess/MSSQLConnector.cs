@@ -2,7 +2,7 @@
 using IMDbTrackerLibrary.Models;
 
 namespace IMDbTrackerLibrary.DataAccess {
-    class SQLConnector : IDataConnection {
+    class MSSQLConnector : IDataConnection {
 
         private string db = GlobalConfig.ConnectionString();
 
@@ -11,6 +11,10 @@ namespace IMDbTrackerLibrary.DataAccess {
         }
 
         public void UpdateUser(User model) {
+            throw new NotImplementedException();
+        }
+
+        public void GeneratePassword(string password) {
             throw new NotImplementedException();
         }
     }

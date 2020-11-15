@@ -124,9 +124,9 @@
             this.lastNameTextBox.Location = new System.Drawing.Point(45, 325);
             this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(0);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(104, 25);
+            this.lastNameTextBox.Size = new System.Drawing.Size(106, 25);
             this.lastNameTextBox.TabIndex = 0;
-            this.lastNameTextBox.Text = "LastName:";
+            this.lastNameTextBox.Text = "Last name:";
             // 
             // emailTextBox
             // 

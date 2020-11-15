@@ -3,16 +3,13 @@ using IMDbTrackerLibrary.DataAccess;
 
 namespace IMDbTrackerLibrary {
     public static class GlobalConfig {
-        public enum DatabaseType {
-            SQL
-        }
-        public static IDataConnection Connection { get; private set; }
-        public static void InitializeConnections(DatabaseType db) {
 
+        public static IDataConnection Connection { get; private set; }
+        public static void InitializeConnections(string db) {  
             switch(db) {
-                case DatabaseType.SQL:
-                    SQLConnector sql = new SQLConnector();
-                    Connection = sql;
+                case "MSSQL":
+                    MSSQLConnector mssql = new MSSQLConnector();
+                    Connection = mssql;
                     break;
                 default:
                     break;
@@ -20,7 +17,7 @@ namespace IMDbTrackerLibrary {
         }
 
         public static string ConnectionString() {
-            return ConfigurationManager.ConnectionStrings[AppKeyLookup("activeDatabaseConnectionString")].ConnectionString;
+            return ConfigurationManager.ConnectionStrings[AppKeyLookup("activeDatabase")].ConnectionString;
         }
 
         public static string AppKeyLookup(string key) {

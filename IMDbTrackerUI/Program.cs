@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using IMDbTrackerLibrary;
 
 namespace IMDbTrackerUI {
     static class Program {
@@ -13,6 +11,10 @@ namespace IMDbTrackerUI {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // Initialize database connection
+            GlobalConfig.InitializeConnections(GlobalConfig.AppKeyLookup("activeDatabase"));
+
             Application.Run(new RegisterForm());
         }
     }

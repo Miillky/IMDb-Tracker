@@ -5,5 +5,6 @@ namespace IMDbTrackerLibrary.DataAccess {
 
         void CreateUser(User model);
         void UpdateUser(User model);
+        void GeneratePassword(string password);
     }
 }
