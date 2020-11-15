@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
             this.profileButton = new System.Windows.Forms.Button();
             this.tvShowsButton = new System.Windows.Forms.Button();
             this.moviesButton = new System.Windows.Forms.Button();
@@ -43,7 +44,7 @@
             this.profileButton.Margin = new System.Windows.Forms.Padding(0);
             this.profileButton.Name = "profileButton";
             this.profileButton.Size = new System.Drawing.Size(300, 60);
-            this.profileButton.TabIndex = 17;
+            this.profileButton.TabIndex = 3;
             this.profileButton.Text = "Profile";
             this.profileButton.UseVisualStyleBackColor = false;
             // 
@@ -60,7 +61,7 @@
             this.tvShowsButton.Margin = new System.Windows.Forms.Padding(0);
             this.tvShowsButton.Name = "tvShowsButton";
             this.tvShowsButton.Size = new System.Drawing.Size(300, 60);
-            this.tvShowsButton.TabIndex = 16;
+            this.tvShowsButton.TabIndex = 2;
             this.tvShowsButton.Text = "TV Shows";
             this.tvShowsButton.UseVisualStyleBackColor = false;
             // 
@@ -77,7 +78,7 @@
             this.moviesButton.Margin = new System.Windows.Forms.Padding(0);
             this.moviesButton.Name = "moviesButton";
             this.moviesButton.Size = new System.Drawing.Size(300, 60);
-            this.moviesButton.TabIndex = 15;
+            this.moviesButton.TabIndex = 1;
             this.moviesButton.Text = "Movies";
             this.moviesButton.UseVisualStyleBackColor = false;
             // 
@@ -108,6 +109,7 @@
             this.Controls.Add(this.moviesButton);
             this.Controls.Add(this.IMDbLogoImage);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainMenuForm";
             this.Text = "IMDb - Main Menu";

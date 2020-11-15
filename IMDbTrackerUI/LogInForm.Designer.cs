@@ -42,7 +42,7 @@
             this.IMDbLogoImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.IMDbLogoImage.Image = global::IMDbTrackerUI.Properties.Resources.IMDb_black_logo;
             this.IMDbLogoImage.ImageLocation = "";
-            this.IMDbLogoImage.Location = new System.Drawing.Point(45, 35);
+            this.IMDbLogoImage.Location = new System.Drawing.Point(40, 35);
             this.IMDbLogoImage.Margin = new System.Windows.Forms.Padding(0);
             this.IMDbLogoImage.Name = "IMDbLogoImage";
             this.IMDbLogoImage.Size = new System.Drawing.Size(300, 125);
@@ -54,7 +54,7 @@
             this.userNameLabel.AutoSize = true;
             this.userNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.userNameLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.userNameLabel.Location = new System.Drawing.Point(45, 190);
+            this.userNameLabel.Location = new System.Drawing.Point(40, 190);
             this.userNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Size = new System.Drawing.Size(106, 25);
@@ -66,7 +66,7 @@
             this.userNameTextBox.BackColor = System.Drawing.Color.White;
             this.userNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.userNameTextBox.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.userNameTextBox.Location = new System.Drawing.Point(45, 220);
+            this.userNameTextBox.Location = new System.Drawing.Point(40, 220);
             this.userNameTextBox.MaxLength = 150;
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(300, 29);
@@ -77,7 +77,7 @@
             this.passwordTextBox.BackColor = System.Drawing.Color.White;
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.passwordTextBox.Location = new System.Drawing.Point(45, 285);
+            this.passwordTextBox.Location = new System.Drawing.Point(40, 285);
             this.passwordTextBox.MaxLength = 150;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
@@ -90,7 +90,7 @@
             this.logInPasswordLabel.AutoSize = true;
             this.logInPasswordLabel.BackColor = System.Drawing.Color.Transparent;
             this.logInPasswordLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.logInPasswordLabel.Location = new System.Drawing.Point(45, 255);
+            this.logInPasswordLabel.Location = new System.Drawing.Point(40, 255);
             this.logInPasswordLabel.Margin = new System.Windows.Forms.Padding(0);
             this.logInPasswordLabel.Name = "logInPasswordLabel";
             this.logInPasswordLabel.Size = new System.Drawing.Size(102, 25);
@@ -106,7 +106,7 @@
             this.logInButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logInButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.logInButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logInButton.Location = new System.Drawing.Point(45, 330);
+            this.logInButton.Location = new System.Drawing.Point(40, 330);
             this.logInButton.Margin = new System.Windows.Forms.Padding(0);
             this.logInButton.Name = "logInButton";
             this.logInButton.Size = new System.Drawing.Size(300, 60);
@@ -117,7 +117,7 @@
             // 
             // LogInForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -128,10 +128,10 @@
             this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.IMDbLogoImage);
-            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "LogInForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
