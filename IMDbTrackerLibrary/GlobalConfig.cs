@@ -4,6 +4,10 @@ using IMDbTrackerLibrary.DataAccess;
 namespace IMDbTrackerLibrary {
     public static class GlobalConfig {
 
+        public const string UsernameField = "Username";
+        public const string PasswordField = "Password";
+        public const string EmailField = "Email";
+
         public static IDataConnection Connection { get; private set; }
         public static void InitializeConnections(string db) {  
             switch(db) {
