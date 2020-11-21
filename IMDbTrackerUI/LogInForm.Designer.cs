@@ -161,10 +161,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(400, 450);
+            this.MinimumSize = new System.Drawing.Size(400, 450);
             this.Name = "LogInForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IMDB Tracker - Log In";
-            this.Load += new System.EventHandler(this.SingInForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IMDbLogoImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

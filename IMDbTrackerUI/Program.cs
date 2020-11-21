@@ -15,7 +15,7 @@ namespace IMDbTrackerUI {
             // Initialize database connection
             GlobalConfig.InitializeConnections(GlobalConfig.AppKeyLookup("activeDatabase"));
 
-            Application.Run(new LogInForm());
+            Application.Run(new RegisterForm());
         }
     }
 }
