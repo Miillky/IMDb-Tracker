@@ -47,6 +47,8 @@
             this.passwordValidateErrorLabel = new System.Windows.Forms.Label();
             this.repeatPasswordValidateErrorLabel = new System.Windows.Forms.Label();
             this.apiKeyValidateErrorLabel = new System.Windows.Forms.Label();
+            this.showRepeatPasswordCheckbox = new System.Windows.Forms.CheckBox();
+            this.showPasswordCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.IMDbLogoImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,6 +170,7 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(300, 29);
             this.passwordTextBox.TabIndex = 5;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // passwordLabel
             // 
@@ -191,6 +194,7 @@
             this.repeatPasswordTextBox.Name = "repeatPasswordTextBox";
             this.repeatPasswordTextBox.Size = new System.Drawing.Size(300, 29);
             this.repeatPasswordTextBox.TabIndex = 6;
+            this.repeatPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // repeatPasswordLabel
             // 
@@ -329,6 +333,32 @@
             this.apiKeyValidateErrorLabel.Text = "apiKeyValidateError";
             this.apiKeyValidateErrorLabel.Visible = false;
             // 
+            // showRepeatPasswordCheckbox
+            // 
+            this.showRepeatPasswordCheckbox.AutoSize = true;
+            this.showRepeatPasswordCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.showRepeatPasswordCheckbox.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Bold);
+            this.showRepeatPasswordCheckbox.Location = new System.Drawing.Point(295, 570);
+            this.showRepeatPasswordCheckbox.Name = "showRepeatPasswordCheckbox";
+            this.showRepeatPasswordCheckbox.Size = new System.Drawing.Size(44, 15);
+            this.showRepeatPasswordCheckbox.TabIndex = 9;
+            this.showRepeatPasswordCheckbox.Text = "Show";
+            this.showRepeatPasswordCheckbox.UseVisualStyleBackColor = true;
+            this.showRepeatPasswordCheckbox.CheckedChanged += new System.EventHandler(this.showRequiredPasswordCheckbox_CheckedChanged);
+            // 
+            // showPasswordCheckbox
+            // 
+            this.showPasswordCheckbox.AutoSize = true;
+            this.showPasswordCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.showPasswordCheckbox.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Bold);
+            this.showPasswordCheckbox.Location = new System.Drawing.Point(295, 495);
+            this.showPasswordCheckbox.Name = "showPasswordCheckbox";
+            this.showPasswordCheckbox.Size = new System.Drawing.Size(44, 15);
+            this.showPasswordCheckbox.TabIndex = 10;
+            this.showPasswordCheckbox.Text = "Show";
+            this.showPasswordCheckbox.UseVisualStyleBackColor = true;
+            this.showPasswordCheckbox.CheckedChanged += new System.EventHandler(this.showPasswordCheckbox_CheckedChanged);
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -336,6 +366,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(384, 811);
+            this.Controls.Add(this.showPasswordCheckbox);
+            this.Controls.Add(this.showRepeatPasswordCheckbox);
             this.Controls.Add(this.apiKeyValidateErrorLabel);
             this.Controls.Add(this.repeatPasswordValidateErrorLabel);
             this.Controls.Add(this.passwordValidateErrorLabel);
@@ -401,5 +433,7 @@
         private System.Windows.Forms.Label passwordValidateErrorLabel;
         private System.Windows.Forms.Label repeatPasswordValidateErrorLabel;
         private System.Windows.Forms.Label apiKeyValidateErrorLabel;
+        private System.Windows.Forms.CheckBox showRepeatPasswordCheckbox;
+        private System.Windows.Forms.CheckBox showPasswordCheckbox;
     }
 }

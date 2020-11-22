@@ -50,6 +50,11 @@
     <Compile Include="DataAccess\MSSQLConnector.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
     <Compile Include="Exceptions\NotMatchingPasswordsException.cs" />
+    <Compile Include="Exceptions\PasswordDigitsException.cs" />
+    <Compile Include="Exceptions\PasswordLengthException.cs" />
+    <Compile Include="Exceptions\PasswordLowercaseException.cs" />
+    <Compile Include="Exceptions\PasswordUppercaseException.cs" />
+    <Compile Include="Exceptions\PasswordSpecialCharException.cs" />
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="IDataConnection.cs" />
     <Compile Include="Models\User.cs" />

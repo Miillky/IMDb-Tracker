@@ -115,11 +115,56 @@ namespace IMDbTrackerLibrary.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password requiers at least two digits..
+        /// </summary>
+        internal static string PasswordDigits {
+            get {
+                return ResourceManager.GetString("PasswordDigits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum required character length.
+        /// </summary>
+        internal static string PasswordLength {
+            get {
+                return ResourceManager.GetString("PasswordLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password requiers at least three lowercase letters..
+        /// </summary>
+        internal static string PasswordLowercase {
+            get {
+                return ResourceManager.GetString("PasswordLowercase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password is required..
         /// </summary>
         internal static string PasswordRequired {
             get {
                 return ResourceManager.GetString("PasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password requires as special character (!@#$&amp;*)..
+        /// </summary>
+        internal static string PasswordSpecialCharacter {
+            get {
+                return ResourceManager.GetString("PasswordSpecialCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords requires at least two uppercase letters..
+        /// </summary>
+        internal static string PasswordUppercase {
+            get {
+                return ResourceManager.GetString("PasswordUppercase", resourceCulture);
             }
         }
         

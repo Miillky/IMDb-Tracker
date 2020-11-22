@@ -4,6 +4,8 @@ using IMDbTrackerLibrary.DataAccess;
 namespace IMDbTrackerLibrary {
     public static class GlobalConfig {
 
+        public static int passwordLength = 9;
+
         public static IDataConnection Connection { get; private set; }
         public static void InitializeConnections(string db) {  
             switch(db) {

@@ -135,8 +135,23 @@
   <data name="NotMatchingPasswords" xml:space="preserve">
     <value>Passwords do not match.</value>
   </data>
+  <data name="PasswordDigits" xml:space="preserve">
+    <value>Password requiers at least two digits.</value>
+  </data>
+  <data name="PasswordLength" xml:space="preserve">
+    <value>Minimum required character length</value>
+  </data>
+  <data name="PasswordLowercase" xml:space="preserve">
+    <value>Password requiers at least three lowercase letters.</value>
+  </data>
   <data name="PasswordRequired" xml:space="preserve">
     <value>Password is required.</value>
+  </data>
+  <data name="PasswordSpecialCharacter" xml:space="preserve">
+    <value>Password requires as special character (!@#$&amp;*).</value>
+  </data>
+  <data name="PasswordUppercase" xml:space="preserve">
+    <value>Passwords requires at least two uppercase letters.</value>
   </data>
   <data name="RepeatPasswordRequired" xml:space="preserve">
     <value>Repeating password is required.</value>
