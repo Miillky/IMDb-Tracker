@@ -29,7 +29,7 @@
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.logInPasswordLabel = new System.Windows.Forms.Label();
-            this.logInButton = new System.Windows.Forms.Button();
+            this.LogInButton = new System.Windows.Forms.Button();
             this.usernameValidateErrorLabel = new System.Windows.Forms.Label();
             this.passwordValidateErrorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.IMDbLogoImage)).BeginInit();
@@ -98,23 +98,23 @@
             this.logInPasswordLabel.TabIndex = 3;
             this.logInPasswordLabel.Text = "Password:";
             // 
-            // logInButton
+            // LogInButton
             // 
-            this.logInButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.LogInButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.logInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
-            this.logInButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logInButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.logInButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logInButton.Location = new System.Drawing.Point(40, 340);
-            this.logInButton.Margin = new System.Windows.Forms.Padding(0);
-            this.logInButton.Name = "logInButton";
-            this.logInButton.Size = new System.Drawing.Size(300, 60);
-            this.logInButton.TabIndex = 5;
-            this.logInButton.Text = "Log in";
-            this.logInButton.UseVisualStyleBackColor = false;
-            this.logInButton.Click += new System.EventHandler(this.logInButton_Click);
+            this.LogInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
+            this.LogInButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LogInButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogInButton.Location = new System.Drawing.Point(40, 340);
+            this.LogInButton.Margin = new System.Windows.Forms.Padding(0);
+            this.LogInButton.Name = "LogInButton";
+            this.LogInButton.Size = new System.Drawing.Size(300, 60);
+            this.LogInButton.TabIndex = 5;
+            this.LogInButton.Text = "Log in";
+            this.LogInButton.UseVisualStyleBackColor = false;
+            this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
             // 
             // usernameValidateErrorLabel
             // 
@@ -149,7 +149,7 @@
             this.ClientSize = new System.Drawing.Size(384, 411);
             this.Controls.Add(this.passwordValidateErrorLabel);
             this.Controls.Add(this.usernameValidateErrorLabel);
-            this.Controls.Add(this.logInButton);
+            this.Controls.Add(this.LogInButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.logInPasswordLabel);
             this.Controls.Add(this.userNameTextBox);
@@ -178,7 +178,7 @@
         private System.Windows.Forms.TextBox userNameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label logInPasswordLabel;
-        private System.Windows.Forms.Button logInButton;
+        private System.Windows.Forms.Button LogInButton;
         private System.Windows.Forms.Label usernameValidateErrorLabel;
         private System.Windows.Forms.Label passwordValidateErrorLabel;
     }

@@ -21,7 +21,7 @@ namespace IMDbTrackerLibrary {
             return true;
         }
 
-        private static bool ValidPassword(string passwordFieldValue) {
+        private static bool PasswordStrength(string passwordFieldValue) {
 
             // Ensure string has two uppercase letters.
             Regex passwordUppercaseRegex = new Regex("(?=.*[A-Z].*[A-Z])");
@@ -41,11 +41,13 @@ namespace IMDbTrackerLibrary {
                 throw new PasswordDigitsException(GetExceptionMessage("PasswordDigits"));
             }
 
+            // Ensure string has three digits.
             Regex passwordLowercaseRegex = new Regex("(?=.*[a-z].*[a-z].*[a-z])");
             if(!passwordLowercaseRegex.IsMatch(passwordFieldValue)) {
                 throw new PasswordLowercaseException(GetExceptionMessage("PasswordLowercase"));
             }
 
+            // Ensure minimum password length
             int passwordLength = GlobalConfig.passwordLength;
             if(passwordFieldValue.Length < passwordLength) {
                 throw new PasswordLengthException($"{GetExceptionMessage("PasswordLength")} ({passwordLength}).");
@@ -77,40 +79,46 @@ namespace IMDbTrackerLibrary {
             return true;
         }
 
-        public static void ValidateUsernameTextBox(TextBox usernameField, Label errorLabel) {
+        public static bool ValidateUsernameTextBox(TextBox usernameField, Label errorLabel) {
             try {
                 errorLabel.Hide();
                 Required(usernameField.Text, GetExceptionMessage("UsernameRequired"));
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
-                return;
+                return false;
             }
+
+            return true;
         }
 
-        public static void ValidateFirstNameTextBox(TextBox firstNameField, Label errorLabel) {
+        public static bool ValidateFirstNameTextBox(TextBox firstNameField, Label errorLabel) {
             try {
                 errorLabel.Hide();
                 Required(firstNameField.Text, GetExceptionMessage("FirstNameRequired"));
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
-                return;
+                return false;
             }
+
+            return true;
         }
 
-        public static void ValidateLastNameTextBox(TextBox lastNameField, Label errorLabel) {
+        public static bool ValidateLastNameTextBox(TextBox lastNameField, Label errorLabel) {
             try {
                 errorLabel.Hide();
                 Required(lastNameField.Text, GetExceptionMessage("LastNameRequired"));
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
-                return;
+                return false;
             }
+
+            return true;
         }
 
-        public static void ValidateEmailTextBox(TextBox emailField, Label errorLabel) {
+        public static bool ValidateEmailTextBox(TextBox emailField, Label errorLabel) {
             try {
                 errorLabel.Hide();
 
@@ -120,47 +128,51 @@ namespace IMDbTrackerLibrary {
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
-                return;
+                return false;
             } catch(InvalidEmailFormatException fex) {
                 errorLabel.Show();
                 errorLabel.Text = fex.Message;
-                return;
+                return false;
             }
+
+            return true;
         }
 
-        public static void ValidatePasswordTextBox(TextBox passwordField, Label errorLabel) {
+        public static bool ValidatePasswordTextBox(TextBox passwordField, Label errorLabel) {
             try {
                 errorLabel.Hide();
                 Required(passwordField.Text, GetExceptionMessage("PasswordRequired"));
-                ValidPassword(passwordField.Text);
+                PasswordStrength(passwordField.Text);
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
-                return;
+                return false;
             } catch(PasswordUppercaseException puex) {
                 errorLabel.Show();
                 errorLabel.Text = puex.Message;
-                return;
+                return false;
             } catch(PasswordSpecialCharException pscex) {
                 errorLabel.Show();
                 errorLabel.Text = pscex.Message;
-                return;
+                return false;
             } catch(PasswordDigitsException pdex) {
                 errorLabel.Show();
                 errorLabel.Text = pdex.Message;
-                return;
+                return false;
             } catch(PasswordLowercaseException plex) {
                 errorLabel.Show();
                 errorLabel.Text = plex.Message;
-                return;
-            } catch(PasswordLengthException aoorex) {
+                return false;
+            } catch(PasswordLengthException plex) {
                 errorLabel.Show();
-                errorLabel.Text = aoorex.Message;
-                return;
+                errorLabel.Text = plex.Message;
+                return false;
             }
+
+            return true;
         }
 
-        public static void ValidateRepeatPasswordTextBox(TextBox passwordFeild, TextBox repeatPasswordField, Label errorLabel) {
+        public static bool ValidateRepeatPasswordTextBox(TextBox passwordFeild, TextBox repeatPasswordField, Label errorLabel) {
             try {
                 errorLabel.Hide();
                 Required(repeatPasswordField.Text, GetExceptionMessage("RepeatPasswordRequired"));
@@ -168,23 +180,27 @@ namespace IMDbTrackerLibrary {
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
-                return;
+                return false;
             } catch(NotMatchingPasswordsException nmpex) {
                 errorLabel.Show();
                 errorLabel.Text = nmpex.Message;
-                return;
+                return false;
             }
+
+            return true;
         }
 
-        public static void ValidateApiKeyTextBox(TextBox apiKeyField, Label errorLabel) {
+        public static bool ValidateApiKeyTextBox(TextBox apiKeyField, Label errorLabel) {
             try {
                 errorLabel.Hide();
                 Required(apiKeyField.Text, GetExceptionMessage("APIKeyRequired"));
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
-                return;
+                return true;
             }
+
+            return false;
         }
     }
 }

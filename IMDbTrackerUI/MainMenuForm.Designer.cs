@@ -24,63 +24,64 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
-            this.profileButton = new System.Windows.Forms.Button();
-            this.tvShowsButton = new System.Windows.Forms.Button();
-            this.moviesButton = new System.Windows.Forms.Button();
+            this.ProfileButton = new System.Windows.Forms.Button();
+            this.TvShowsButton = new System.Windows.Forms.Button();
+            this.MoviesButton = new System.Windows.Forms.Button();
             this.IMDbLogoImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.IMDbLogoImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // profileButton
+            // ProfileButton
             // 
-            this.profileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ProfileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.profileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
-            this.profileButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.profileButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.profileButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileButton.Location = new System.Drawing.Point(45, 340);
-            this.profileButton.Margin = new System.Windows.Forms.Padding(0);
-            this.profileButton.Name = "profileButton";
-            this.profileButton.Size = new System.Drawing.Size(300, 60);
-            this.profileButton.TabIndex = 3;
-            this.profileButton.Text = "Profile";
-            this.profileButton.UseVisualStyleBackColor = false;
+            this.ProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
+            this.ProfileButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ProfileButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProfileButton.Location = new System.Drawing.Point(45, 340);
+            this.ProfileButton.Margin = new System.Windows.Forms.Padding(0);
+            this.ProfileButton.Name = "ProfileButton";
+            this.ProfileButton.Size = new System.Drawing.Size(300, 60);
+            this.ProfileButton.TabIndex = 3;
+            this.ProfileButton.Text = "Profile";
+            this.ProfileButton.UseVisualStyleBackColor = false;
             // 
-            // tvShowsButton
+            // TvShowsButton
             // 
-            this.tvShowsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TvShowsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tvShowsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
-            this.tvShowsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tvShowsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tvShowsButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tvShowsButton.Location = new System.Drawing.Point(45, 265);
-            this.tvShowsButton.Margin = new System.Windows.Forms.Padding(0);
-            this.tvShowsButton.Name = "tvShowsButton";
-            this.tvShowsButton.Size = new System.Drawing.Size(300, 60);
-            this.tvShowsButton.TabIndex = 2;
-            this.tvShowsButton.Text = "TV Shows";
-            this.tvShowsButton.UseVisualStyleBackColor = false;
+            this.TvShowsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
+            this.TvShowsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TvShowsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.TvShowsButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TvShowsButton.Location = new System.Drawing.Point(45, 265);
+            this.TvShowsButton.Margin = new System.Windows.Forms.Padding(0);
+            this.TvShowsButton.Name = "TvShowsButton";
+            this.TvShowsButton.Size = new System.Drawing.Size(300, 60);
+            this.TvShowsButton.TabIndex = 2;
+            this.TvShowsButton.Text = "TV Shows";
+            this.TvShowsButton.UseVisualStyleBackColor = false;
             // 
-            // moviesButton
+            // MoviesButton
             // 
-            this.moviesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.MoviesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.moviesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
-            this.moviesButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.moviesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.moviesButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.moviesButton.Location = new System.Drawing.Point(45, 190);
-            this.moviesButton.Margin = new System.Windows.Forms.Padding(0);
-            this.moviesButton.Name = "moviesButton";
-            this.moviesButton.Size = new System.Drawing.Size(300, 60);
-            this.moviesButton.TabIndex = 1;
-            this.moviesButton.Text = "Movies";
-            this.moviesButton.UseVisualStyleBackColor = false;
+            this.MoviesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
+            this.MoviesButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MoviesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MoviesButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MoviesButton.Location = new System.Drawing.Point(45, 190);
+            this.MoviesButton.Margin = new System.Windows.Forms.Padding(0);
+            this.MoviesButton.Name = "MoviesButton";
+            this.MoviesButton.Size = new System.Drawing.Size(300, 60);
+            this.MoviesButton.TabIndex = 1;
+            this.MoviesButton.Text = "Movies";
+            this.MoviesButton.UseVisualStyleBackColor = false;
+            this.MoviesButton.Click += new System.EventHandler(this.MoviesButton_Click_1);
             // 
             // IMDbLogoImage
             // 
@@ -104,9 +105,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(384, 411);
-            this.Controls.Add(this.profileButton);
-            this.Controls.Add(this.tvShowsButton);
-            this.Controls.Add(this.moviesButton);
+            this.Controls.Add(this.ProfileButton);
+            this.Controls.Add(this.TvShowsButton);
+            this.Controls.Add(this.MoviesButton);
             this.Controls.Add(this.IMDbLogoImage);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -120,9 +121,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button profileButton;
-        private System.Windows.Forms.Button tvShowsButton;
-        private System.Windows.Forms.Button moviesButton;
+        private System.Windows.Forms.Button ProfileButton;
+        private System.Windows.Forms.Button TvShowsButton;
+        private System.Windows.Forms.Button MoviesButton;
         private System.Windows.Forms.PictureBox IMDbLogoImage;
     }
 }

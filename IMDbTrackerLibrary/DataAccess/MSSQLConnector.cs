@@ -17,5 +17,9 @@ namespace IMDbTrackerLibrary.DataAccess {
         public void GeneratePassword(string password) {
             throw new NotImplementedException();
         }
+
+        public void CreateUsersTable() {
+            throw new NotImplementedException();
+        }
     }
 }

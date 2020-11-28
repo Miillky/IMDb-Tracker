@@ -13,20 +13,37 @@ using IMDbTrackerLibrary;
 namespace IMDbTrackerUI {
     public partial class LogInForm : Form {
 
-        public LogInForm() {
+        private readonly WelcomeForm activeWelcomeForm = null;
+
+        public LogInForm(WelcomeForm welcomeForm) {
             InitializeComponent();
-            
+
+            activeWelcomeForm = welcomeForm;
         }
 
-        private void ValidateFields() {
-            Validator.ValidateUsernameTextBox(userNameTextBox, usernameValidateErrorLabel);
-            Validator.ValidatePasswordTextBox(passwordTextBox, passwordValidateErrorLabel);
+        private bool ValidateFields() {
+
+            bool validUsername = Validator.ValidateUsernameTextBox(userNameTextBox, usernameValidateErrorLabel);
+            bool validPassword = Validator.ValidatePasswordTextBox(passwordTextBox, passwordValidateErrorLabel);
+
+            if(validUsername || validPassword) {
+                return true;
+            }
+
+            return false;
         }
 
-        private void logInButton_Click(object sender, EventArgs e) {
+        private void LogInButton_Click(object sender, EventArgs e) {
 
-            ValidateFields();
+            if(ValidateFields() == false) {
+                return;
+            }
 
+            activeWelcomeForm.Hide();
+
+            MainMenuForm mainMenuForm = new MainMenuForm();
+            mainMenuForm.Show();
+            this.Close();
         }
     }
 }

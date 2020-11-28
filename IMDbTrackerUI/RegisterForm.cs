@@ -14,7 +14,6 @@ namespace IMDbTrackerUI {
 
         public RegisterForm() {
             InitializeComponent();
-
         }
 
         private void ValidateFields() {
@@ -30,15 +29,15 @@ namespace IMDbTrackerUI {
         private void SignUpForm_Load(object sender, EventArgs e) {
 
         }
-        private void showPasswordCheckbox_CheckedChanged(object sender, EventArgs e) {
-            passwordTextBox.UseSystemPasswordChar = !showPasswordCheckbox.Checked;
+        private void ShowPasswordCheckbox_CheckedChanged(object sender, EventArgs e) {
+            passwordTextBox.UseSystemPasswordChar = !ShowPasswordCheckbox.Checked;
         }
 
-        private void showRequiredPasswordCheckbox_CheckedChanged(object sender, EventArgs e) {
-            repeatPasswordTextBox.UseSystemPasswordChar = !showRepeatPasswordCheckbox.Checked;
+        private void ShowRequiredPasswordCheckbox_CheckedChanged(object sender, EventArgs e) {
+            repeatPasswordTextBox.UseSystemPasswordChar = !ShowRepeatPasswordCheckbox.Checked;
         }
 
-        private void registerButton_Click(object sender, EventArgs e) {
+        private void RegisterButton_Click(object sender, EventArgs e) {
 
             ValidateFields();
 

@@ -37,7 +37,7 @@
             this.passwordLabel = new System.Windows.Forms.Label();
             this.repeatPasswordTextBox = new System.Windows.Forms.TextBox();
             this.repeatPasswordLabel = new System.Windows.Forms.Label();
-            this.registerButton = new System.Windows.Forms.Button();
+            this.RegisterButton = new System.Windows.Forms.Button();
             this.apiKeyTextBox = new System.Windows.Forms.TextBox();
             this.apiKeyLabel = new System.Windows.Forms.Label();
             this.usernameValidateErrorLabel = new System.Windows.Forms.Label();
@@ -47,8 +47,8 @@
             this.passwordValidateErrorLabel = new System.Windows.Forms.Label();
             this.repeatPasswordValidateErrorLabel = new System.Windows.Forms.Label();
             this.apiKeyValidateErrorLabel = new System.Windows.Forms.Label();
-            this.showRepeatPasswordCheckbox = new System.Windows.Forms.CheckBox();
-            this.showPasswordCheckbox = new System.Windows.Forms.CheckBox();
+            this.ShowRepeatPasswordCheckbox = new System.Windows.Forms.CheckBox();
+            this.ShowPasswordCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.IMDbLogoImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -208,23 +208,23 @@
             this.repeatPasswordLabel.TabIndex = 0;
             this.repeatPasswordLabel.Text = "Repeat password";
             // 
-            // registerButton
+            // RegisterButton
             // 
-            this.registerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.RegisterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.registerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
-            this.registerButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.registerButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.registerButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerButton.Location = new System.Drawing.Point(45, 720);
-            this.registerButton.Margin = new System.Windows.Forms.Padding(0);
-            this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(300, 60);
-            this.registerButton.TabIndex = 7;
-            this.registerButton.Text = "Register";
-            this.registerButton.UseVisualStyleBackColor = false;
-            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
+            this.RegisterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
+            this.RegisterButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegisterButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RegisterButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisterButton.Location = new System.Drawing.Point(45, 720);
+            this.RegisterButton.Margin = new System.Windows.Forms.Padding(0);
+            this.RegisterButton.Name = "RegisterButton";
+            this.RegisterButton.Size = new System.Drawing.Size(300, 60);
+            this.RegisterButton.TabIndex = 7;
+            this.RegisterButton.Text = "Register";
+            this.RegisterButton.UseVisualStyleBackColor = false;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // apiKeyTextBox
             // 
@@ -333,31 +333,31 @@
             this.apiKeyValidateErrorLabel.Text = "apiKeyValidateError";
             this.apiKeyValidateErrorLabel.Visible = false;
             // 
-            // showRepeatPasswordCheckbox
+            // ShowRepeatPasswordCheckbox
             // 
-            this.showRepeatPasswordCheckbox.AutoSize = true;
-            this.showRepeatPasswordCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.showRepeatPasswordCheckbox.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Bold);
-            this.showRepeatPasswordCheckbox.Location = new System.Drawing.Point(295, 570);
-            this.showRepeatPasswordCheckbox.Name = "showRepeatPasswordCheckbox";
-            this.showRepeatPasswordCheckbox.Size = new System.Drawing.Size(44, 15);
-            this.showRepeatPasswordCheckbox.TabIndex = 9;
-            this.showRepeatPasswordCheckbox.Text = "Show";
-            this.showRepeatPasswordCheckbox.UseVisualStyleBackColor = true;
-            this.showRepeatPasswordCheckbox.CheckedChanged += new System.EventHandler(this.showRequiredPasswordCheckbox_CheckedChanged);
+            this.ShowRepeatPasswordCheckbox.AutoSize = true;
+            this.ShowRepeatPasswordCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ShowRepeatPasswordCheckbox.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Bold);
+            this.ShowRepeatPasswordCheckbox.Location = new System.Drawing.Point(295, 570);
+            this.ShowRepeatPasswordCheckbox.Name = "ShowRepeatPasswordCheckbox";
+            this.ShowRepeatPasswordCheckbox.Size = new System.Drawing.Size(44, 15);
+            this.ShowRepeatPasswordCheckbox.TabIndex = 9;
+            this.ShowRepeatPasswordCheckbox.Text = "Show";
+            this.ShowRepeatPasswordCheckbox.UseVisualStyleBackColor = true;
+            this.ShowRepeatPasswordCheckbox.CheckedChanged += new System.EventHandler(this.ShowRequiredPasswordCheckbox_CheckedChanged);
             // 
-            // showPasswordCheckbox
+            // ShowPasswordCheckbox
             // 
-            this.showPasswordCheckbox.AutoSize = true;
-            this.showPasswordCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.showPasswordCheckbox.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Bold);
-            this.showPasswordCheckbox.Location = new System.Drawing.Point(295, 495);
-            this.showPasswordCheckbox.Name = "showPasswordCheckbox";
-            this.showPasswordCheckbox.Size = new System.Drawing.Size(44, 15);
-            this.showPasswordCheckbox.TabIndex = 10;
-            this.showPasswordCheckbox.Text = "Show";
-            this.showPasswordCheckbox.UseVisualStyleBackColor = true;
-            this.showPasswordCheckbox.CheckedChanged += new System.EventHandler(this.showPasswordCheckbox_CheckedChanged);
+            this.ShowPasswordCheckbox.AutoSize = true;
+            this.ShowPasswordCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ShowPasswordCheckbox.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Bold);
+            this.ShowPasswordCheckbox.Location = new System.Drawing.Point(295, 495);
+            this.ShowPasswordCheckbox.Name = "ShowPasswordCheckbox";
+            this.ShowPasswordCheckbox.Size = new System.Drawing.Size(44, 15);
+            this.ShowPasswordCheckbox.TabIndex = 10;
+            this.ShowPasswordCheckbox.Text = "Show";
+            this.ShowPasswordCheckbox.UseVisualStyleBackColor = true;
+            this.ShowPasswordCheckbox.CheckedChanged += new System.EventHandler(this.ShowPasswordCheckbox_CheckedChanged);
             // 
             // RegisterForm
             // 
@@ -366,8 +366,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(384, 811);
-            this.Controls.Add(this.showPasswordCheckbox);
-            this.Controls.Add(this.showRepeatPasswordCheckbox);
+            this.Controls.Add(this.ShowPasswordCheckbox);
+            this.Controls.Add(this.ShowRepeatPasswordCheckbox);
             this.Controls.Add(this.apiKeyValidateErrorLabel);
             this.Controls.Add(this.repeatPasswordValidateErrorLabel);
             this.Controls.Add(this.passwordValidateErrorLabel);
@@ -377,7 +377,7 @@
             this.Controls.Add(this.usernameValidateErrorLabel);
             this.Controls.Add(this.apiKeyTextBox);
             this.Controls.Add(this.apiKeyLabel);
-            this.Controls.Add(this.registerButton);
+            this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.repeatPasswordTextBox);
             this.Controls.Add(this.repeatPasswordLabel);
             this.Controls.Add(this.passwordTextBox);
@@ -423,7 +423,7 @@
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.TextBox repeatPasswordTextBox;
         private System.Windows.Forms.Label repeatPasswordLabel;
-        private System.Windows.Forms.Button registerButton;
+        private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.TextBox apiKeyTextBox;
         private System.Windows.Forms.Label apiKeyLabel;
         private System.Windows.Forms.Label usernameValidateErrorLabel;
@@ -433,7 +433,7 @@
         private System.Windows.Forms.Label passwordValidateErrorLabel;
         private System.Windows.Forms.Label repeatPasswordValidateErrorLabel;
         private System.Windows.Forms.Label apiKeyValidateErrorLabel;
-        private System.Windows.Forms.CheckBox showRepeatPasswordCheckbox;
-        private System.Windows.Forms.CheckBox showPasswordCheckbox;
+        private System.Windows.Forms.CheckBox ShowRepeatPasswordCheckbox;
+        private System.Windows.Forms.CheckBox ShowPasswordCheckbox;
     }
 }

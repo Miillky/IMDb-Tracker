@@ -14,15 +14,19 @@ namespace IMDbTrackerUI {
             InitializeComponent();
         }
 
-        private void moviesButton_Click(object sender, EventArgs e) {
+        private void MoviesButton_Click(object sender, EventArgs e) {
 
         }
 
-        private void tvShowsButton_Click(object sender, EventArgs e) {
+        private void TvShowsButton_Click(object sender, EventArgs e) {
 
         }
 
-        private void profileButton_Click(object sender, EventArgs e) {
+        private void ProfileButton_Click(object sender, EventArgs e) {
+
+        }
+
+        private void MoviesButton_Click_1(object sender, EventArgs e) {
 
         }
     }

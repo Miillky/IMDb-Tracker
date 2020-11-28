@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using IMDbTrackerLibrary;
+using System.Data.Entity;
+using IMDbTrackerLibrary.DataAccess;
 
 namespace IMDbTrackerUI {
     static class Program {
@@ -13,9 +15,12 @@ namespace IMDbTrackerUI {
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Initialize database connection
-            GlobalConfig.InitializeConnections(GlobalConfig.AppKeyLookup("activeDatabase"));
+            string activeDatabase = GlobalConfig.AppKeyLookup("activeConnection");
+            if(activeDatabase != "ENTITY") {
+                GlobalConfig.InitializeConnections(activeDatabase);
+            }
 
-            Application.Run(new RegisterForm());
+            Application.Run(new WelcomeForm());
         }
     }
 }
