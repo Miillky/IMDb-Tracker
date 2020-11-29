@@ -197,10 +197,10 @@ namespace IMDbTrackerLibrary {
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
         }
     }
 }

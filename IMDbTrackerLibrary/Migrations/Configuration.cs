@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<IMDbTrackerLibrary.DataAccess.Entity.UserContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<IMDbTrackerLibrary.EntityContexts.UserContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(IMDbTrackerLibrary.DataAccess.Entity.UserContext context)
+        protected override void Seed(IMDbTrackerLibrary.EntityContexts.UserContext context)
         {
             //  This method will be called after migrating to the latest version.
 

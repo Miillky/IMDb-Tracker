@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMDbTrackerLibrary;
+using IMDbTrackerLibrary.Models;
 
 namespace IMDbTrackerUI {
     public partial class RegisterForm : Form {
@@ -16,14 +10,36 @@ namespace IMDbTrackerUI {
             InitializeComponent();
         }
 
-        private void ValidateFields() {
-            Validator.ValidateUsernameTextBox(userNameTextBox, usernameValidateErrorLabel);
-            Validator.ValidateFirstNameTextBox(firstNameTextBox, firstNameValidateErrorLabel);
-            Validator.ValidateLastNameTextBox(lastNameTextBox, lastNameValidateErrorLabel);
-            Validator.ValidateEmailTextBox(emailTextBox, emailValidateErrorLabel);
-            Validator.ValidatePasswordTextBox(passwordTextBox, passwordValidateErrorLabel);
-            Validator.ValidateRepeatPasswordTextBox(passwordTextBox, repeatPasswordTextBox, repeatPasswordValidateErrorLabel);
-            Validator.ValidateApiKeyTextBox(apiKeyTextBox, apiKeyValidateErrorLabel);
+        private bool ValidateFields() {
+            bool validUsername = Validator.ValidateUsernameTextBox(userNameTextBox, usernameValidateErrorLabel);
+            bool validFirstName = Validator.ValidateFirstNameTextBox(firstNameTextBox, firstNameValidateErrorLabel);
+            bool validLastName = Validator.ValidateLastNameTextBox(lastNameTextBox, lastNameValidateErrorLabel);
+            bool validEmail = Validator.ValidateEmailTextBox(emailTextBox, emailValidateErrorLabel);
+            bool validPassword = Validator.ValidatePasswordTextBox(passwordTextBox, passwordValidateErrorLabel);
+            bool validRepeatPassword = Validator.ValidateRepeatPasswordTextBox(passwordTextBox, repeatPasswordTextBox, repeatPasswordValidateErrorLabel);
+            bool validApiKey = Validator.ValidateApiKeyTextBox(apiKeyTextBox, apiKeyValidateErrorLabel);
+
+            if(validUsername && validFirstName && validLastName && validEmail && validPassword && validRepeatPassword && validApiKey)
+                return true;
+
+            return false;
+        }
+
+        private void RegisterUser() {
+
+            User user = new User();
+            user.UserName = userNameTextBox.Text;
+            user.FirstName = firstNameTextBox.Text;
+            user.LastName = lastNameTextBox.Text;
+            user.Email = emailTextBox.Text;
+            user.HashSalt = Helpers.CreateSalt();
+            user.Password = Helpers.GeneratePsswordHash(passwordTextBox.Text, user.HashSalt);
+            user.APIKey = apiKeyTextBox.Text;
+
+            DateTime dateTimeNow = DateTime.Now;
+            user.LastLoginDate = user.LastPasswordReset = dateTimeNow;
+
+            GlobalConfig.Connection.CreateUser(user);
         }
 
         private void SignUpForm_Load(object sender, EventArgs e) {
@@ -38,9 +54,11 @@ namespace IMDbTrackerUI {
         }
 
         private void RegisterButton_Click(object sender, EventArgs e) {
+            if(!ValidateFields()) {
+                return;
+            };
 
-            ValidateFields();
-
+            RegisterUser();
         }
 
     }

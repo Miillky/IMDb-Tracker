@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialMigration : DbMigration
+    public partial class InitMigration : DbMigration
     {
         public override void Up()
         {
@@ -16,8 +16,11 @@
                         FirstName = c.String(nullable: false, maxLength: 150),
                         LastName = c.String(nullable: false, maxLength: 150),
                         Email = c.String(nullable: false, maxLength: 150),
-                        Password = c.String(nullable: false, maxLength: 150),
+                        Password = c.String(nullable: false, maxLength: 32),
                         APIKey = c.String(nullable: false, maxLength: 150),
+                        HashSalt = c.String(nullable: false, maxLength: 64),
+                        LastLoginDate = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        LastPasswordReset = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                     })
                 .PrimaryKey(t => t.Id);
             

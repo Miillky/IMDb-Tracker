@@ -158,7 +158,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\Entity\UserContext.cs" />
+    <Compile Include="DataAccess\EntityConnector.cs" />
+    <Compile Include="EntityContexts\UserContext.cs" />
     <Compile Include="DataAccess\MSSQLConnector.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
     <Compile Include="Exceptions\NotMatchingPasswordsException.cs" />
@@ -168,10 +169,11 @@
     <Compile Include="Exceptions\PasswordUppercaseException.cs" />
     <Compile Include="Exceptions\PasswordSpecialCharException.cs" />
     <Compile Include="GlobalConfig.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="IDataConnection.cs" />
-    <Compile Include="Migrations\202011282017582_InitialMigration.cs" />
-    <Compile Include="Migrations\202011282017582_InitialMigration.designer.cs">
-      <DependentUpon>202011282017582_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202011291724425_InitMigration.cs" />
+    <Compile Include="Migrations\202011291724425_InitMigration.designer.cs">
+      <DependentUpon>202011291724425_InitMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\User.cs" />
@@ -184,8 +186,8 @@
     <Compile Include="Validator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011282017582_InitialMigration.resx">
-      <DependentUpon>202011282017582_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011291724425_InitMigration.resx">
+      <DependentUpon>202011291724425_InitMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\ExceptionMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>

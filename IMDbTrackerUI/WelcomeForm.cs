@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IMDbTrackerLibrary;
+using IMDbTrackerLibrary.Models;
 
 namespace IMDbTrackerUI {
     public partial class WelcomeForm : Form {
@@ -16,6 +18,7 @@ namespace IMDbTrackerUI {
            
         public WelcomeForm() {
             InitializeComponent();
+
         }
 
         private void LogInButton_Click(object sender, EventArgs e) {

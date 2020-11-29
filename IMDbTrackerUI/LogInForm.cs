@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMDbTrackerLibrary;
+using IMDbTrackerLibrary.Models;
 
 namespace IMDbTrackerUI {
     public partial class LogInForm : Form {
@@ -35,9 +36,11 @@ namespace IMDbTrackerUI {
 
         private void LogInButton_Click(object sender, EventArgs e) {
 
-            if(ValidateFields() == false) {
+            if(!ValidateFields()) {
                 return;
             }
+
+            User user = GlobalConfig.Connection.findUserByUsername(userNameTextBox.Text);
 
             activeWelcomeForm.Hide();
 

@@ -2,9 +2,9 @@
 
 namespace IMDbTrackerLibrary.DataAccess {
     public interface IDataConnection {
-        void CreateUsersTable();
+        void CreateTables();
         void CreateUser(User model);
         void UpdateUser(User model);
-        void GeneratePassword(string password);
+        User findUserByUsername(string username);
     }
 }

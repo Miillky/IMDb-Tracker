@@ -5,7 +5,9 @@ namespace IMDbTrackerLibrary.DataAccess {
     class MSSQLConnector : IDataConnection {
 
         private string db = GlobalConfig.ConnectionString();
-
+        public void CreateTables() {
+            throw new NotImplementedException();
+        }
         public void CreateUser(User model) {
             throw new NotImplementedException();
         }
@@ -14,11 +16,11 @@ namespace IMDbTrackerLibrary.DataAccess {
             throw new NotImplementedException();
         }
 
-        public void GeneratePassword(string password) {
+        public void CreateUsersTable() {
             throw new NotImplementedException();
         }
 
-        public void CreateUsersTable() {
+        public User findUserByUsername(string username) {
             throw new NotImplementedException();
         }
     }
