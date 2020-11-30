@@ -6,5 +6,6 @@ namespace IMDbTrackerLibrary.DataAccess {
         void CreateUser(User model);
         void UpdateUser(User model);
         User findUserByUsername(string username);
+        User findUserByEmail(string email);
     }
 }

@@ -24,7 +24,9 @@ namespace IMDbTrackerLibrary.Models {
         [Required(AllowEmptyStrings = false)]
         public string Email { get; set; }
 
-        [StringLength(32)]
+        [DataType(DataType.Password)]
+        [MinLength(32)]
+        [MaxLength(150)]
         [Required(AllowEmptyStrings = false)]
         public string Password { get; set; }
 
@@ -32,15 +34,14 @@ namespace IMDbTrackerLibrary.Models {
         [Required(AllowEmptyStrings = false)]
         public string APIKey { get; set; }
 
-        [StringLength(64)]
+        [Column(TypeName = "datetime2")]
         [Required(AllowEmptyStrings = false)]
-        public string HashSalt { get; set; }
+        public DateTime LastLogin { get; set; } = DateTime.Now;
 
-        [Column(TypeName="datetime2")]
-        [Required]
-        public DateTime LastLoginDate { get; set; }
+        [StringLength(32)]
+        public string PasswordResetKey { get; set; } = null;
 
         [Column(TypeName = "datetime2")]
-        public DateTime LastPasswordReset {get; set; }
+        public DateTime? LastPasswordReset { get; set; } = null;
     }
 }

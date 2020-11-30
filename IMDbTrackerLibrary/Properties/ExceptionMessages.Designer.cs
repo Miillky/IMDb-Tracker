@@ -97,6 +97,15 @@ namespace IMDbTrackerLibrary.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unexpected hash format. Should be formatted as `{iterations}.{salt}.{hash}`.
+        /// </summary>
+        internal static string HashFormat {
+            get {
+                return ResourceManager.GetString("HashFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last name is required..
         /// </summary>
         internal static string LastNameRequired {

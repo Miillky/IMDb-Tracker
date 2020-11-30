@@ -32,12 +32,8 @@ namespace IMDbTrackerUI {
             user.FirstName = firstNameTextBox.Text;
             user.LastName = lastNameTextBox.Text;
             user.Email = emailTextBox.Text;
-            user.HashSalt = Helpers.CreateSalt();
-            user.Password = Helpers.GeneratePsswordHash(passwordTextBox.Text, user.HashSalt);
+            user.Password = Helpers.HashPassword(passwordTextBox.Text);
             user.APIKey = apiKeyTextBox.Text;
-
-            DateTime dateTimeNow = DateTime.Now;
-            user.LastLoginDate = user.LastPasswordReset = dateTimeNow;
 
             GlobalConfig.Connection.CreateUser(user);
         }

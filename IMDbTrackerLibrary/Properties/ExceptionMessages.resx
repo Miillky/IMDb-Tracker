@@ -129,6 +129,9 @@
   <data name="FirstNameRequired" xml:space="preserve">
     <value>First name is required.</value>
   </data>
+  <data name="HashFormat" xml:space="preserve">
+    <value>Unexpected hash format. Should be formatted as `{iterations}.{salt}.{hash}`</value>
+  </data>
   <data name="LastNameRequired" xml:space="preserve">
     <value>Last name is required.</value>
   </data>

@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using IMDbTrackerLibrary.DataAccess;
+using IMDbTrackerLibrary.DataAccess.Entity;
 
 namespace IMDbTrackerLibrary {
     public static class GlobalConfig {

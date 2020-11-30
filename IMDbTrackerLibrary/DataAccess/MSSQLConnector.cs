@@ -23,5 +23,9 @@ namespace IMDbTrackerLibrary.DataAccess {
         public User findUserByUsername(string username) {
             throw new NotImplementedException();
         }
+
+        public User findUserByEmail(string email) {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace IMDbTrackerLibrary.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202011291724425_InitMigration"; }
+            get { return "202011302130031_InitMigration"; }
         }
         
         string IMigrationMetadata.Source

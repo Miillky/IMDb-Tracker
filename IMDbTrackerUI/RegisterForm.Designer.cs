@@ -221,7 +221,7 @@
             this.RegisterButton.Margin = new System.Windows.Forms.Padding(0);
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(300, 60);
-            this.RegisterButton.TabIndex = 7;
+            this.RegisterButton.TabIndex = 8;
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = false;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
@@ -341,7 +341,7 @@
             this.ShowRepeatPasswordCheckbox.Location = new System.Drawing.Point(295, 570);
             this.ShowRepeatPasswordCheckbox.Name = "ShowRepeatPasswordCheckbox";
             this.ShowRepeatPasswordCheckbox.Size = new System.Drawing.Size(44, 15);
-            this.ShowRepeatPasswordCheckbox.TabIndex = 9;
+            this.ShowRepeatPasswordCheckbox.TabIndex = 0;
             this.ShowRepeatPasswordCheckbox.Text = "Show";
             this.ShowRepeatPasswordCheckbox.UseVisualStyleBackColor = true;
             this.ShowRepeatPasswordCheckbox.CheckedChanged += new System.EventHandler(this.ShowRequiredPasswordCheckbox_CheckedChanged);
@@ -354,7 +354,7 @@
             this.ShowPasswordCheckbox.Location = new System.Drawing.Point(295, 495);
             this.ShowPasswordCheckbox.Name = "ShowPasswordCheckbox";
             this.ShowPasswordCheckbox.Size = new System.Drawing.Size(44, 15);
-            this.ShowPasswordCheckbox.TabIndex = 10;
+            this.ShowPasswordCheckbox.TabIndex = 0;
             this.ShowPasswordCheckbox.Text = "Show";
             this.ShowPasswordCheckbox.UseVisualStyleBackColor = true;
             this.ShowPasswordCheckbox.CheckedChanged += new System.EventHandler(this.ShowPasswordCheckbox_CheckedChanged);
