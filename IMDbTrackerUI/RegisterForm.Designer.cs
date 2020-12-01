@@ -25,7 +25,7 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             this.IMDbLogoImage = new System.Windows.Forms.PictureBox();
-            this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.firstNameLabel = new System.Windows.Forms.Label();
@@ -68,16 +68,16 @@
             this.IMDbLogoImage.TabIndex = 1;
             this.IMDbLogoImage.TabStop = false;
             // 
-            // userNameTextBox
+            // usernameTextBox
             // 
-            this.userNameTextBox.BackColor = System.Drawing.Color.White;
-            this.userNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userNameTextBox.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.userNameTextBox.Location = new System.Drawing.Point(40, 210);
-            this.userNameTextBox.MaxLength = 150;
-            this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(300, 29);
-            this.userNameTextBox.TabIndex = 1;
+            this.usernameTextBox.BackColor = System.Drawing.Color.White;
+            this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.usernameTextBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.usernameTextBox.Location = new System.Drawing.Point(40, 210);
+            this.usernameTextBox.MaxLength = 150;
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(300, 29);
+            this.usernameTextBox.TabIndex = 1;
             // 
             // userNameLabel
             // 
@@ -388,7 +388,7 @@
             this.Controls.Add(this.lastNameLabel);
             this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(this.firstNameLabel);
-            this.Controls.Add(this.userNameTextBox);
+            this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.IMDbLogoImage);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
@@ -411,7 +411,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox IMDbLogoImage;
-        private System.Windows.Forms.TextBox userNameTextBox;
+        private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.Label userNameLabel;
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.Label firstNameLabel;

@@ -187,6 +187,33 @@ namespace IMDbTrackerLibrary.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to API key is alredy in use..
+        /// </summary>
+        internal static string UniqueApiKey {
+            get {
+                return ResourceManager.GetString("UniqueApiKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email alredy exists..
+        /// </summary>
+        internal static string UniqueEmail {
+            get {
+                return ResourceManager.GetString("UniqueEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username alredy exists..
+        /// </summary>
+        internal static string UniqueUsername {
+            get {
+                return ResourceManager.GetString("UniqueUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username is required..
         /// </summary>
         internal static string UsernameRequired {

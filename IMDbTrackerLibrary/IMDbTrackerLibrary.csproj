@@ -161,6 +161,8 @@
     <Compile Include="DataAccess\Entity\EntityConnector.cs" />
     <Compile Include="DataAccess\Entity\IMDbTrackerContext.cs" />
     <Compile Include="DataAccess\MSSQLConnector.cs" />
+    <Compile Include="Exceptions\APIKeyExistsException.cs" />
+    <Compile Include="Exceptions\EmailExistsException.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
     <Compile Include="Exceptions\NotMatchingPasswordsException.cs" />
     <Compile Include="Exceptions\PasswordDigitsException.cs" />
@@ -168,9 +170,15 @@
     <Compile Include="Exceptions\PasswordLowercaseException.cs" />
     <Compile Include="Exceptions\PasswordUppercaseException.cs" />
     <Compile Include="Exceptions\PasswordSpecialCharException.cs" />
+    <Compile Include="Exceptions\UsernameExistsException.cs" />
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="IDataConnection.cs" />
+    <Compile Include="Migrations\202012012105265_InitMigration.cs" />
+    <Compile Include="Migrations\202012012105265_InitMigration.designer.cs">
+      <DependentUpon>202012012105265_InitMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Show.cs" />
     <Compile Include="Models\User.cs" />
@@ -183,14 +191,15 @@
     <Compile Include="Validator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\202012012105265_InitMigration.resx">
+      <DependentUpon>202012012105265_InitMigration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\ExceptionMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />

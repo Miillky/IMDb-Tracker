@@ -10,7 +10,7 @@ namespace IMDbTrackerLibrary.Models {
 
         [StringLength(150)]
         [Required(AllowEmptyStrings = false)]
-        public string UserName { get; set; }
+        public string Username { get; set; }
 
         [StringLength(150)]
         [Required(AllowEmptyStrings = false)]
@@ -35,8 +35,7 @@ namespace IMDbTrackerLibrary.Models {
         public string APIKey { get; set; }
 
         [Column(TypeName = "datetime2")]
-        [Required(AllowEmptyStrings = false)]
-        public DateTime LastLogin { get; set; } = DateTime.Now;
+        public DateTime? LastLogin { get; set; } = null;
 
         [StringLength(32)]
         public string PasswordResetKey { get; set; } = null;

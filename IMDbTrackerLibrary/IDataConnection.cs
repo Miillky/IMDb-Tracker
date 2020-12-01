@@ -5,7 +5,10 @@ namespace IMDbTrackerLibrary.DataAccess {
         void CreateTables();
         void CreateUser(User model);
         void UpdateUser(User model);
-        User findUserByUsername(string username);
-        User findUserByEmail(string email);
+        User FindUserByUsername(string username);
+        User FindUserByEmail(string email);
+        bool UsernameExists(string username);
+        bool EmailExists(string email);
+        bool APIKeyExists(string apiKey);
     }
 }

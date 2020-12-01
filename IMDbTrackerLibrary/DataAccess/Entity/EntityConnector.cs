@@ -20,12 +20,33 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
             }
         }
 
-        User IDataConnection.findUserByUsername(string username) {
-            return context.Users.Where(u => u.UserName == username).FirstOrDefault();
+        User IDataConnection.FindUserByUsername(string username) {
+            return context.Users.Where(u => u.Username == username).FirstOrDefault();
         }
 
-        User IDataConnection.findUserByEmail(string email) {
+        User IDataConnection.FindUserByEmail(string email) {
             return context.Users.Where(u => u.Email == email).FirstOrDefault();
+        }
+
+        bool IDataConnection.UsernameExists(string username) {
+            if(context.Users.Where(u => u.Username == username).FirstOrDefault() != null) {
+                return true;
+            }
+            return false;
+        }
+
+        bool IDataConnection.EmailExists(string email) {
+            if(context.Users.Where(u => u.Email == email).FirstOrDefault() != null) {
+                return true;
+            }
+            return false;
+        }
+
+        bool IDataConnection.APIKeyExists(string apiKey) {
+            if(context.Users.Where(u => u.APIKey == apiKey).FirstOrDefault() != null) {
+                return true;
+            }
+            return false;
         }
     }
 }

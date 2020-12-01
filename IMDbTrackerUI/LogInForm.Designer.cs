@@ -26,7 +26,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInForm));
             this.IMDbLogoImage = new System.Windows.Forms.PictureBox();
             this.userNameLabel = new System.Windows.Forms.Label();
-            this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.logInPasswordLabel = new System.Windows.Forms.Label();
             this.LogInButton = new System.Windows.Forms.Button();
@@ -63,16 +63,16 @@
             this.userNameLabel.TabIndex = 0;
             this.userNameLabel.Text = "Username:";
             // 
-            // userNameTextBox
+            // usernameTextBox
             // 
-            this.userNameTextBox.BackColor = System.Drawing.Color.White;
-            this.userNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userNameTextBox.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.userNameTextBox.Location = new System.Drawing.Point(40, 210);
-            this.userNameTextBox.MaxLength = 150;
-            this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(300, 29);
-            this.userNameTextBox.TabIndex = 1;
+            this.usernameTextBox.BackColor = System.Drawing.Color.White;
+            this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.usernameTextBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.usernameTextBox.Location = new System.Drawing.Point(40, 210);
+            this.usernameTextBox.MaxLength = 150;
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(300, 29);
+            this.usernameTextBox.TabIndex = 1;
             // 
             // passwordTextBox
             // 
@@ -152,7 +152,7 @@
             this.Controls.Add(this.LogInButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.logInPasswordLabel);
-            this.Controls.Add(this.userNameTextBox);
+            this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.IMDbLogoImage);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -175,7 +175,7 @@
 
         private System.Windows.Forms.PictureBox IMDbLogoImage;
         private System.Windows.Forms.Label userNameLabel;
-        private System.Windows.Forms.TextBox userNameTextBox;
+        private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label logInPasswordLabel;
         private System.Windows.Forms.Button LogInButton;

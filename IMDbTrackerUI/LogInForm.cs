@@ -24,7 +24,7 @@ namespace IMDbTrackerUI {
 
         private bool ValidateFields() {
 
-            bool validUsername = Validator.ValidateUsernameTextBox(userNameTextBox, usernameValidateErrorLabel);
+            bool validUsername = Validator.ValidateUsernameTextBox(usernameTextBox, usernameValidateErrorLabel);
             bool validPassword = Validator.ValidatePasswordTextBox(passwordTextBox, passwordValidateErrorLabel);
 
             if(validUsername || validPassword) {
@@ -39,8 +39,6 @@ namespace IMDbTrackerUI {
             if(!ValidateFields()) {
                 return;
             }
-
-            User user = GlobalConfig.Connection.findUserByUsername(userNameTextBox.Text);
 
             activeWelcomeForm.Hide();
 

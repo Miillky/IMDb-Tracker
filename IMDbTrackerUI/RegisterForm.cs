@@ -11,7 +11,7 @@ namespace IMDbTrackerUI {
         }
 
         private bool ValidateFields() {
-            bool validUsername = Validator.ValidateUsernameTextBox(userNameTextBox, usernameValidateErrorLabel);
+            bool validUsername = Validator.ValidateUsernameTextBox(usernameTextBox, usernameValidateErrorLabel);
             bool validFirstName = Validator.ValidateFirstNameTextBox(firstNameTextBox, firstNameValidateErrorLabel);
             bool validLastName = Validator.ValidateLastNameTextBox(lastNameTextBox, lastNameValidateErrorLabel);
             bool validEmail = Validator.ValidateEmailTextBox(emailTextBox, emailValidateErrorLabel);
@@ -28,7 +28,7 @@ namespace IMDbTrackerUI {
         private void RegisterUser() {
 
             User user = new User();
-            user.UserName = userNameTextBox.Text;
+            user.Username = usernameTextBox.Text;
             user.FirstName = firstNameTextBox.Text;
             user.LastName = lastNameTextBox.Text;
             user.Email = emailTextBox.Text;

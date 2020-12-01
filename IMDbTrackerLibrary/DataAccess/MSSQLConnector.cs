@@ -5,6 +5,7 @@ namespace IMDbTrackerLibrary.DataAccess {
     class MSSQLConnector : IDataConnection {
 
         private string db = GlobalConfig.ConnectionString();
+
         public void CreateTables() {
             throw new NotImplementedException();
         }
@@ -20,11 +21,24 @@ namespace IMDbTrackerLibrary.DataAccess {
             throw new NotImplementedException();
         }
 
-        public User findUserByUsername(string username) {
+        public User FindUserByUsername(string username) {
             throw new NotImplementedException();
         }
 
-        public User findUserByEmail(string email) {
+        public User FindUserByEmail(string email) {
+            throw new NotImplementedException();
+        }
+
+        public bool UsernameExists(string username) {
+            throw new NotImplementedException();
+
+        }
+
+        public bool EmailExists(string email) {
+            throw new NotImplementedException();
+        }
+
+        public bool APIKeyExists(string apiKey) {
             throw new NotImplementedException();
         }
     }

@@ -14,6 +14,26 @@ namespace IMDbTrackerLibrary {
             return true;
         }
 
+        private static bool UniqueUsername(string usernameFieldValue) {
+            if(GlobalConfig.Connection.UsernameExists(usernameFieldValue)) {
+                throw new UserNameExistsException(GlobalConfig.GetExceptionMessage("UniqueUsername"));
+            }
+            return true;
+        }
+
+        private static bool UniqueEmail(string emailFieldValue) {
+            if(GlobalConfig.Connection.EmailExists(emailFieldValue)) {
+                throw new EmailExistsException(GlobalConfig.GetExceptionMessage("UniqueEmail"));
+            }
+            return true;
+        }
+        private static bool UniqueAPIKey(string apiFieldValue) {
+            if(GlobalConfig.Connection.APIKeyExists(apiFieldValue)) {
+                throw new APIKeyExistsException(GlobalConfig.GetExceptionMessage("UniqueApiKey"));
+            }
+            return true;
+        }
+
         private static bool PasswordStrength(string passwordFieldValue) {
 
             // Ensure string has two uppercase letters.
@@ -74,11 +94,18 @@ namespace IMDbTrackerLibrary {
 
         public static bool ValidateUsernameTextBox(TextBox usernameField, Label errorLabel) {
             try {
+
                 errorLabel.Hide();
                 Required(usernameField.Text, GlobalConfig.GetExceptionMessage("UsernameRequired"));
+                UniqueUsername(usernameField.Text);
+
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
+                return false;
+            } catch(UserNameExistsException uex) {
+                errorLabel.Show();
+                errorLabel.Text = uex.Message;
                 return false;
             }
 
@@ -113,10 +140,11 @@ namespace IMDbTrackerLibrary {
 
         public static bool ValidateEmailTextBox(TextBox emailField, Label errorLabel) {
             try {
-                errorLabel.Hide();
 
+                errorLabel.Hide();
                 Required(emailField.Text, GlobalConfig.GetExceptionMessage("EmailRequired"));
                 ValidEmail(emailField.Text);
+                UniqueEmail(emailField.Text);
 
             } catch(ArgumentException aex) {
                 errorLabel.Show();
@@ -126,6 +154,10 @@ namespace IMDbTrackerLibrary {
                 errorLabel.Show();
                 errorLabel.Text = fex.Message;
                 return false;
+            } catch(EmailExistsException eex) {
+                errorLabel.Show();
+                errorLabel.Text = eex.Message;
+                return false;
             }
 
             return true;
@@ -133,9 +165,11 @@ namespace IMDbTrackerLibrary {
 
         public static bool ValidatePasswordTextBox(TextBox passwordField, Label errorLabel) {
             try {
+
                 errorLabel.Hide();
                 Required(passwordField.Text, GlobalConfig.GetExceptionMessage("PasswordRequired"));
                 PasswordStrength(passwordField.Text);
+
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
@@ -167,9 +201,11 @@ namespace IMDbTrackerLibrary {
 
         public static bool ValidateRepeatPasswordTextBox(TextBox passwordFeild, TextBox repeatPasswordField, Label errorLabel) {
             try {
+
                 errorLabel.Hide();
                 Required(repeatPasswordField.Text, GlobalConfig.GetExceptionMessage("RepeatPasswordRequired"));
                 MatchingPassword(passwordFeild.Text, repeatPasswordField.Text, GlobalConfig.GetExceptionMessage("NotMatchingPasswords"));
+
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
@@ -187,9 +223,14 @@ namespace IMDbTrackerLibrary {
             try {
                 errorLabel.Hide();
                 Required(apiKeyField.Text, GlobalConfig.GetExceptionMessage("APIKeyRequired"));
+                UniqueAPIKey(apiKeyField.Text);
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
+                return false;
+            } catch(APIKeyExistsException uapik){
+                errorLabel.Show();
+                errorLabel.Text = uapik.Message;
                 return false;
             }
 
