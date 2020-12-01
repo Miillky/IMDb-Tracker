@@ -1,12 +1,16 @@
-﻿using System.Configuration;
+﻿using System.Resources;
+using System.Configuration;
+using IMDbTrackerLibrary.Properties;
 using IMDbTrackerLibrary.DataAccess;
 using IMDbTrackerLibrary.DataAccess.Entity;
 
 namespace IMDbTrackerLibrary {
     public static class GlobalConfig {
 
-        public static int passwordLength = 9;
-        public static int hashLength = 32;
+        public const int ValidatorMinPasswordLength = 9;
+        public const int PasswordHashIterations = 10000;
+        public const int PasswordHashSaltSize = 16; // 128 bit 
+        public const int PasswordHashKeySize = 32; // 256 bit
 
         public static IDataConnection Connection { get; private set; }
         public static void InitializeConnections(string db) {  
@@ -31,5 +35,12 @@ namespace IMDbTrackerLibrary {
         public static string AppKeyLookup(string key) {
             return ConfigurationManager.AppSettings[key];
         }
+
+        public static string GetExceptionMessage(string messageName) {
+            ResourceManager exceptionMessages = new ResourceManager(typeof(ExceptionMessages));
+            return exceptionMessages.GetString(messageName);
+        }
+
+
     }
 }

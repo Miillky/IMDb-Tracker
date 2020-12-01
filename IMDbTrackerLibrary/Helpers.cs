@@ -7,37 +7,56 @@ using IMDbTrackerLibrary.Properties;
 namespace IMDbTrackerLibrary {
     public static class Helpers {
 
-        private const int Iterations = 10000;
-        private const int SaltSize = 16; // 128 bit 
-        private const int KeySize = 32; // 256 bit
-
         public static string HashPassword(string password) {
-            using(Rfc2898DeriveBytes algorithm = new Rfc2898DeriveBytes(password, SaltSize, Iterations, HashAlgorithmName.SHA256)) {
-                string key = Convert.ToBase64String(algorithm.GetBytes(KeySize));
+            using(Rfc2898DeriveBytes algorithm = new Rfc2898DeriveBytes(password, GlobalConfig.PasswordHashSaltSize, GlobalConfig.PasswordHashIterations, HashAlgorithmName.SHA256)) {
+                string key = Convert.ToBase64String(algorithm.GetBytes(GlobalConfig.PasswordHashKeySize));
                 string salt = Convert.ToBase64String(algorithm.Salt);
+                string itterationsIdentifier = GetIdentifierFromItterations(GlobalConfig.PasswordHashIterations);
 
-                return $"{Iterations}.{salt}.{key}";
+                return $"{itterationsIdentifier}${salt}${key}";
             }
         }
 
         public static bool CheckPassword(string hash, string password) {
-            var parts = hash.Split('.');
+            var parts = hash.Split('$');
 
             if(parts.Length != 3) {
                 ResourceManager rm = new ResourceManager(typeof(ExceptionMessages));
                 throw new FormatException(rm.GetString("HashFormat"));
             }
 
-            int iterations = Convert.ToInt32(parts[0]);
+            int iterations = GetItterrationsFromIdentifier(parts[0]);
             byte[] salt = Convert.FromBase64String(parts[1]);
             byte[] key = Convert.FromBase64String(parts[2]);
 
             using(Rfc2898DeriveBytes algorithm = new Rfc2898DeriveBytes(password, salt, iterations, HashAlgorithmName.SHA256)) {
-                var keyToCheck = algorithm.GetBytes(KeySize);
+                var keyToCheck = algorithm.GetBytes(GlobalConfig.PasswordHashKeySize);
                 bool verified = keyToCheck.SequenceEqual(key);
 
                 return verified;
             }
+        }
+
+        private static string GetIdentifierFromItterations(int itterations) {
+            string itterationsIdentifier = "VM1";
+
+            switch(itterations) {
+                case 10000:
+                    itterationsIdentifier = "VM2";
+                    break;
+            }
+            return itterationsIdentifier;
+        }
+
+        private static int GetItterrationsFromIdentifier(string itterationsIdentifier) {
+            int itterations = 1000;
+
+            switch(itterationsIdentifier) {
+                case "VM2":
+                    itterations = 10000;
+                    break;
+            }
+            return itterations;
         }
     }
 }

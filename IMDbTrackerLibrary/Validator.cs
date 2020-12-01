@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Resources;
 using System.Text.RegularExpressions;
-using IMDbTrackerLibrary.Properties;
 using IMDbTrackerLibrary.Exceptions;
+using IMDbTrackerLibrary;
 
 namespace IMDbTrackerLibrary {
     public static class Validator {
-
-        private static readonly ResourceManager rm = new ResourceManager(typeof(ExceptionMessages));
-
-        private static string GetExceptionMessage(string messageName) {
-            return rm.GetString(messageName);
-        }
 
         private static bool Required(string fieldValue, string error) {
             if(string.IsNullOrWhiteSpace(fieldValue)) {
@@ -26,31 +19,31 @@ namespace IMDbTrackerLibrary {
             // Ensure string has two uppercase letters.
             Regex passwordUppercaseRegex = new Regex("(?=.*[A-Z].*[A-Z])");
             if(!passwordUppercaseRegex.IsMatch(passwordFieldValue)){
-                throw new PasswordUppercaseException(GetExceptionMessage("PasswordUppercase"));
+                throw new PasswordUppercaseException(GlobalConfig.GetExceptionMessage("PasswordUppercase"));
             }
 
             // Ensure string has one special case letter.
             Regex passwordSpecialCharacterRegex = new Regex("(?=.*[!@#$&*])");
             if(!passwordSpecialCharacterRegex.IsMatch(passwordFieldValue)) {
-                throw new PasswordSpecialCharException(GetExceptionMessage("PasswordSpecialCharacter"));
+                throw new PasswordSpecialCharException(GlobalConfig.GetExceptionMessage("PasswordSpecialCharacter"));
             }
 
             // Ensure string has two digits.
             Regex passwordDigitsRegex = new Regex("(?=.*[0-9].*[0-9])");
             if(!passwordDigitsRegex.IsMatch(passwordFieldValue)) {
-                throw new PasswordDigitsException(GetExceptionMessage("PasswordDigits"));
+                throw new PasswordDigitsException(GlobalConfig.GetExceptionMessage("PasswordDigits"));
             }
 
             // Ensure string has three digits.
             Regex passwordLowercaseRegex = new Regex("(?=.*[a-z].*[a-z].*[a-z])");
             if(!passwordLowercaseRegex.IsMatch(passwordFieldValue)) {
-                throw new PasswordLowercaseException(GetExceptionMessage("PasswordLowercase"));
+                throw new PasswordLowercaseException(GlobalConfig.GetExceptionMessage("PasswordLowercase"));
             }
 
             // Ensure minimum password length
-            int passwordLength = GlobalConfig.passwordLength;
-            if(passwordFieldValue.Length < passwordLength) {
-                throw new PasswordLengthException($"{GetExceptionMessage("PasswordLength")} ({passwordLength}).");
+            int minPasswordLength = GlobalConfig.ValidatorMinPasswordLength;
+            if(passwordFieldValue.Length < minPasswordLength) {
+                throw new PasswordLengthException($"{GlobalConfig.GetExceptionMessage("PasswordLength")} ({minPasswordLength}).");
             }
 
             return true;
@@ -73,7 +66,7 @@ namespace IMDbTrackerLibrary {
             Regex emailRegex = new Regex(validEmailRegexPattern, RegexOptions.IgnoreCase);
 
             if(!emailRegex.IsMatch(emailFieldValue)) {
-                throw new InvalidEmailFormatException(GetExceptionMessage("EmailNotValid"));
+                throw new InvalidEmailFormatException(GlobalConfig.GetExceptionMessage("EmailNotValid"));
             }
 
             return true;
@@ -82,7 +75,7 @@ namespace IMDbTrackerLibrary {
         public static bool ValidateUsernameTextBox(TextBox usernameField, Label errorLabel) {
             try {
                 errorLabel.Hide();
-                Required(usernameField.Text, GetExceptionMessage("UsernameRequired"));
+                Required(usernameField.Text, GlobalConfig.GetExceptionMessage("UsernameRequired"));
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
@@ -95,7 +88,7 @@ namespace IMDbTrackerLibrary {
         public static bool ValidateFirstNameTextBox(TextBox firstNameField, Label errorLabel) {
             try {
                 errorLabel.Hide();
-                Required(firstNameField.Text, GetExceptionMessage("FirstNameRequired"));
+                Required(firstNameField.Text, GlobalConfig.GetExceptionMessage("FirstNameRequired"));
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
@@ -108,7 +101,7 @@ namespace IMDbTrackerLibrary {
         public static bool ValidateLastNameTextBox(TextBox lastNameField, Label errorLabel) {
             try {
                 errorLabel.Hide();
-                Required(lastNameField.Text, GetExceptionMessage("LastNameRequired"));
+                Required(lastNameField.Text, GlobalConfig.GetExceptionMessage("LastNameRequired"));
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
@@ -122,7 +115,7 @@ namespace IMDbTrackerLibrary {
             try {
                 errorLabel.Hide();
 
-                Required(emailField.Text, GetExceptionMessage("EmailRequired"));
+                Required(emailField.Text, GlobalConfig.GetExceptionMessage("EmailRequired"));
                 ValidEmail(emailField.Text);
 
             } catch(ArgumentException aex) {
@@ -141,7 +134,7 @@ namespace IMDbTrackerLibrary {
         public static bool ValidatePasswordTextBox(TextBox passwordField, Label errorLabel) {
             try {
                 errorLabel.Hide();
-                Required(passwordField.Text, GetExceptionMessage("PasswordRequired"));
+                Required(passwordField.Text, GlobalConfig.GetExceptionMessage("PasswordRequired"));
                 PasswordStrength(passwordField.Text);
             } catch(ArgumentException aex) {
                 errorLabel.Show();
@@ -175,8 +168,8 @@ namespace IMDbTrackerLibrary {
         public static bool ValidateRepeatPasswordTextBox(TextBox passwordFeild, TextBox repeatPasswordField, Label errorLabel) {
             try {
                 errorLabel.Hide();
-                Required(repeatPasswordField.Text, GetExceptionMessage("RepeatPasswordRequired"));
-                MatchingPassword(passwordFeild.Text, repeatPasswordField.Text, GetExceptionMessage("NotMatchingPasswords"));
+                Required(repeatPasswordField.Text, GlobalConfig.GetExceptionMessage("RepeatPasswordRequired"));
+                MatchingPassword(passwordFeild.Text, repeatPasswordField.Text, GlobalConfig.GetExceptionMessage("NotMatchingPasswords"));
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
@@ -193,7 +186,7 @@ namespace IMDbTrackerLibrary {
         public static bool ValidateApiKeyTextBox(TextBox apiKeyField, Label errorLabel) {
             try {
                 errorLabel.Hide();
-                Required(apiKeyField.Text, GetExceptionMessage("APIKeyRequired"));
+                Required(apiKeyField.Text, GlobalConfig.GetExceptionMessage("APIKeyRequired"));
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;

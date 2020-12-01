@@ -42,6 +42,6 @@ namespace IMDbTrackerLibrary.Models {
         public string PasswordResetKey { get; set; } = null;
 
         [Column(TypeName = "datetime2")]
-        public DateTime? LastPasswordReset { get; set; } = null;
+        public DateTime? PasswordResetKeyValid { get; set; } = null;
     }
 }
