@@ -41,6 +41,9 @@ namespace IMDbTrackerLibrary {
             return exceptionMessages.GetString(messageName);
         }
 
-
+        public static string GetMessageBoxMessages(string messageName) {
+            ResourceManager exceptionMessages = new ResourceManager(typeof(MessageBoxMessages));
+            return exceptionMessages.GetString(messageName);
+        }
     }
 }

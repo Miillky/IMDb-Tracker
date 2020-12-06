@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Resources;
 using System.Security.Cryptography;
+using System.Windows.Forms;
 using IMDbTrackerLibrary.Properties;
 
 namespace IMDbTrackerLibrary {
@@ -57,6 +58,16 @@ namespace IMDbTrackerLibrary {
                     break;
             }
             return itterations;
+        }
+
+        public static void ShowMessageBox(string messageName) {
+            MessageBox.Show(GlobalConfig.GetMessageBoxMessages(messageName));
+        }
+
+        public static void TriggerEnterKeySubmit(KeyEventArgs ev, Button button) {
+            if(ev.KeyCode == Keys.Enter) {
+                button.PerformClick();
+            }
         }
     }
 }

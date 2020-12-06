@@ -47,6 +47,7 @@
             this.ProfileButton.TabIndex = 3;
             this.ProfileButton.Text = "Profile";
             this.ProfileButton.UseVisualStyleBackColor = false;
+            this.ProfileButton.Click += new System.EventHandler(this.ProfileButton_Click);
             // 
             // TvShowsButton
             // 
@@ -64,6 +65,7 @@
             this.TvShowsButton.TabIndex = 2;
             this.TvShowsButton.Text = "TV Shows";
             this.TvShowsButton.UseVisualStyleBackColor = false;
+            this.TvShowsButton.Click += new System.EventHandler(this.TvShowsButton_Click);
             // 
             // MoviesButton
             // 
@@ -81,7 +83,7 @@
             this.MoviesButton.TabIndex = 1;
             this.MoviesButton.Text = "Movies";
             this.MoviesButton.UseVisualStyleBackColor = false;
-            this.MoviesButton.Click += new System.EventHandler(this.MoviesButton_Click_1);
+            this.MoviesButton.Click += new System.EventHandler(this.MoviesButton_Click);
             // 
             // IMDbLogoImage
             // 
@@ -103,7 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(384, 411);
             this.Controls.Add(this.ProfileButton);
             this.Controls.Add(this.TvShowsButton);
@@ -113,6 +115,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainMenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IMDb - Main Menu";
             ((System.ComponentModel.ISupportInitialize)(this.IMDbLogoImage)).EndInit();
             this.ResumeLayout(false);

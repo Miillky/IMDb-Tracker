@@ -10,13 +10,14 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
         }
         void IDataConnection.CreateUser(User model) {
             context.Users.Add(model);
-            context.SaveChanges();
+            context.SaveChangesAsync();
         }
 
         void IDataConnection.UpdateUser(User model) {
             User user = context.Users.SingleOrDefault(u => u.Id == model.Id);
             if(user != null) {
-
+                context.Entry(user).CurrentValues.SetValues(model);
+                context.SaveChangesAsync();
             }
         }
 

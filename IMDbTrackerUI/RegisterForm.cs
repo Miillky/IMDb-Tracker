@@ -8,6 +8,8 @@ namespace IMDbTrackerUI {
 
         public RegisterForm() {
             InitializeComponent();
+
+            this.AcceptButton = RegisterButton;
         }
 
         private bool ValidateFields() {
@@ -55,6 +57,13 @@ namespace IMDbTrackerUI {
             };
 
             RegisterUser();
+
+            Helpers.ShowMessageBox("UserRegistered");
+
+            this.Hide();
+
+            LogInForm logInForm = new LogInForm();
+            logInForm.Show();
         }
 
     }

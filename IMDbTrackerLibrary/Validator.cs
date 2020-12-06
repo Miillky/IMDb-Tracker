@@ -21,6 +21,13 @@ namespace IMDbTrackerLibrary {
             return true;
         }
 
+        private static bool IsUserRegistered(string usernameFieldValue) {
+            if(!GlobalConfig.Connection.UsernameExists(usernameFieldValue)) {
+                throw new UserNameExistsException(GlobalConfig.GetExceptionMessage("NoRegisteredUser"));
+            }
+            return true;
+        }
+
         private static bool UniqueEmail(string emailFieldValue) {
             if(GlobalConfig.Connection.EmailExists(emailFieldValue)) {
                 throw new EmailExistsException(GlobalConfig.GetExceptionMessage("UniqueEmail"));
@@ -69,11 +76,18 @@ namespace IMDbTrackerLibrary {
             return true;
         }
 
-        private static bool MatchingPassword(string passwordFieldValue, string repeatPasswordFieldValue, string error) {
+        private static bool MatchingPassword(string passwordFieldValue, string repeatPasswordFieldValue) {
             if(passwordFieldValue != repeatPasswordFieldValue) {
-                throw new NotMatchingPasswordsException(error);
+                throw new NotMatchingPasswordsException(GlobalConfig.GetExceptionMessage("NotMatchingPasswords"));
             }
 
+            return true;
+        }
+
+        private static bool ValidPassword(string hash, string passwordFieldValue) {
+            if(!Helpers.CheckPassword(hash, passwordFieldValue)) {
+                throw new NotMatchingPasswordsException(GlobalConfig.GetExceptionMessage("InvalidPassword"));
+            }
             return true;
         }
 
@@ -204,7 +218,7 @@ namespace IMDbTrackerLibrary {
 
                 errorLabel.Hide();
                 Required(repeatPasswordField.Text, GlobalConfig.GetExceptionMessage("RepeatPasswordRequired"));
-                MatchingPassword(passwordFeild.Text, repeatPasswordField.Text, GlobalConfig.GetExceptionMessage("NotMatchingPasswords"));
+                MatchingPassword(passwordFeild.Text, repeatPasswordField.Text);
 
             } catch(ArgumentException aex) {
                 errorLabel.Show();
@@ -231,6 +245,48 @@ namespace IMDbTrackerLibrary {
             } catch(APIKeyExistsException uapik){
                 errorLabel.Show();
                 errorLabel.Text = uapik.Message;
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool ValidateLogInUsername(TextBox usernameField, Label errorLabel) {
+            try {
+
+                errorLabel.Hide();
+                Required(usernameField.Text, GlobalConfig.GetExceptionMessage("LogInUsername"));
+                IsUserRegistered(usernameField.Text);
+
+            } catch(ArgumentException aex) {
+                errorLabel.Show();
+                errorLabel.Text = aex.Message;
+                return false;
+            } catch(UserNameExistsException uex) {
+                errorLabel.Show();
+                errorLabel.Text = uex.Message;
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool ValidateLogInPassword(TextBox passwordField, string paswordHash, Label errorLabel) {
+            try {
+
+                errorLabel.Hide();
+                Required(passwordField.Text, GlobalConfig.GetExceptionMessage("PasswordRequired"));
+                if(paswordHash.Length > 0) {
+                    ValidPassword(paswordHash, passwordField.Text);
+                }
+
+            } catch(ArgumentException aex) {
+                errorLabel.Show();
+                errorLabel.Text = aex.Message;
+                return false;
+            } catch(NotMatchingPasswordsException nmpex) {
+                errorLabel.Show();
+                errorLabel.Text = nmpex.Message;
                 return false;
             }
 

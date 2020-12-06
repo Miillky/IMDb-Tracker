@@ -117,67 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="APIKeyRequired" xml:space="preserve">
-    <value>API key is required.</value>
-  </data>
-  <data name="EmailNotValid" xml:space="preserve">
-    <value>Email is not in a valid format.</value>
-  </data>
-  <data name="EmailRequired" xml:space="preserve">
-    <value>Email is required.</value>
-  </data>
-  <data name="FirstNameRequired" xml:space="preserve">
-    <value>First name is required.</value>
-  </data>
-  <data name="HashFormat" xml:space="preserve">
-    <value>Unexpected hash format. Should be formatted as `{iterations}.{salt}.{hash}`</value>
-  </data>
-  <data name="InvalidPassword" xml:space="preserve">
-    <value>Ivalid password. Try again or reset password.</value>
-  </data>
-  <data name="LastNameRequired" xml:space="preserve">
-    <value>Last name is required.</value>
-  </data>
-  <data name="LogInUsername" xml:space="preserve">
-    <value>Username is required to log in.</value>
-  </data>
-  <data name="NoRegisteredUser" xml:space="preserve">
-    <value>Username does not exist.</value>
-  </data>
-  <data name="NotMatchingPasswords" xml:space="preserve">
-    <value>Passwords do not match.</value>
-  </data>
-  <data name="PasswordDigits" xml:space="preserve">
-    <value>Password requiers at least two digits.</value>
-  </data>
-  <data name="PasswordLength" xml:space="preserve">
-    <value>Minimum required character length</value>
-  </data>
-  <data name="PasswordLowercase" xml:space="preserve">
-    <value>Password requiers at least three lowercase letters.</value>
-  </data>
-  <data name="PasswordRequired" xml:space="preserve">
-    <value>Password is required.</value>
-  </data>
-  <data name="PasswordSpecialCharacter" xml:space="preserve">
-    <value>Password requires as special character (!@#$&amp;*).</value>
-  </data>
-  <data name="PasswordUppercase" xml:space="preserve">
-    <value>Passwords requires at least two uppercase letters.</value>
-  </data>
-  <data name="RepeatPasswordRequired" xml:space="preserve">
-    <value>Repeating password is required.</value>
-  </data>
-  <data name="UniqueApiKey" xml:space="preserve">
-    <value>API key is alredy in use.</value>
-  </data>
-  <data name="UniqueEmail" xml:space="preserve">
-    <value>Email alredy exists.</value>
-  </data>
-  <data name="UniqueUsername" xml:space="preserve">
-    <value>Username alredy exists.</value>
-  </data>
-  <data name="UsernameRequired" xml:space="preserve">
-    <value>Username is required.</value>
+  <data name="UserRegistered" xml:space="preserve">
+    <value>User registered!</value>
   </data>
 </root>

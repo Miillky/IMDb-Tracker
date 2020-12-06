@@ -106,11 +106,38 @@ namespace IMDbTrackerLibrary.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ivalid password. Try again or reset password..
+        /// </summary>
+        internal static string InvalidPassword {
+            get {
+                return ResourceManager.GetString("InvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last name is required..
         /// </summary>
         internal static string LastNameRequired {
             get {
                 return ResourceManager.GetString("LastNameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username is required to log in..
+        /// </summary>
+        internal static string LogInUsername {
+            get {
+                return ResourceManager.GetString("LogInUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username does not exist..
+        /// </summary>
+        internal static string NoRegisteredUser {
+            get {
+                return ResourceManager.GetString("NoRegisteredUser", resourceCulture);
             }
         }
         
