@@ -161,6 +161,7 @@
     <Compile Include="DataAccess\Entity\EntityConnector.cs" />
     <Compile Include="DataAccess\Entity\IMDbTrackerContext.cs" />
     <Compile Include="DataAccess\MSSQLConnector.cs" />
+    <Compile Include="Email.cs" />
     <Compile Include="Exceptions\APIKeyExistsException.cs" />
     <Compile Include="Exceptions\EmailExistsException.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
@@ -183,6 +184,11 @@
     <Compile Include="Models\Show.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\EmailResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -199,6 +205,10 @@
     <EmbeddedResource Include="Migrations\202012012105265_InitMigration.resx">
       <DependentUpon>202012012105265_InitMigration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\EmailResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\ExceptionMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
@@ -208,10 +218,15 @@
       <LastGenOutput>MessageBoxMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="EmailResources\IMDb black logo.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmailResources\IMDb yellow logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

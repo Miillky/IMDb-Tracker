@@ -15,6 +15,7 @@ namespace IMDbTrackerUI {
     public partial class LogInForm : Form {
 
         private readonly WelcomeForm activeWelcomeForm = null;
+        private User user = null;
 
         public LogInForm() {
             InitializeComponent();
@@ -30,29 +31,29 @@ namespace IMDbTrackerUI {
             activeWelcomeForm = welcomeForm;
         }
 
-        private User ValidateLogInUser() {
+        private void ValidateLogInUser() {
 
             bool validUsername = Validator.ValidateLogInUsername(usernameTextBox, usernameValidateErrorLabel);
             _ = Validator.ValidateLogInPassword(passwordTextBox, "", passwordValidateErrorLabel);
 
             if(validUsername) {
-                User user = GlobalConfig.Connection.FindUserByUsername(usernameTextBox.Text);
+                user = GlobalConfig.Connection.FindUserByUsername(usernameTextBox.Text);
 
                 bool validPassword = Validator.ValidateLogInPassword(passwordTextBox, user.Password, passwordValidateErrorLabel);
 
-                if(validPassword) {
-                    user.LastLogin = DateTime.UtcNow;
-                    GlobalConfig.Connection.UpdateUser(user);
-                    return user;
+                if(!validPassword) {
+                    user = null;
+                    return;
                 }
-            }
 
-            return null;
+                user.LastLogin = DateTime.UtcNow;
+                GlobalConfig.Connection.UpdateUser(user);
+            }
         }
 
         private void LogInButton_Click(object sender, EventArgs e) {
 
-            User user = ValidateLogInUser();
+            ValidateLogInUser();
 
             if(user == null) {
                 return;

@@ -3,6 +3,7 @@ using System.Configuration;
 using IMDbTrackerLibrary.Properties;
 using IMDbTrackerLibrary.DataAccess;
 using IMDbTrackerLibrary.DataAccess.Entity;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace IMDbTrackerLibrary {
     public static class GlobalConfig {
@@ -44,6 +45,16 @@ namespace IMDbTrackerLibrary {
         public static string GetMessageBoxMessages(string messageName) {
             ResourceManager exceptionMessages = new ResourceManager(typeof(MessageBoxMessages));
             return exceptionMessages.GetString(messageName);
+        }
+
+        public static string GetEmailResourceString(string stringName) {
+            ResourceManager emailResources = new ResourceManager(typeof(EmailResources));
+            return emailResources.GetString(stringName);
+        }
+
+        public static object GetEmailResourceImage(string imageName) {
+            ResourceManager emailResources = new ResourceManager(typeof(EmailResources));
+            return emailResources.GetObject(imageName);
         }
     }
 }
