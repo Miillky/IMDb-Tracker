@@ -61,6 +61,24 @@ namespace IMDbTrackerLibrary.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password reseted!.
+        /// </summary>
+        internal static string PasswordReseted {
+            get {
+                return ResourceManager.GetString("PasswordReseted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset token is send, check your email!.
+        /// </summary>
+        internal static string PasswordResetTokenSend {
+            get {
+                return ResourceManager.GetString("PasswordResetTokenSend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User registered!.
         /// </summary>
         internal static string UserRegistered {

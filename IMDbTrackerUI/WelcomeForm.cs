@@ -13,8 +13,8 @@ using IMDbTrackerLibrary.Models;
 namespace IMDbTrackerUI {
     public partial class WelcomeForm : Form {
 
-        private LogInForm logInForm = null;
-        private RegisterForm registerForm = null;
+        private LogInForm logInForm;
+        private RegisterForm registerForm;
            
         public WelcomeForm() {
             InitializeComponent();
@@ -23,22 +23,24 @@ namespace IMDbTrackerUI {
 
         private void LogInButton_Click(object sender, EventArgs e) {
 
-            logInForm = logInForm == null ? new LogInForm(this) : logInForm;
-            registerForm = registerForm == null ? new RegisterForm() : registerForm;
-
+            logInForm = new LogInForm();
             logInForm.Show();
-            registerForm.Hide();
 
+            if(registerForm != null) {
+                registerForm.Close();
+                registerForm.Dispose();
+            }
         }
 
         private void RegisterButton_Click(object sender, EventArgs e) {
 
-            logInForm = logInForm == null ? new LogInForm(this) : logInForm;
-            registerForm = registerForm == null ? new RegisterForm() : registerForm;
-
-            logInForm.Hide();
+            registerForm = new RegisterForm();
             registerForm.Show();
 
+            if(logInForm != null) {
+                logInForm.Close();
+                logInForm.Dispose();
+            }
         }
     }
 }

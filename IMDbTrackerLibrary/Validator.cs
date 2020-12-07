@@ -106,6 +106,21 @@ namespace IMDbTrackerLibrary {
             return true;
         }
 
+        private static bool ValidToken(string token, string tokenFieldValue) {
+            if(token != tokenFieldValue) {
+                throw new InvalidTokenException(GlobalConfig.GetExceptionMessage("InvalidToken"));
+            }
+            return true;
+        }
+
+        private static bool TokenNotExpired(DateTime tokenExpiration) {
+            int result = DateTime.Compare(DateTime.Now, tokenExpiration);
+            if(result < 0) {
+                throw new TokenExpiredException(GlobalConfig.GetExceptionMessage("TokenExpired"));
+            }
+            return true;
+        }
+
         public static bool ValidateUsernameTextBox(TextBox usernameField, Label errorLabel) {
             try {
 
@@ -287,6 +302,31 @@ namespace IMDbTrackerLibrary {
             } catch(NotMatchingPasswordsException nmpex) {
                 errorLabel.Show();
                 errorLabel.Text = nmpex.Message;
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool ValidateToken(TextBox tokenField, string token, DateTime tokenExpiration, Label errorLabel) {
+            try {
+
+                errorLabel.Hide();
+                Required(tokenField.Text, GlobalConfig.GetExceptionMessage("TokenRequired"));
+                ValidToken(tokenField.Text, token);
+                TokenNotExpired(tokenExpiration);
+
+            } catch(ArgumentException aex) {
+                errorLabel.Show();
+                errorLabel.Text = aex.Message;
+                return false;
+            } catch(InvalidTokenException itex) {
+                errorLabel.Show();
+                errorLabel.Text = itex.Message;
+                return false;
+            } catch(TokenExpiredException teex) {
+                errorLabel.Show();
+                errorLabel.Text = teex.Message;
                 return false;
             }
 

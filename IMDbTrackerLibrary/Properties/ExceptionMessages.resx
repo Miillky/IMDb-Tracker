@@ -135,6 +135,9 @@
   <data name="InvalidPassword" xml:space="preserve">
     <value>Ivalid password. Try again or reset password.</value>
   </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>Ivalid token.</value>
+  </data>
   <data name="LastNameRequired" xml:space="preserve">
     <value>Last name is required.</value>
   </data>
@@ -167,6 +170,12 @@
   </data>
   <data name="RepeatPasswordRequired" xml:space="preserve">
     <value>Repeating password is required.</value>
+  </data>
+  <data name="TokenExpired" xml:space="preserve">
+    <value>Token expired.</value>
+  </data>
+  <data name="TokenRequired" xml:space="preserve">
+    <value>Token is required.</value>
   </data>
   <data name="UniqueApiKey" xml:space="preserve">
     <value>API key is alredy in use.</value>

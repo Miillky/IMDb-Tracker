@@ -401,7 +401,6 @@
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IMDb Tracker - Register";
-            this.Load += new System.EventHandler(this.SignUpForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IMDbLogoImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

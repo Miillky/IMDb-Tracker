@@ -32,6 +32,7 @@
             this.LogInButton = new System.Windows.Forms.Button();
             this.usernameValidateErrorLabel = new System.Windows.Forms.Label();
             this.passwordValidateErrorLabel = new System.Windows.Forms.Label();
+            this.forgotPasswordLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.IMDbLogoImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,12 +134,29 @@
             this.passwordValidateErrorLabel.AutoSize = true;
             this.passwordValidateErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.passwordValidateErrorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.passwordValidateErrorLabel.Location = new System.Drawing.Point(37, 315);
+            this.passwordValidateErrorLabel.Location = new System.Drawing.Point(40, 315);
             this.passwordValidateErrorLabel.Name = "passwordValidateErrorLabel";
             this.passwordValidateErrorLabel.Size = new System.Drawing.Size(123, 13);
             this.passwordValidateErrorLabel.TabIndex = 0;
             this.passwordValidateErrorLabel.Text = "passwordValidateError";
             this.passwordValidateErrorLabel.Visible = false;
+            // 
+            // forgotPasswordLabel
+            // 
+            this.forgotPasswordLabel.AutoSize = true;
+            this.forgotPasswordLabel.BackColor = System.Drawing.Color.Transparent;
+            this.forgotPasswordLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.forgotPasswordLabel.Enabled = false;
+            this.forgotPasswordLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.forgotPasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(108)))), ((int)(((byte)(178)))));
+            this.forgotPasswordLabel.Location = new System.Drawing.Point(240, 268);
+            this.forgotPasswordLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.forgotPasswordLabel.Name = "forgotPasswordLabel";
+            this.forgotPasswordLabel.Size = new System.Drawing.Size(100, 13);
+            this.forgotPasswordLabel.TabIndex = 0;
+            this.forgotPasswordLabel.Text = "Forgot password?";
+            this.forgotPasswordLabel.Visible = false;
+            this.forgotPasswordLabel.Click += new System.EventHandler(this.forgotPasswordLabel_Click);
             // 
             // LogInForm
             // 
@@ -147,6 +165,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(384, 411);
+            this.Controls.Add(this.forgotPasswordLabel);
             this.Controls.Add(this.passwordValidateErrorLabel);
             this.Controls.Add(this.usernameValidateErrorLabel);
             this.Controls.Add(this.LogInButton);
@@ -164,7 +183,7 @@
             this.MinimumSize = new System.Drawing.Size(400, 450);
             this.Name = "LogInForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IMDB Tracker - Log In";
+            this.Text = "IMDb Tracker - Log In";
             ((System.ComponentModel.ISupportInitialize)(this.IMDbLogoImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -181,5 +200,6 @@
         private System.Windows.Forms.Button LogInButton;
         private System.Windows.Forms.Label usernameValidateErrorLabel;
         private System.Windows.Forms.Label passwordValidateErrorLabel;
+        private System.Windows.Forms.Label forgotPasswordLabel;
     }
 }

@@ -6,7 +6,7 @@ using IMDbTrackerLibrary.Models;
 namespace IMDbTrackerUI {
     public partial class RegisterForm : Form {
 
-        private User user = null;
+        private User user;
 
         public RegisterForm() {
             InitializeComponent();
@@ -31,22 +31,20 @@ namespace IMDbTrackerUI {
 
         private void RegisterUser() {
 
-            User user = new User();
-            user.Username = usernameTextBox.Text;
-            user.FirstName = firstNameTextBox.Text;
-            user.LastName = lastNameTextBox.Text;
-            user.Email = emailTextBox.Text;
-            user.Password = Helpers.HashPassword(passwordTextBox.Text);
-            user.APIKey = apiKeyTextBox.Text;
+            User model = new User {
+                Username = usernameTextBox.Text,
+                FirstName = firstNameTextBox.Text,
+                LastName = lastNameTextBox.Text,
+                Email = emailTextBox.Text,
+                Password = Helpers.HashPassword(passwordTextBox.Text),
+                APIKey = apiKeyTextBox.Text
+            };
 
-            GlobalConfig.Connection.CreateUser(user);
+            GlobalConfig.Connection.CreateUser(model);
 
-            this.user = user;
+            user = model;
         }
 
-        private void SignUpForm_Load(object sender, EventArgs e) {
-
-        }
         private void ShowPasswordCheckbox_CheckedChanged(object sender, EventArgs e) {
             passwordTextBox.UseSystemPasswordChar = !ShowPasswordCheckbox.Checked;
         }
@@ -69,9 +67,10 @@ namespace IMDbTrackerUI {
             Email.SendWelcomeMail(user.Email, user, passwordTextBox.Text, null);
             Helpers.ShowMessageBox("UserRegistered");
 
-            this.Hide();
+            this.Close();
+            this.Dispose();
 
-            LogInForm logInForm = new LogInForm();
+            LogInForm logInForm = new LogInForm(user);
             logInForm.Show();
         }
 

@@ -41,5 +41,13 @@ namespace IMDbTrackerLibrary.DataAccess {
         public bool APIKeyExists(string apiKey) {
             throw new NotImplementedException();
         }
+
+        public void SetPasswordResetToken(User model, string passwordResetKey, DateTime passwordResetTokenValid) {
+            throw new NotImplementedException();
+        }
+
+        public (string, DateTime?) GetPasswordResetToken(User model) {
+            throw new NotImplementedException();
+        }
     }
 }

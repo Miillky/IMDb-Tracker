@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Resources;
 using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 using IMDbTrackerLibrary.Properties;
 
@@ -64,10 +65,28 @@ namespace IMDbTrackerLibrary {
             MessageBox.Show(GlobalConfig.GetMessageBoxMessages(messageName));
         }
 
-        public static void TriggerEnterKeySubmit(KeyEventArgs ev, Button button) {
-            if(ev.KeyCode == Keys.Enter) {
-                button.PerformClick();
+        public static int GeneratePasswordResetCode() {
+            Random rnd = new Random();
+            return rnd.Next(100000, 999999);
+        }
+
+        public static string GeneratePasswordResetToken() {
+
+            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder stringBuilder = new StringBuilder();
+
+            using(RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider()) {
+                byte[] uintBuffer = new byte[sizeof(uint)];
+                int length = GlobalConfig.PasswordResetTokenLength;
+
+                while(length-- > 0) {
+                    rng.GetBytes(uintBuffer);
+                    uint num = BitConverter.ToUInt32(uintBuffer, 0);
+                    stringBuilder.Append(valid[(int)(num % (uint)valid.Length)]);
+                }
             }
+
+            return stringBuilder.ToString();
         }
     }
 }

@@ -12,12 +12,12 @@ using System.Windows.Forms;
 namespace IMDbTrackerUI {
     public partial class MainMenuForm : Form {
 
-        private readonly User user = null;
+        private readonly User user;
 
-        public MainMenuForm(User user) {
+        public MainMenuForm(User model) {
             InitializeComponent();
 
-            this.user = user;
+            user = model;
         }
 
         private void MoviesButton_Click(object sender, EventArgs e) {

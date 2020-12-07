@@ -115,6 +115,15 @@ namespace IMDbTrackerLibrary.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ivalid token..
+        /// </summary>
+        internal static string InvalidToken {
+            get {
+                return ResourceManager.GetString("InvalidToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last name is required..
         /// </summary>
         internal static string LastNameRequired {
@@ -210,6 +219,24 @@ namespace IMDbTrackerLibrary.Properties {
         internal static string RepeatPasswordRequired {
             get {
                 return ResourceManager.GetString("RepeatPasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Token expired..
+        /// </summary>
+        internal static string TokenExpired {
+            get {
+                return ResourceManager.GetString("TokenExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Token is required..
+        /// </summary>
+        internal static string TokenRequired {
+            get {
+                return ResourceManager.GetString("TokenRequired", resourceCulture);
             }
         }
         

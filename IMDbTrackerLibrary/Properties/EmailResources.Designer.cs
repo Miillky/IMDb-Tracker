@@ -61,6 +61,33 @@ namespace IMDbTrackerLibrary.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IMDb Tracker - Account created.
+        /// </summary>
+        internal static string CreatedAccounSubject {
+            get {
+                return ResourceManager.GetString("CreatedAccounSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome.
+        /// </summary>
+        internal static string CreatedAccounTitle {
+            get {
+                return ResourceManager.GetString("CreatedAccounTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to IMDb Tracker. Your account has been created. Log in to track, favorite and comment your favorite Movies and TV Shows!.
+        /// </summary>
+        internal static string CreatedAccountMessage {
+            get {
+                return ResourceManager.GetString("CreatedAccountMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap IMDb_black_logo {
@@ -81,6 +108,33 @@ namespace IMDbTrackerLibrary.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy the password reset token, to reset your password. .
+        /// </summary>
+        internal static string PasswordResetMessage {
+            get {
+                return ResourceManager.GetString("PasswordResetMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IMDb Tracker - Password reset.
+        /// </summary>
+        internal static string PasswordResetSubject {
+            get {
+                return ResourceManager.GetString("PasswordResetSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password reset.
+        /// </summary>
+        internal static string PasswordResetTitle {
+            get {
+                return ResourceManager.GetString("PasswordResetTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IMDb Tracker.
         /// </summary>
         internal static string SenderDisplayName {
@@ -95,33 +149,6 @@ namespace IMDbTrackerLibrary.Properties {
         internal static string Signature {
             get {
                 return ResourceManager.GetString("Signature", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Welcome to IMDb Tracker. Your account has been created. Log in to track, favorite and comment your favorite Movies and TV Shows!.
-        /// </summary>
-        internal static string WelcomeMessage {
-            get {
-                return ResourceManager.GetString("WelcomeMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Welcome - Account created.
-        /// </summary>
-        internal static string WelcomeSubject {
-            get {
-                return ResourceManager.GetString("WelcomeSubject", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Welcome.
-        /// </summary>
-        internal static string WelcomeTitle {
-            get {
-                return ResourceManager.GetString("WelcomeTitle", resourceCulture);
             }
         }
     }

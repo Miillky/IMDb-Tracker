@@ -8,6 +8,7 @@ using IMDbTrackerLibrary.Models;
 using System.IO;
 using System.Drawing;
 using System.Net.Mime;
+using System.Globalization;
 
 namespace IMDbTrackerLibrary {
     public static class Email {
@@ -62,16 +63,36 @@ namespace IMDbTrackerLibrary {
 
         public static void SendWelcomeMail(string toAddress, User user, string password, string imageName) {
 
-            string subject = GlobalConfig.GetEmailResourceString("WelcomeSubject");
+            string subject = GlobalConfig.GetEmailResourceString("CreatedAccounSubject");
 
             StringBuilder body = new StringBuilder();
 
             body.AppendLine("<div style='text-align: center;'>");
             body.AppendLine("<img title='IMDb Tracker logo' alt='IMDb Tracler logo' src='cid:email-logo' />");
-            body.AppendLine("<h1>" + GlobalConfig.GetEmailResourceString("WelcomeTitle") + " " + user.FirstName + " " + user.LastName + "</h1>");
-            body.AppendLine("<p>" + GlobalConfig.GetEmailResourceString("WelcomeMessage") + "</p>");
+            body.AppendLine("<h1>" + GlobalConfig.GetEmailResourceString("CreatedAccounTitle") + " " + user.FirstName + " " + user.LastName + "</h1>");
+            body.AppendLine("<p>" + GlobalConfig.GetEmailResourceString("CreatedAccounMessage") + "</p>");
             body.AppendLine("<p><strong>Username: </strong>" + user.Username + "</p>");
             body.AppendLine("<p><strong>Password: </strong>" + password + "</p>");
+            body.AppendLine("<br/>");
+            body.AppendLine("<strong>" + GlobalConfig.GetEmailResourceString("Signature") + "</strong>");
+            body.AppendLine("</div>");
+
+            SendEmail(toAddress, subject, body.ToString(), imageName);
+        }
+
+        public static void SendResetToken(string toAddress, string passwordResetToken, DateTime tokenExpiration, string imageName) {
+            string subject = GlobalConfig.GetEmailResourceString("PasswordResetSubject");
+
+            string tokeExpirationDate = DateTime.SpecifyKind(tokenExpiration, DateTimeKind.Local).ToString("HH:mm:ss dd.MM.yyyy");
+
+            StringBuilder body = new StringBuilder();
+
+            body.AppendLine("<div style='text-align: center;'>");
+            body.AppendLine("<img title='IMDb Tracker logo' alt='IMDb Tracler logo' src='cid:email-logo' />");
+            body.AppendLine("<h1>" + GlobalConfig.GetEmailResourceString("PasswordResetTitle") + "</h1>");
+            body.AppendLine("<p>" + GlobalConfig.GetEmailResourceString("PasswordResetMessage") + "</p>");
+            body.AppendLine("<p><strong>Reset token: </strong>" + passwordResetToken + "</p>");
+            body.AppendLine("<p><strong>Token expires: </strong>" + tokeExpirationDate + "</p>");
             body.AppendLine("<br/>");
             body.AppendLine("<strong>" + GlobalConfig.GetEmailResourceString("Signature") + "</strong>");
             body.AppendLine("</div>");

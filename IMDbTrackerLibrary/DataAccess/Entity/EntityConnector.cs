@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using IMDbTrackerLibrary.Models;
 
 namespace IMDbTrackerLibrary.DataAccess.Entity {
@@ -6,14 +7,15 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
 
         private readonly IMDbTrackerContext context = new IMDbTrackerContext();
 
-        void IDataConnection.CreateTables() {
+        public void CreateTables() {
         }
-        void IDataConnection.CreateUser(User model) {
+
+        public void CreateUser(User model) {
             context.Users.Add(model);
             context.SaveChangesAsync();
         }
 
-        void IDataConnection.UpdateUser(User model) {
+        public void UpdateUser(User model) {
             User user = context.Users.SingleOrDefault(u => u.Id == model.Id);
             if(user != null) {
                 context.Entry(user).CurrentValues.SetValues(model);
@@ -21,33 +23,48 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
             }
         }
 
-        User IDataConnection.FindUserByUsername(string username) {
-            return context.Users.Where(u => u.Username == username).FirstOrDefault();
+        public User FindUserByUsername(string username) {
+            return context.Users.Where(u => u.Username == username).SingleOrDefault();
         }
 
-        User IDataConnection.FindUserByEmail(string email) {
-            return context.Users.Where(u => u.Email == email).FirstOrDefault();
+        public User FindUserByEmail(string email) {
+            return context.Users.Where(u => u.Email == email).SingleOrDefault();
         }
 
-        bool IDataConnection.UsernameExists(string username) {
-            if(context.Users.Where(u => u.Username == username).FirstOrDefault() != null) {
+        public bool UsernameExists(string username) {
+            if(context.Users.Where(u => u.Username == username).SingleOrDefault() != null) {
                 return true;
             }
             return false;
         }
 
-        bool IDataConnection.EmailExists(string email) {
-            if(context.Users.Where(u => u.Email == email).FirstOrDefault() != null) {
+        public bool EmailExists(string email) {
+            if(context.Users.Where(u => u.Email == email).SingleOrDefault() != null) {
                 return true;
             }
             return false;
         }
 
-        bool IDataConnection.APIKeyExists(string apiKey) {
-            if(context.Users.Where(u => u.APIKey == apiKey).FirstOrDefault() != null) {
+        public bool APIKeyExists(string apiKey) {
+            if(context.Users.Where(u => u.APIKey == apiKey).SingleOrDefault() != null) {
                 return true;
             }
             return false;
+        }
+
+        public void SetPasswordResetToken(User model, string passwordResetToken, DateTime passwordResetTokenValid) {
+            User user = context.Users.SingleOrDefault(u => u.Id == model.Id);
+            if(user != null) {
+                model.PasswordResetToken = passwordResetToken;
+                model.PasswordResetTokenValid = passwordResetTokenValid;
+                context.Entry(user).CurrentValues.SetValues(model);
+                context.SaveChangesAsync();
+            }
+        }
+
+        public (string, DateTime?) GetPasswordResetToken(User model) {
+            User user = context.Users.Where(u => u.Id == model.Id).SingleOrDefault();
+            return (user.PasswordResetToken, user.PasswordResetTokenValid);
         }
     }
 }

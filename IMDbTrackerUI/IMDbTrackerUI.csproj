@@ -198,6 +198,18 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResetTokenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResetTokenForm.Designer.cs">
+      <DependentUpon>ResetTokenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResetPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResetPasswordForm.Designer.cs">
+      <DependentUpon>ResetPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +234,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResetTokenForm.resx">
+      <DependentUpon>ResetTokenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResetPasswordForm.resx">
+      <DependentUpon>ResetPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>

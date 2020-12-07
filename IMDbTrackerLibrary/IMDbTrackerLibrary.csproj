@@ -165,21 +165,18 @@
     <Compile Include="Exceptions\APIKeyExistsException.cs" />
     <Compile Include="Exceptions\EmailExistsException.cs" />
     <Compile Include="Exceptions\InvalidEmailFormatException.cs" />
+    <Compile Include="Exceptions\InvalidTokenException.cs" />
     <Compile Include="Exceptions\NotMatchingPasswordsException.cs" />
     <Compile Include="Exceptions\PasswordDigitsException.cs" />
     <Compile Include="Exceptions\PasswordLengthException.cs" />
     <Compile Include="Exceptions\PasswordLowercaseException.cs" />
     <Compile Include="Exceptions\PasswordUppercaseException.cs" />
     <Compile Include="Exceptions\PasswordSpecialCharException.cs" />
+    <Compile Include="Exceptions\TokenExpiredException.cs" />
     <Compile Include="Exceptions\UsernameExistsException.cs" />
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="IDataConnection.cs" />
-    <Compile Include="Migrations\202012012105265_InitMigration.cs" />
-    <Compile Include="Migrations\202012012105265_InitMigration.designer.cs">
-      <DependentUpon>202012012105265_InitMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Show.cs" />
     <Compile Include="Models\User.cs" />
@@ -202,9 +199,6 @@
     <Compile Include="Validator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012012105265_InitMigration.resx">
-      <DependentUpon>202012012105265_InitMigration.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\EmailResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EmailResources.Designer.cs</LastGenOutput>
@@ -227,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="EmailResources\IMDb yellow logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

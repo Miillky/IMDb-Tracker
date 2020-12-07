@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CreatedAccounSubject" xml:space="preserve">
+    <value>IMDb Tracker - Account created</value>
+  </data>
+  <data name="CreatedAccounTitle" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="CreatedAccountMessage" xml:space="preserve">
+    <value>Welcome to IMDb Tracker. Your account has been created. Log in to track, favorite and comment your favorite Movies and TV Shows!</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="IMDb_black_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\emailresources\imdb black logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -124,19 +133,19 @@
   <data name="IMDb_yellow_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\emailresources\imdb yellow logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PasswordResetMessage" xml:space="preserve">
+    <value>Copy the password reset token, to reset your password. </value>
+  </data>
+  <data name="PasswordResetSubject" xml:space="preserve">
+    <value>IMDb Tracker - Password reset</value>
+  </data>
+  <data name="PasswordResetTitle" xml:space="preserve">
+    <value>Password reset</value>
+  </data>
   <data name="SenderDisplayName" xml:space="preserve">
     <value>IMDb Tracker</value>
   </data>
   <data name="Signature" xml:space="preserve">
     <value>~IMDb Tracker</value>
-  </data>
-  <data name="WelcomeMessage" xml:space="preserve">
-    <value>Welcome to IMDb Tracker. Your account has been created. Log in to track, favorite and comment your favorite Movies and TV Shows!</value>
-  </data>
-  <data name="WelcomeSubject" xml:space="preserve">
-    <value>Welcome - Account created</value>
-  </data>
-  <data name="WelcomeTitle" xml:space="preserve">
-    <value>Welcome</value>
   </data>
 </root>

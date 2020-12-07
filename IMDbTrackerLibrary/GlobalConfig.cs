@@ -12,6 +12,7 @@ namespace IMDbTrackerLibrary {
         public const int PasswordHashIterations = 10000;
         public const int PasswordHashSaltSize = 16; // 128 bit 
         public const int PasswordHashKeySize = 32; // 256 bit
+        public const int PasswordResetTokenLength = 32;
 
         public static IDataConnection Connection { get; private set; }
         public static void InitializeConnections(string db) {  

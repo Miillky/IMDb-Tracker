@@ -10,5 +10,7 @@ namespace IMDbTrackerLibrary.DataAccess {
         bool UsernameExists(string username);
         bool EmailExists(string email);
         bool APIKeyExists(string apiKey);
+        void SetPasswordResetToken(User model, string passwordResetKey, System.DateTime passwordResetTokenValid);
+        (string, System.DateTime?) GetPasswordResetToken(User model);
     }
 }
