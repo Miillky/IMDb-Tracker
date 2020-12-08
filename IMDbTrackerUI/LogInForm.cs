@@ -34,22 +34,22 @@ namespace IMDbTrackerUI {
 
         private void ValidateLogInUser() {
 
-            forgotPasswordLabel.Enabled = false;
-            forgotPasswordLabel.Hide();
+            ForgotPasswordLabel.Enabled = false;
+            ForgotPasswordLabel.Hide();
 
             bool validUsername = Validator.ValidateLogInUsername(usernameTextBox, usernameValidateErrorLabel);
-            _ = Validator.ValidateLogInPassword(passwordTextBox, "", passwordValidateErrorLabel);
+            _ = Validator.ValidateUserPassword(passwordTextBox, "", passwordValidateErrorLabel);
 
             if(validUsername) {
                 user = GlobalConfig.Connection.FindUserByUsername(usernameTextBox.Text);
 
-                bool validPassword = Validator.ValidateLogInPassword(passwordTextBox, user.Password, passwordValidateErrorLabel);
+                bool validPassword = Validator.ValidateUserPassword(passwordTextBox, user.Password, passwordValidateErrorLabel);
 
                 if(!validPassword) {
 
                     if(passwordTextBox.Text.Length > 0) {
-                        forgotPasswordLabel.Enabled = true;
-                        forgotPasswordLabel.Show();
+                        ForgotPasswordLabel.Enabled = true;
+                        ForgotPasswordLabel.Show();
                     }
 
                     validUser = false;
@@ -82,18 +82,12 @@ namespace IMDbTrackerUI {
             this.Dispose();
         }
 
-        private void forgotPasswordLabel_Click(object sender, EventArgs e) {
+        private void ForgotPasswordLabel_Click(object sender, EventArgs e) {
 
             ResetTokenForm resetTokenForm = new ResetTokenForm(user);
             resetTokenForm.Show();
 
-            string passwordResetToken = Helpers.GeneratePasswordResetToken();
-            DateTime passwordResetTokenValid = DateTime.UtcNow.AddMinutes(5);
-
-            GlobalConfig.Connection.SetPasswordResetToken(user, passwordResetToken, passwordResetTokenValid);
-
-            Email.SendResetToken(user.Email, passwordResetToken, passwordResetTokenValid, null);
-            Helpers.ShowMessageBox("PasswordResetTokenSend");
+            Email.SendPasswordResetToken(user);
 
             this.Close();
             this.Dispose();

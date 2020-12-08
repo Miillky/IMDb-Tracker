@@ -34,11 +34,11 @@ namespace IMDbTrackerLibrary.DataAccess {
 
         }
 
-        public bool EmailExists(string email) {
+        public bool EmailExists(string email, int userId) {
             throw new NotImplementedException();
         }
 
-        public bool APIKeyExists(string apiKey) {
+        public bool APIKeyExists(string apiKey, int userId) {
             throw new NotImplementedException();
         }
 

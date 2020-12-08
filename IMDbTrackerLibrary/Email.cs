@@ -80,6 +80,28 @@ namespace IMDbTrackerLibrary {
             SendEmail(toAddress, subject, body.ToString(), imageName);
         }
 
+        public static void SendUpdateProfileMail(string toAddress, User user, string password, string imageName) {
+
+            string subject = GlobalConfig.GetEmailResourceString("UpdateProfileSubject");
+
+            StringBuilder body = new StringBuilder();
+
+            body.AppendLine("<div style='text-align: center;'>");
+            body.AppendLine("<img title='IMDb Tracker logo' alt='IMDb Tracler logo' src='cid:email-logo' />");
+            body.AppendLine("<h1>" + GlobalConfig.GetEmailResourceString("UpdateProfileTitle") + " " + user.FirstName + " " + user.LastName + "</h1>");
+            body.AppendLine("<p>" + GlobalConfig.GetEmailResourceString("UpdateProfileMessage") + "</p>");
+            body.AppendLine("<p><strong>First name: </strong>" + user.FirstName + "</p>");
+            body.AppendLine("<p><strong>Last name: </strong>" + user.LastName + "</p>");
+            body.AppendLine("<p><strong>Email: </strong>" + user.Email + "</p>");
+            body.AppendLine("<p><strong>Password: </strong>" + password + "</p>");
+            body.AppendLine("<p><strong>API key: </strong>" + user.APIKey + "</p>");
+            body.AppendLine("<br/>");
+            body.AppendLine("<strong>" + GlobalConfig.GetEmailResourceString("Signature") + "</strong>");
+            body.AppendLine("</div>");
+
+            SendEmail(toAddress, subject, body.ToString(), imageName);
+        }
+
         public static void SendResetToken(string toAddress, string passwordResetToken, DateTime tokenExpiration, string imageName) {
             string subject = GlobalConfig.GetEmailResourceString("PasswordResetSubject");
 
@@ -98,6 +120,16 @@ namespace IMDbTrackerLibrary {
             body.AppendLine("</div>");
 
             SendEmail(toAddress, subject, body.ToString(), imageName);
+        }
+
+        public static void SendPasswordResetToken(User user) {
+            string passwordResetToken = Helpers.GeneratePasswordResetToken();
+            DateTime passwordResetTokenValid = DateTime.UtcNow.AddMinutes(5);
+
+            GlobalConfig.Connection.SetPasswordResetToken(user, passwordResetToken, passwordResetTokenValid);
+
+            Email.SendResetToken(user.Email, passwordResetToken, passwordResetTokenValid, null);
+            Helpers.ShowMessageBox("PasswordResetTokenSend");
         }
     }
 }

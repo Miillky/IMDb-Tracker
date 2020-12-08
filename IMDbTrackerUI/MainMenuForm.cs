@@ -1,13 +1,7 @@
-﻿using IMDbTrackerLibrary.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using IMDbTrackerLibrary.Models;
 
 namespace IMDbTrackerUI {
     public partial class MainMenuForm : Form {
@@ -29,7 +23,14 @@ namespace IMDbTrackerUI {
         }
 
         private void ProfileButton_Click(object sender, EventArgs e) {
+            ProfileForm profileForm = new ProfileForm(user);
+            profileForm.Show();
+        }
 
+        private void MainMenuForm_FormClosed(object sender, FormClosedEventArgs e) {
+            if(Application.OpenForms.OfType<WelcomeForm>().Count() == 1) {
+                Application.OpenForms.OfType<WelcomeForm>().First().Dispose();
+            }
         }
     }
 }

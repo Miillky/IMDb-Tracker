@@ -117,6 +117,7 @@
             this.Name = "MainMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IMDb - Main Menu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenuForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.IMDbLogoImage)).EndInit();
             this.ResumeLayout(false);
 

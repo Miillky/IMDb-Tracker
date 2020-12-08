@@ -28,14 +28,14 @@ namespace IMDbTrackerLibrary {
             return true;
         }
 
-        private static bool UniqueEmail(string emailFieldValue) {
-            if(GlobalConfig.Connection.EmailExists(emailFieldValue)) {
+        private static bool UniqueEmail(string emailFieldValue, int userId) {
+            if(GlobalConfig.Connection.EmailExists(emailFieldValue, userId)) {
                 throw new EmailExistsException(GlobalConfig.GetExceptionMessage("UniqueEmail"));
             }
             return true;
         }
-        private static bool UniqueAPIKey(string apiFieldValue) {
-            if(GlobalConfig.Connection.APIKeyExists(apiFieldValue)) {
+        private static bool UniqueAPIKey(string apiFieldValue, int userId) {
+            if(GlobalConfig.Connection.APIKeyExists(apiFieldValue, userId)) {
                 throw new APIKeyExistsException(GlobalConfig.GetExceptionMessage("UniqueApiKey"));
             }
             return true;
@@ -114,8 +114,7 @@ namespace IMDbTrackerLibrary {
         }
 
         private static bool TokenNotExpired(DateTime tokenExpiration) {
-            int result = DateTime.Compare(DateTime.Now, tokenExpiration);
-            if(result < 0) {
+            if(DateTime.UtcNow >= tokenExpiration) {
                 throw new TokenExpiredException(GlobalConfig.GetExceptionMessage("TokenExpired"));
             }
             return true;
@@ -167,13 +166,13 @@ namespace IMDbTrackerLibrary {
             return true;
         }
 
-        public static bool ValidateEmailTextBox(TextBox emailField, Label errorLabel) {
+        public static bool ValidateEmailTextBox(TextBox emailField, Label errorLabel, int userId) {
             try {
 
                 errorLabel.Hide();
                 Required(emailField.Text, GlobalConfig.GetExceptionMessage("EmailRequired"));
                 ValidEmail(emailField.Text);
-                UniqueEmail(emailField.Text);
+                UniqueEmail(emailField.Text, userId);
 
             } catch(ArgumentException aex) {
                 errorLabel.Show();
@@ -248,11 +247,11 @@ namespace IMDbTrackerLibrary {
             return true;
         }
 
-        public static bool ValidateApiKeyTextBox(TextBox apiKeyField, Label errorLabel) {
+        public static bool ValidateApiKeyTextBox(TextBox apiKeyField, Label errorLabel, int userId) {
             try {
                 errorLabel.Hide();
                 Required(apiKeyField.Text, GlobalConfig.GetExceptionMessage("APIKeyRequired"));
-                UniqueAPIKey(apiKeyField.Text);
+                UniqueAPIKey(apiKeyField.Text, userId);
             } catch(ArgumentException aex) {
                 errorLabel.Show();
                 errorLabel.Text = aex.Message;
@@ -286,7 +285,7 @@ namespace IMDbTrackerLibrary {
             return true;
         }
 
-        public static bool ValidateLogInPassword(TextBox passwordField, string paswordHash, Label errorLabel) {
+        public static bool ValidateUserPassword(TextBox passwordField, string paswordHash, Label errorLabel) {
             try {
 
                 errorLabel.Hide();

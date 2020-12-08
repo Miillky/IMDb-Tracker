@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMDbTrackerLibrary;
 using IMDbTrackerLibrary.Models;
 
 namespace IMDbTrackerUI {
     public partial class ResetPasswordForm : Form {
+
         private readonly User user;
-        public ResetPasswordForm(User model) {
+        private readonly bool updateProfile;
+
+        public ResetPasswordForm(User model, bool updateProfile) {
             InitializeComponent();
 
             user = model;
+
+            this.updateProfile = updateProfile;
         }
 
         private bool ValidatePasswordFields() {
@@ -54,6 +52,10 @@ namespace IMDbTrackerUI {
 
             this.Close();
             this.Dispose();
+
+            if(updateProfile) {
+                return;
+            }
 
             LogInForm logInForm = new LogInForm(user);
             logInForm.Show();

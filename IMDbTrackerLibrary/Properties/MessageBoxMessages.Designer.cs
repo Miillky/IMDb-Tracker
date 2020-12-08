@@ -86,5 +86,14 @@ namespace IMDbTrackerLibrary.Properties {
                 return ResourceManager.GetString("UserRegistered", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile updated!.
+        /// </summary>
+        internal static string UserUpdated {
+            get {
+                return ResourceManager.GetString("UserUpdated", resourceCulture);
+            }
+        }
     }
 }

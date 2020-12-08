@@ -8,8 +8,8 @@ namespace IMDbTrackerLibrary.DataAccess {
         User FindUserByUsername(string username);
         User FindUserByEmail(string email);
         bool UsernameExists(string username);
-        bool EmailExists(string email);
-        bool APIKeyExists(string apiKey);
+        bool EmailExists(string email, int userId);
+        bool APIKeyExists(string apiKey, int userId);
         void SetPasswordResetToken(User model, string passwordResetKey, System.DateTime passwordResetTokenValid);
         (string, System.DateTime?) GetPasswordResetToken(User model);
     }

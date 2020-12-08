@@ -151,5 +151,32 @@ namespace IMDbTrackerLibrary.Properties {
                 return ResourceManager.GetString("Signature", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your profile has been updated..
+        /// </summary>
+        internal static string UpdatedProfileMessage {
+            get {
+                return ResourceManager.GetString("UpdatedProfileMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IMDB Tracker - Profile updated.
+        /// </summary>
+        internal static string UpdateProfileSubject {
+            get {
+                return ResourceManager.GetString("UpdateProfileSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile updated.
+        /// </summary>
+        internal static string UpdateProfileTitle {
+            get {
+                return ResourceManager.GetString("UpdateProfileTitle", resourceCulture);
+            }
+        }
     }
 }

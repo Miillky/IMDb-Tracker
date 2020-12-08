@@ -126,4 +126,7 @@
   <data name="UserRegistered" xml:space="preserve">
     <value>User registered!</value>
   </data>
+  <data name="UserUpdated" xml:space="preserve">
+    <value>Profile updated!</value>
+  </data>
 </root>

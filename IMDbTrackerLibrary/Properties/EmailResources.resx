@@ -148,4 +148,13 @@
   <data name="Signature" xml:space="preserve">
     <value>~IMDb Tracker</value>
   </data>
+  <data name="UpdatedProfileMessage" xml:space="preserve">
+    <value>Your profile has been updated.</value>
+  </data>
+  <data name="UpdateProfileSubject" xml:space="preserve">
+    <value>IMDB Tracker - Profile updated</value>
+  </data>
+  <data name="UpdateProfileTitle" xml:space="preserve">
+    <value>Profile updated</value>
+  </data>
 </root>

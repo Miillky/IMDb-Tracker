@@ -204,9 +204,9 @@
             this.repeatPasswordLabel.Location = new System.Drawing.Point(40, 560);
             this.repeatPasswordLabel.Margin = new System.Windows.Forms.Padding(0);
             this.repeatPasswordLabel.Name = "repeatPasswordLabel";
-            this.repeatPasswordLabel.Size = new System.Drawing.Size(163, 25);
+            this.repeatPasswordLabel.Size = new System.Drawing.Size(168, 25);
             this.repeatPasswordLabel.TabIndex = 0;
-            this.repeatPasswordLabel.Text = "Repeat password";
+            this.repeatPasswordLabel.Text = "Repeat password:";
             // 
             // RegisterButton
             // 
@@ -217,7 +217,7 @@
             this.RegisterButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RegisterButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.RegisterButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegisterButton.Location = new System.Drawing.Point(45, 720);
+            this.RegisterButton.Location = new System.Drawing.Point(40, 720);
             this.RegisterButton.Margin = new System.Windows.Forms.Padding(0);
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(300, 60);
@@ -245,9 +245,9 @@
             this.apiKeyLabel.Location = new System.Drawing.Point(40, 635);
             this.apiKeyLabel.Margin = new System.Windows.Forms.Padding(0);
             this.apiKeyLabel.Name = "apiKeyLabel";
-            this.apiKeyLabel.Size = new System.Drawing.Size(79, 25);
+            this.apiKeyLabel.Size = new System.Drawing.Size(84, 25);
             this.apiKeyLabel.TabIndex = 8;
-            this.apiKeyLabel.Text = "API key";
+            this.apiKeyLabel.Text = "API key:";
             // 
             // usernameValidateErrorLabel
             // 

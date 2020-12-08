@@ -38,14 +38,27 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
             return false;
         }
 
-        public bool EmailExists(string email) {
+        public bool EmailExists(string email, int userId) {
+            if(userId > 0) {
+                if(context.Users.Where(u => u.Email == email && u.Id == userId).SingleOrDefault() != null) {
+                    return false;
+                }
+            }
+
             if(context.Users.Where(u => u.Email == email).SingleOrDefault() != null) {
                 return true;
             }
+
             return false;
         }
 
-        public bool APIKeyExists(string apiKey) {
+        public bool APIKeyExists(string apiKey, int userId) {
+            if(userId > 0) {
+                if(context.Users.Where(u => u.APIKey == apiKey && u.Id == userId).SingleOrDefault() != null) {
+                    return false;
+                }
+            }
+
             if(context.Users.Where(u => u.APIKey == apiKey).SingleOrDefault() != null) {
                 return true;
             }
