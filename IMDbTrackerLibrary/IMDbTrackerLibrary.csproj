@@ -158,6 +158,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API.cs" />
     <Compile Include="DataAccess\Entity\EntityConnector.cs" />
     <Compile Include="DataAccess\Entity\IMDbTrackerContext.cs" />
     <Compile Include="DataAccess\MSSQLConnector.cs" />
@@ -177,7 +178,9 @@
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="IDataConnection.cs" />
+    <Compile Include="Models\FavoriteMovie.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\FavoriteShow.cs" />
     <Compile Include="Models\Show.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

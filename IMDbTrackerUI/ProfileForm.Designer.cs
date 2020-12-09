@@ -319,7 +319,7 @@ namespace IMDbTrackerUI {
             this.IMDbLogoImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.IMDbLogoImage.Image = global::IMDbTrackerUI.Properties.Resources.IMDb_black_logo;
             this.IMDbLogoImage.ImageLocation = "";
-            this.IMDbLogoImage.Location = new System.Drawing.Point(40, 33);
+            this.IMDbLogoImage.Location = new System.Drawing.Point(40, 35);
             this.IMDbLogoImage.Margin = new System.Windows.Forms.Padding(0);
             this.IMDbLogoImage.Name = "IMDbLogoImage";
             this.IMDbLogoImage.Size = new System.Drawing.Size(300, 125);
@@ -415,6 +415,7 @@ namespace IMDbTrackerUI {
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(400, 850);
             this.MinimumSize = new System.Drawing.Size(400, 850);
             this.Name = "ProfileForm";
