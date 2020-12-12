@@ -7,12 +7,13 @@ namespace IMDbTrackerLibrary.Models {
         [Key]
         public int Id { get; set; }
 
-        [StringLength(255)]
+        [StringLength(150)]
         [Required(AllowEmptyStrings = false)]
-        public string Title { get; set; }
+        public string MovieId { get; set; }
+        public virtual Movie Movie { get; set; }
 
-        [ForeignKey("User")]
-        [Required(AllowEmptyStrings = false)]
+        [Column(TypeName = "int")]
+        [Required]
         public int UserId { get; set; }
         public virtual User User { get; set; }
     }

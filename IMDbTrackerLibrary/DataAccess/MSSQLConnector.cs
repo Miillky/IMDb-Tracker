@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using IMDbTrackerLibrary.Models;
 
 namespace IMDbTrackerLibrary.DataAccess {
@@ -14,6 +15,10 @@ namespace IMDbTrackerLibrary.DataAccess {
         }
 
         public void UpdateUser(User model) {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteUser(User model) {
             throw new NotImplementedException();
         }
 
@@ -47,6 +52,62 @@ namespace IMDbTrackerLibrary.DataAccess {
         }
 
         public (string, DateTime?) GetPasswordResetToken(User model) {
+            throw new NotImplementedException();
+        }
+
+        public void AddShow(Show model) {
+            throw new NotImplementedException();
+        }
+
+        public Show FindShowById(string showId) {
+            throw new NotImplementedException();
+        }
+
+        public void AddMovie(Movie model) {
+            throw new NotImplementedException();
+        }
+
+        public Movie FindMovieById(string showId) {
+            throw new NotImplementedException();
+        }
+
+        public void AddFavoriteShow(Show model) {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveFavoriteShow(FavoriteShow model) {
+            throw new NotImplementedException();
+        }
+
+        public FavoriteShow FindFavoriteShowByIds(FavoriteShow model) {
+            throw new NotImplementedException();
+        }
+
+        public void AddFavoriteMovie(FavoriteMovie model) {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveFavoriteMovie(FavoriteMovie model) {
+            throw new NotImplementedException();
+        }
+
+        public FavoriteMovie FindFavoriteMovieByIds(FavoriteMovie model) {
+            throw new NotImplementedException();
+        }
+
+        public void AddShows(List<Show> shows) {
+            throw new NotImplementedException();
+        }
+
+        public void AddMovies(List<Movie> movies) {
+            throw new NotImplementedException();
+        }
+
+        public List<FavoriteShow> FindUserFavoriteShows(User model) {
+            throw new NotImplementedException();
+        }
+
+        public List<FavoriteMovie> FindUserFavoriteMovies(User model) {
             throw new NotImplementedException();
         }
     }
