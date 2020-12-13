@@ -110,5 +110,29 @@ namespace IMDbTrackerLibrary.DataAccess {
         public List<FavoriteMovie> FindUserFavoriteMovies(User model) {
             throw new NotImplementedException();
         }
+
+        public void AddEpisode(Episode model) {
+            throw new NotImplementedException();
+        }
+
+        public void AddEpisodes(List<Episode> episodes) {
+            throw new NotImplementedException();
+        }
+
+        public Episode FindEpisodeById(string episodeId) {
+            throw new NotImplementedException();
+        }
+
+        public ShowComment FindShowComment(Show show, User user) {
+            throw new NotImplementedException();
+        }
+
+        public EpisodeComment FindEpisodeComment(Episode epside, Show show, User user) {
+            throw new NotImplementedException();
+        }
+
+        public MovieComment FindMovieComment(Movie movie, User user) {
+            throw new NotImplementedException();
+        }
     }
 }

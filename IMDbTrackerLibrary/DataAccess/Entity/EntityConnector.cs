@@ -101,6 +101,20 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
             return context.Shows.Where(s => s.Id == showId).SingleOrDefault();
         }
 
+        public void AddEpisode(Episode model) {
+            context.Episodes.Add(model);
+            context.SaveChangesAsync();
+        }
+
+        public void AddEpisodes(List<Episode> episodes) {
+            episodes.ForEach(episode => context.Episodes.Add(episode));
+            context.SaveChangesAsync();
+        }
+
+        public Episode FindEpisodeById(string episodeId) {
+            return context.Episodes.Where(e => e.Id == episodeId).SingleOrDefault();
+        }
+
         public void AddMovie(Movie model) {
             context.Movies.Add(model);
             context.SaveChanges();
@@ -151,6 +165,17 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
 
         public List<FavoriteMovie> FindUserFavoriteMovies(User model) {
             return context.FavoriteMovies.Where(fm => fm.UserId == model.Id).ToList();
+        }
+
+        public ShowComment FindShowComment(Show show, User user) {
+            return context.ShowComments.Where(sc => sc.ShowId == show.Id && sc.UserId == user.Id).SingleOrDefault();
+        }
+
+        public EpisodeComment FindEpisodeComment(Episode episode, Show show, User user) {
+            return context.EpisodeComments.Where(ec => ec.EpisodeId == episode.Id && ec.ShowId == show.Id && ec.UserId == user.Id).SingleOrDefault();
+        }
+        public MovieComment FindMovieComment(Movie movie, User user) {
+            return context.MovieComments.Where(mc => mc.MovieId == movie.Id && mc.UserId == user.Id).SingleOrDefault();
         }
     }
 }

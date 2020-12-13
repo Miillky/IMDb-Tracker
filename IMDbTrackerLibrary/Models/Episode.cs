@@ -1,17 +1,16 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace IMDbTrackerLibrary.Models {
-    [Table("Movie")]
-    public class Movie {
+    [Table("Episodes")]
+    public class Episode {
         [Key]
         [StringLength(150)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Id { get; set; }
 
-        [StringLength(250)]
+        [StringLength(255)]
         [Required(AllowEmptyStrings = false)]
         public string Title { get; set; }
 
@@ -20,9 +19,34 @@ namespace IMDbTrackerLibrary.Models {
         public string ImageUrl { get; set; }
 
         [Column(TypeName = "int")]
+        [Range(1, 500)]
+        [Required]
+        public int EpisodeNumber { get; set; }
+
+        [Column(TypeName = "int")]
         [Range(0, 1000)]
         [Required]
         public int RunningTimeInMinutes { get; set; }
+
+        [Column(TypeName = "int")]
+        [Range(1, 100)]
+        [Required]
+        public int Season { get; set; }
+
+        [Column(TypeName = "int")]
+        [Range(1800, 3000)]
+        [Required]
+        public int SeriesEndYear { get; set; }
+
+        [Column(TypeName = "int")]
+        [Range(1800, 3000)]
+        [Required]
+        public int SeriesStartYear { get; set; }
+
+        [Column(TypeName = "int")]
+        [Range(1800, 3000)]
+        [Required]
+        public int Year { get; set; }
 
         [Column(TypeName = "double")]
         [Range(0, 10)]
@@ -36,14 +60,9 @@ namespace IMDbTrackerLibrary.Models {
                 return Genres;
             }
             set {
-                string.Join(" ", Genres); 
+                string.Join(" ", Genres);
             }
         }
-
-        [Column(TypeName = "int")]
-        [Range(1800, 3000)]
-        [Required]
-        public int Year { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime? ReleseDate { get; set; } = null;
@@ -52,8 +71,9 @@ namespace IMDbTrackerLibrary.Models {
         [Required(AllowEmptyStrings = false)]
         public string PlotOutline { get; set; }
 
-        [StringLength(500)]
+        [StringLength(150)]
         [Required(AllowEmptyStrings = false)]
-        public string PlotSummary { get; set; }
+        public string ShowId { get; set; }
+        public virtual Show Show { get; set; }
     }
 }

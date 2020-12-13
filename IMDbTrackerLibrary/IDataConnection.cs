@@ -17,6 +17,9 @@ namespace IMDbTrackerLibrary.DataAccess {
         void AddShow(Show model);
         void AddShows(List<Show> shows);
         Show FindShowById(string showId);
+        void AddEpisode(Episode model);
+        void AddEpisodes(List<Episode> episodes);
+        Episode FindEpisodeById(string episodeId);
         void AddMovie(Movie model);
         void AddMovies(List<Movie> movies);
         Movie FindMovieById(string movieId);
@@ -28,5 +31,9 @@ namespace IMDbTrackerLibrary.DataAccess {
         void RemoveFavoriteMovie(FavoriteMovie model);
         FavoriteMovie FindFavoriteMovieByIds(FavoriteMovie model);
         List<FavoriteMovie> FindUserFavoriteMovies(User model);
+        ShowComment FindShowComment(Show show, User user);
+        EpisodeComment FindEpisodeComment(Episode epside, Show show, User user);
+        MovieComment FindMovieComment(Movie movie, User user);
+
     }
 }

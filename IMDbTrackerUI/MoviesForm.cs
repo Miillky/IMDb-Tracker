@@ -30,7 +30,7 @@ namespace IMDbTrackerUI {
                 new MovieType{ Description = "Top rated", Endpoint = "top-rated-movies" },
                 new MovieType{ Description = "Most popular", Endpoint = "most-popular-movies" }
             };
-            
+
             api = new API(user);
         }
 

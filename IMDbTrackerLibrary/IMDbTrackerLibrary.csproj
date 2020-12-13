@@ -190,13 +190,14 @@
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="IDataConnection.cs" />
-    <Compile Include="Migrations\202012121402467_InitMigration.cs" />
-    <Compile Include="Migrations\202012121402467_InitMigration.designer.cs">
-      <DependentUpon>202012121402467_InitMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\API\EpisodeDetails.cs" />
     <Compile Include="Models\API\MovieDetails.cs" />
     <Compile Include="Models\API\ShowDetails.cs" />
+    <Compile Include="Models\API\ShowSeasons.cs" />
+    <Compile Include="Models\Episode.cs" />
+    <Compile Include="Models\EpisodeComment.cs" />
+    <Compile Include="Models\MovieComment.cs" />
+    <Compile Include="Models\ShowComment.cs" />
     <Compile Include="Models\FavoriteMovie.cs" />
     <Compile Include="Models\API\MovieTypes.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -222,9 +223,6 @@
     <Compile Include="Validator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012121402467_InitMigration.resx">
-      <DependentUpon>202012121402467_InitMigration.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\EmailResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EmailResources.Designer.cs</LastGenOutput>
@@ -248,7 +246,9 @@
   <ItemGroup>
     <None Include="EmailResources\IMDb yellow logo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
