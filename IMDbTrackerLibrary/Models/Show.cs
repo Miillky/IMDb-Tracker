@@ -31,17 +31,12 @@ namespace IMDbTrackerLibrary.Models {
         [Column(TypeName = "int")]
         [Range(1800, 3000)]
         [Required]
-        public int SeriesEndYear { get; set; }
-
-        [Column(TypeName = "int")]
-        [Range(1800, 3000)]
-        [Required]
         public int SeriesStartYear { get; set; }
 
         [Column(TypeName = "int")]
-        [Range(1800, 3000)]
+        [Range(0, 3000)]
         [Required]
-        public int Year { get; set; }
+        public int SeriesEndYear { get; set; }
 
         [Column(TypeName = "float")]
         [Range(0, 10)]
@@ -51,6 +46,11 @@ namespace IMDbTrackerLibrary.Models {
         [StringLength(250)]
         [Required(AllowEmptyStrings = false)]
         public string Genres { get; set; }
+
+        [Column(TypeName = "int")]
+        [Range(1800, 3000)]
+        [Required]
+        public int Year { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime? ReleseDate { get; set; } = null;

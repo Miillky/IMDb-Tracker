@@ -35,7 +35,7 @@ namespace IMDbTrackerUI {
             this.movieReleseYearLabel = new System.Windows.Forms.Label();
             this.addRemoveFavoritesButton = new System.Windows.Forms.Button();
             this.movieDetailsButton = new System.Windows.Forms.Button();
-            this.plotOutlineTextBox = new System.Windows.Forms.TextBox();
+            this.moviePlotOutlineTextBox = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.movieCoverPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -169,20 +169,20 @@ namespace IMDbTrackerUI {
             this.movieDetailsButton.UseVisualStyleBackColor = false;
             this.movieDetailsButton.Click += new System.EventHandler(this.MovieDetailsButton_Click);
             // 
-            // plotOutlineTextBox
+            // moviePlotOutlineTextBox
             // 
-            this.plotOutlineTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.plotOutlineTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.plotOutlineTextBox.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.plotOutlineTextBox.ForeColor = System.Drawing.Color.Black;
-            this.plotOutlineTextBox.Location = new System.Drawing.Point(320, 400);
-            this.plotOutlineTextBox.MaximumSize = new System.Drawing.Size(330, 90);
-            this.plotOutlineTextBox.MinimumSize = new System.Drawing.Size(330, 90);
-            this.plotOutlineTextBox.Multiline = true;
-            this.plotOutlineTextBox.Name = "plotOutlineTextBox";
-            this.plotOutlineTextBox.ReadOnly = true;
-            this.plotOutlineTextBox.Size = new System.Drawing.Size(330, 90);
-            this.plotOutlineTextBox.TabIndex = 4;
+            this.moviePlotOutlineTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.moviePlotOutlineTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.moviePlotOutlineTextBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.moviePlotOutlineTextBox.ForeColor = System.Drawing.Color.Black;
+            this.moviePlotOutlineTextBox.Location = new System.Drawing.Point(320, 400);
+            this.moviePlotOutlineTextBox.MaximumSize = new System.Drawing.Size(330, 90);
+            this.moviePlotOutlineTextBox.MinimumSize = new System.Drawing.Size(330, 90);
+            this.moviePlotOutlineTextBox.Multiline = true;
+            this.moviePlotOutlineTextBox.Name = "moviePlotOutlineTextBox";
+            this.moviePlotOutlineTextBox.ReadOnly = true;
+            this.moviePlotOutlineTextBox.Size = new System.Drawing.Size(330, 90);
+            this.moviePlotOutlineTextBox.TabIndex = 4;
             // 
             // contextMenuStrip1
             // 
@@ -195,7 +195,7 @@ namespace IMDbTrackerUI {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(684, 661);
-            this.Controls.Add(this.plotOutlineTextBox);
+            this.Controls.Add(this.moviePlotOutlineTextBox);
             this.Controls.Add(this.movieDetailsButton);
             this.Controls.Add(this.addRemoveFavoritesButton);
             this.Controls.Add(this.movieReleseYearLabel);
@@ -233,7 +233,7 @@ namespace IMDbTrackerUI {
         private System.Windows.Forms.Label movieReleseYearLabel;
         private System.Windows.Forms.Button addRemoveFavoritesButton;
         private System.Windows.Forms.Button movieDetailsButton;
-        private System.Windows.Forms.TextBox plotOutlineTextBox;
+        private System.Windows.Forms.TextBox moviePlotOutlineTextBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

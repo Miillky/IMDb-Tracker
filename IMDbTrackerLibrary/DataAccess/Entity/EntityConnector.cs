@@ -89,7 +89,7 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
 
         public void AddShow(Show model) {
             context.Shows.Add(model);
-            context.SaveChangesAsync();
+            context.SaveChanges();
         }
 
         public void AddShows(List<Show> shows) {
@@ -129,8 +129,8 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
             return context.Movies.Where(m => m.Id == movieId).SingleOrDefault();
         }
 
-        public void AddFavoriteShow(Show model) {
-            context.Shows.Add(model);
+        public void AddFavoriteShow(FavoriteShow model) {
+            context.FavoriteShows.Add(model);
             context.SaveChangesAsync();
         }
 

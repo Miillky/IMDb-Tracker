@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Net;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMDbTrackerLibrary;
 using IMDbTrackerLibrary.Models;
@@ -20,7 +15,7 @@ namespace IMDbTrackerUI {
         private readonly API api;
 
         private Movie selectedMovie;
-        private List<Movie> movie;
+        private List<Movie> movies;
         private readonly List<MovieType> movieTypes;
 
         private string CurrentEndpointSlug;
@@ -29,30 +24,17 @@ namespace IMDbTrackerUI {
         private const string AddToFavoritesText = "Add to favorites";
         private const string RemoveFromFavoritesText = "Remove from favorites";
 
-        public MoviesForm() {
+        public MoviesForm(User model) {
             InitializeComponent();
+
+            user = model;
+
+            api = new API(user);
 
             movieTypes = new List<MovieType>() {
                 new MovieType{ Description = "Favorites", Endpoint = FavoritesEndpointSlug },
                 new MovieType{ Description = "Most popular", Endpoint = MostPopularEndpointSlug }
             };
-
-            /*User = new User() {
-                Id = 1,
-                Username = "Milky",
-                FirstName = "Vedran",
-                LastName = "Milković",
-                Email = "vedran.milkovic25@gmail.com",
-                Password = "VM2$GdQVB0sgRBjVHP6Ro5MbkQ==$doGLdpFTZKIOqkmiihE0TAGWZVz10fV5bHDJ8NcNj2I=",
-                APIKey = "d325262b71mshbfc5b66bf151c72p115614jsnad17a77df9b4",
-                LastLogin = DateTime.UtcNow,
-                PasswordResetToken = null,
-                PasswordResetTokenValid = null
-            };*/
-
-            user = GlobalConfig.Connection.FindUserByUsername("Milky");
-
-            api = new API(user);
         }
 
         private void MoviesForm_Load(object sender, EventArgs e) {
@@ -65,7 +47,7 @@ namespace IMDbTrackerUI {
         private void FilterMoviesTextBox_TextChanged(object sender, EventArgs e) {
             string text = filterMoviesTextBox.Text;
 
-            List<Movie> filteredMoviesList = movie.Where(movie => movie.Title.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0)
+            List<Movie> filteredMoviesList = movies.Where(movie => movie.Title.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0)
                 .ToList();
 
             moviesListBox.Items.Clear();
@@ -76,11 +58,14 @@ namespace IMDbTrackerUI {
             MovieType selectedMovieType = (MovieType)moviesTypeComboBox.SelectedItem;
             CurrentEndpointSlug = selectedMovieType.Endpoint;
             GetMoviesByType(CurrentEndpointSlug);
-            SetActiveListBoxItem();
         }
 
         private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e) {
-            if(movie.Count == 0) {
+            if((Movie)moviesListBox.SelectedItem == selectedMovie) {
+                return;
+            }
+
+            if(movies.Count == 0) {
                 addRemoveFavoritesButton.Enabled = false; 
                 movieDetailsButton.Enabled = false;
                 return;
@@ -90,11 +75,13 @@ namespace IMDbTrackerUI {
 
             movieTitleLabel.Text = selectedMovie.Title;
             movieReleseYearLabel.Text = DateTime.SpecifyKind((DateTime)selectedMovie.ReleseDate, DateTimeKind.Local).ToString("yyyy");
-            plotOutlineTextBox.Text = selectedMovie.PlotOutline;
+            moviePlotOutlineTextBox.Text = selectedMovie.PlotOutline;
 
             FavoriteMovie fm = new FavoriteMovie() {
                 MovieId = selectedMovie.Id,
-                UserId = user.Id
+                Movie = selectedMovie,
+                UserId = user.Id,
+                User = user
             };
 
             FavoriteMovie favoriteMovie = GlobalConfig.Connection.FindFavoriteMovieByIds(fm);
@@ -127,14 +114,18 @@ namespace IMDbTrackerUI {
 
                 addRemoveFavoritesButton.Text = RemoveFromFavoritesText;
 
-                movie.Add(selectedMovie); 
+                movies.Add(selectedMovie); 
 
             } else {
+
                 GlobalConfig.Connection.RemoveFavoriteMovie(favoriteMovie);
 
                 addRemoveFavoritesButton.Text = AddToFavoritesText;
 
-                movie.Remove(selectedMovie);
+                movies.Remove(selectedMovie);
+
+                selectedMovie = null;
+                
             }
 
             if(CurrentEndpointSlug == FavoritesEndpointSlug) {
@@ -148,37 +139,35 @@ namespace IMDbTrackerUI {
         }
 
         private void GetFavoriteMovies() {
-            movie = new List<Movie>();
+            movies = new List<Movie>();
 
             List<FavoriteMovie> userFavoriteMovies = GlobalConfig.Connection.FindUserFavoriteMovies(user);
             if(userFavoriteMovies.Count > 0) {
-                userFavoriteMovies.ForEach(fm => movie.Add(GlobalConfig.Connection.FindMovieById(fm.MovieId)));
+                userFavoriteMovies.ForEach(fm => movies.Add(GlobalConfig.Connection.FindMovieById(fm.MovieId)));
             }
 
             PopulateListBox();
         }
 
         private async void GetMostPopularMovies() {
-            movie = new List<Movie>();
+            movies = new List<Movie>();
 
-            movie.Add(GlobalConfig.Connection.FindMovieById("tt6723592"));
-            PopulateListBox();
-            //var movieIds = await API.GetMostPopularMovies();
-            //GetListBoxMovies(movieIds[0]);
-            /*foreach(var movieId in movieIds) {
+            var movieIds = await api.GetMostPopular("get-most-popular-movies");
+
+            foreach(var movieId in movieIds) {
                 GetListBoxMovies(movieId);
-            }*/
+            }
         }
 
         private async void GetMovieListByGanre(string endpoint) {
 
-            movie = new List<Movie>();
+            movies = new List<Movie>();
 
             var movieIds = await api.GetPopularMoviesByGenre(endpoint);
 
-            /*foreach(var movieId in movieIds) {
+            foreach(var movieId in movieIds) {
                 GetListBoxMovies(movieId);
-            }*/
+            }
         }
 
         private async void PopulateMovieTypeComboBox() {
@@ -188,15 +177,15 @@ namespace IMDbTrackerUI {
 
             moviesTypeComboBox.Items.AddRange(movieTypes.ToArray());
 
-            //MovieTypes movieGenres = await API.GetPopularGenres();
-            //movieGenres.Genres.ToList().ForEach(genre => moviesTypeComboBox.Items.Add(genre));
+            MovieTypes movieGenres = await api.GetPopularGenres();
+            movieGenres.Genres.ToList().ForEach(genre => moviesTypeComboBox.Items.Add(genre));
         }
 
         private async void GetListBoxMovies(string movieId) {
             Movie movie = GlobalConfig.Connection.FindMovieById(movieId);
 
             if(movie != null) {
-                this.movie.Add(movie);
+                movies.Add(movie);
             } else {
 
                 MovieDetails movieDetails = await api.GetMovieDetails(movieId);
@@ -216,7 +205,7 @@ namespace IMDbTrackerUI {
 
                 GlobalConfig.Connection.AddMovie(movie);
 
-                this.movie.Add(movie);
+                movies.Add(movie);
             }
 
             PopulateListBox();
@@ -228,27 +217,19 @@ namespace IMDbTrackerUI {
             moviesListBox.ValueMember = "Id";
             moviesListBox.Items.Clear();
 
-            if(movie.Count == 0) {
+            if(movies.Count == 0) {
                 addRemoveFavoritesButton.Enabled = false;
                 movieDetailsButton.Enabled = false;
                 selectedMovie = null;
                 return;
             }
 
-            addRemoveFavoritesButton.Enabled = false;
-            movieDetailsButton.Enabled = false;
+            moviesListBox.Items.AddRange(movies.ToArray());
 
-            moviesListBox.Items.AddRange(movie.ToArray());
+            SetActiveListBoxItem();
         }
 
         private void SetActiveListBoxItem() {
-            if(movie.Count == 0) {
-                selectedMovie = null;
-                return;
-            }
-
-            moviesListBox.SelectedIndex = 0;
-
             if((Movie)moviesListBox.SelectedItem != selectedMovie) {
                 selectedMovie = new Movie();
                 selectedMovie = (Movie)moviesListBox.SelectedItem;
@@ -266,7 +247,7 @@ namespace IMDbTrackerUI {
                     GetMostPopularMovies();
                     break;
                 default:
-                    //GetMovieListByGanre(endpoint);
+                    GetMovieListByGanre(endpoint);
                     break;
             }
         }

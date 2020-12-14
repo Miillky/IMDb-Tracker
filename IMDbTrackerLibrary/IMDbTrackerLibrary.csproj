@@ -192,6 +192,7 @@
     <Compile Include="IDataConnection.cs" />
     <Compile Include="Models\API\EpisodeDetails.cs" />
     <Compile Include="Models\API\MovieDetails.cs" />
+    <Compile Include="Models\API\ShowType.cs" />
     <Compile Include="Models\API\ShowDetails.cs" />
     <Compile Include="Models\API\ShowSeasons.cs" />
     <Compile Include="Models\Episode.cs" />

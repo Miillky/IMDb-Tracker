@@ -71,7 +71,7 @@ namespace IMDbTrackerLibrary.DataAccess {
             throw new NotImplementedException();
         }
 
-        public void AddFavoriteShow(Show model) {
+        public void AddFavoriteShow(FavoriteShow model) {
             throw new NotImplementedException();
         }
 

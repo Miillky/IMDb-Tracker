@@ -23,7 +23,7 @@ namespace IMDbTrackerLibrary.DataAccess {
         void AddMovie(Movie model);
         void AddMovies(List<Movie> movies);
         Movie FindMovieById(string movieId);
-        void AddFavoriteShow(Show model);
+        void AddFavoriteShow(FavoriteShow model);
         void RemoveFavoriteShow(FavoriteShow model);
         FavoriteShow FindFavoriteShowByIds(FavoriteShow model);
         List<FavoriteShow> FindUserFavoriteShows(User model);
