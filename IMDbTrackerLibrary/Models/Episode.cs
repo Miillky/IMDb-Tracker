@@ -48,21 +48,14 @@ namespace IMDbTrackerLibrary.Models {
         [Required]
         public int Year { get; set; }
 
-        [Column(TypeName = "double")]
+        [Column(TypeName = "float")]
         [Range(0, 10)]
         [Required]
         public float Rating { get; set; }
 
         [StringLength(250)]
         [Required(AllowEmptyStrings = false)]
-        public string Genres {
-            get {
-                return Genres;
-            }
-            set {
-                string.Join(" ", Genres);
-            }
-        }
+        public string Genres { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime? ReleseDate { get; set; } = null;

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IMDbTrackerLibrary.Models {
-    [Table("FavoriteMovie")]
+    [Table("FavoriteMovies")]
     public class FavoriteMovie {
         [Key]
         public int Id { get; set; }

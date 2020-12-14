@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddMovieComment" xml:space="preserve">
+    <value>Movie comment added!</value>
+  </data>
   <data name="PasswordReseted" xml:space="preserve">
     <value>Password reseted!</value>
   </data>
   <data name="PasswordResetTokenSend" xml:space="preserve">
     <value>Reset token is send, check your email!</value>
+  </data>
+  <data name="UpdateMovieComment" xml:space="preserve">
+    <value>Movie comment updated!</value>
   </data>
   <data name="UserRegistered" xml:space="preserve">
     <value>User registered!</value>

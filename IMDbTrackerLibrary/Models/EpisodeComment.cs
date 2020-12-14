@@ -12,11 +12,6 @@ namespace IMDbTrackerLibrary.Models {
         public string EpisodeId { get; set; }
         public virtual Episode Episode { get; set; }
 
-        [StringLength(150)]
-        [Required(AllowEmptyStrings = false)]
-        public string ShowId { get; set; }
-        public virtual Show Show { get; set; }
-
         [Column(TypeName = "int")]
         [Required]
         public int UserId { get; set; }

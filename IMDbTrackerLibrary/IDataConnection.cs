@@ -31,9 +31,14 @@ namespace IMDbTrackerLibrary.DataAccess {
         void RemoveFavoriteMovie(FavoriteMovie model);
         FavoriteMovie FindFavoriteMovieByIds(FavoriteMovie model);
         List<FavoriteMovie> FindUserFavoriteMovies(User model);
+        void AddShowComment(ShowComment model);
+        void UpdateShowComment(ShowComment model);
         ShowComment FindShowComment(Show show, User user);
-        EpisodeComment FindEpisodeComment(Episode epside, Show show, User user);
+        void AddEpisodeComment(EpisodeComment model);
+        void UpdateEpisodeComment(EpisodeComment model);
+        EpisodeComment FindEpisodeComment(Episode epside, User user);
+        void AddMovieComment(MovieComment model);
+        void UpdateMovieComment(MovieComment model);
         MovieComment FindMovieComment(Movie movie, User user);
-
     }
 }

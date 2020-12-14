@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace IMDbTrackerLibrary.Models {
-    [Table("Movie")]
+    [Table("Movies")]
     public class Movie {
         [Key]
         [StringLength(150)]
@@ -24,21 +24,14 @@ namespace IMDbTrackerLibrary.Models {
         [Required]
         public int RunningTimeInMinutes { get; set; }
 
-        [Column(TypeName = "double")]
+        [Column(TypeName = "float")]
         [Range(0, 10)]
         [Required]
         public float Rating { get; set; }
 
         [StringLength(250)]
         [Required(AllowEmptyStrings = false)]
-        public string Genres {
-            get {
-                return Genres;
-            }
-            set {
-                string.Join(" ", Genres); 
-            }
-        }
+        public string Genres { get; set; }
 
         [Column(TypeName = "int")]
         [Range(1800, 3000)]

@@ -167,13 +167,53 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
             return context.FavoriteMovies.Where(fm => fm.UserId == model.Id).ToList();
         }
 
+        public void AddShowComment(ShowComment model) {
+            context.ShowComments.Add(model);
+            context.SaveChangesAsync();
+        }
+
+        public void UpdateShowComment(ShowComment model) {
+            ShowComment showComment = context.ShowComments.SingleOrDefault(u => u.Id == model.Id);
+            if(showComment != null) {
+                context.Entry(showComment).CurrentValues.SetValues(model);
+                context.SaveChangesAsync();
+            }
+        }
+
         public ShowComment FindShowComment(Show show, User user) {
             return context.ShowComments.Where(sc => sc.ShowId == show.Id && sc.UserId == user.Id).SingleOrDefault();
         }
 
-        public EpisodeComment FindEpisodeComment(Episode episode, Show show, User user) {
-            return context.EpisodeComments.Where(ec => ec.EpisodeId == episode.Id && ec.ShowId == show.Id && ec.UserId == user.Id).SingleOrDefault();
+        public void AddEpisodeComment(EpisodeComment model) {
+            context.EpisodeComments.Add(model);
+            context.SaveChangesAsync();
         }
+
+        public void UpdateEpisodeComment(EpisodeComment model) {
+            EpisodeComment episodeComment = context.EpisodeComments.SingleOrDefault(u => u.Id == model.Id);
+            if(episodeComment != null) {
+                context.Entry(episodeComment).CurrentValues.SetValues(model);
+                context.SaveChangesAsync();
+            }
+        }
+
+        public EpisodeComment FindEpisodeComment(Episode episode, User user) {
+            return context.EpisodeComments.Where(ec => ec.EpisodeId == episode.Id && ec.UserId == user.Id).SingleOrDefault();
+        }
+
+        public void AddMovieComment(MovieComment model) {
+            context.MovieComments.Add(model);
+            context.SaveChangesAsync();
+        }
+
+        public void UpdateMovieComment(MovieComment model) {
+            MovieComment movieComment = context.MovieComments.SingleOrDefault(u => u.Id == model.Id);
+            if(movieComment != null) {
+                context.Entry(movieComment).CurrentValues.SetValues(model);
+                context.SaveChangesAsync();
+            }
+        }
+
         public MovieComment FindMovieComment(Movie movie, User user) {
             return context.MovieComments.Where(mc => mc.MovieId == movie.Id && mc.UserId == user.Id).SingleOrDefault();
         }

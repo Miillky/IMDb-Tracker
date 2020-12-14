@@ -10,7 +10,7 @@ namespace IMDbTrackerLibrary.Models {
         [StringLength(150)]
         [Required(AllowEmptyStrings = false)]
         public string MovieId { get; set; }
-        public virtual Movie Show { get; set; }
+        public virtual Movie Movie { get; set; }
 
         [Column(TypeName = "int")]
         [Required]

@@ -42,26 +42,6 @@ namespace IMDbTrackerLibrary {
             }
         }
 
-        public async Task<List<string>> GetTopRatedMovies() {
-
-            HttpClient client = new HttpClient();
-            HttpRequestMessage request = new HttpRequestMessage {
-                Method = HttpMethod.Get,
-                RequestUri = new Uri($"{apiUrl}/title/title/get-top-rated-movies"),
-                Headers = { { "x-rapidapi-key", user.APIKey }, { "x-rapidapi-host", host } }
-            };
-
-            using(HttpResponseMessage response = await client.SendAsync(request)) {
-                response.EnsureSuccessStatusCode();
-
-                List<string> movieIds = await response.Content.ReadFromJsonAsync<List<string>>();
-                List<string> parsedIds = new List<string>();
-
-                movieIds.ForEach(movieId => parsedIds.Add(movieId.Split('/').ElementAt(2)));
-                return parsedIds;
-            }
-        }
-
         public async Task<List<string>> GetMostPopularMovies() {
 
             HttpClient client = new HttpClient();

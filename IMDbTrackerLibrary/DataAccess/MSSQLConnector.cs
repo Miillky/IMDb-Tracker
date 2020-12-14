@@ -127,11 +127,35 @@ namespace IMDbTrackerLibrary.DataAccess {
             throw new NotImplementedException();
         }
 
-        public EpisodeComment FindEpisodeComment(Episode epside, Show show, User user) {
+        public EpisodeComment FindEpisodeComment(Episode epside, User user) {
             throw new NotImplementedException();
         }
 
         public MovieComment FindMovieComment(Movie movie, User user) {
+            throw new NotImplementedException();
+        }
+
+        public void AddShowComment(ShowComment model) {
+            throw new NotImplementedException();
+        }
+
+        public void AddEpisodeComment(EpisodeComment model) {
+            throw new NotImplementedException();
+        }
+
+        public void AddMovieComment(MovieComment model) {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateShowComment(ShowComment model) {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateEpisodeComment(EpisodeComment model) {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateMovieComment(MovieComment model) {
             throw new NotImplementedException();
         }
     }

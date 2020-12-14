@@ -24,6 +24,7 @@ namespace IMDbTrackerUI {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MoviesForm));
             this.moviesListBox = new System.Windows.Forms.ListBox();
             this.moviesTypeComboBox = new System.Windows.Forms.ComboBox();
@@ -34,12 +35,15 @@ namespace IMDbTrackerUI {
             this.movieReleseYearLabel = new System.Windows.Forms.Label();
             this.addRemoveFavoritesButton = new System.Windows.Forms.Button();
             this.movieDetailsButton = new System.Windows.Forms.Button();
+            this.plotOutlineTextBox = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.movieCoverPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // moviesListBox
             // 
             this.moviesListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.moviesListBox.ForeColor = System.Drawing.Color.Black;
             this.moviesListBox.FormattingEnabled = true;
             this.moviesListBox.ItemHeight = 21;
             this.moviesListBox.Location = new System.Drawing.Point(15, 150);
@@ -90,9 +94,9 @@ namespace IMDbTrackerUI {
             // movieCoverPictureBox
             // 
             this.movieCoverPictureBox.ErrorImage = global::IMDbTrackerUI.Properties.Resources.IMDb_yellow_logo;
-            this.movieCoverPictureBox.Image = global::IMDbTrackerUI.Properties.Resources.IMDb_black_logo;
+            this.movieCoverPictureBox.Image = global::IMDbTrackerUI.Properties.Resources.IMDb_yellow_logo;
             this.movieCoverPictureBox.InitialImage = global::IMDbTrackerUI.Properties.Resources.IMDb_yellow_logo;
-            this.movieCoverPictureBox.Location = new System.Drawing.Point(320, 30);
+            this.movieCoverPictureBox.Location = new System.Drawing.Point(320, 84);
             this.movieCoverPictureBox.MaximumSize = new System.Drawing.Size(330, 310);
             this.movieCoverPictureBox.MinimumSize = new System.Drawing.Size(330, 310);
             this.movieCoverPictureBox.Name = "movieCoverPictureBox";
@@ -106,28 +110,26 @@ namespace IMDbTrackerUI {
             this.movieTitleLabel.AutoSize = true;
             this.movieTitleLabel.BackColor = System.Drawing.Color.Transparent;
             this.movieTitleLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.movieTitleLabel.Location = new System.Drawing.Point(320, 350);
+            this.movieTitleLabel.Location = new System.Drawing.Point(320, 15);
             this.movieTitleLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.movieTitleLabel.MaximumSize = new System.Drawing.Size(325, 37);
-            this.movieTitleLabel.MinimumSize = new System.Drawing.Size(325, 37);
+            this.movieTitleLabel.MaximumSize = new System.Drawing.Size(330, 37);
+            this.movieTitleLabel.MinimumSize = new System.Drawing.Size(330, 37);
             this.movieTitleLabel.Name = "movieTitleLabel";
-            this.movieTitleLabel.Size = new System.Drawing.Size(325, 37);
+            this.movieTitleLabel.Size = new System.Drawing.Size(330, 37);
             this.movieTitleLabel.TabIndex = 0;
-            this.movieTitleLabel.Text = "Movie title";
             // 
             // movieReleseYearLabel
             // 
             this.movieReleseYearLabel.AutoSize = true;
             this.movieReleseYearLabel.BackColor = System.Drawing.Color.Transparent;
-            this.movieReleseYearLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.movieReleseYearLabel.Location = new System.Drawing.Point(320, 395);
+            this.movieReleseYearLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.movieReleseYearLabel.Location = new System.Drawing.Point(325, 50);
             this.movieReleseYearLabel.Margin = new System.Windows.Forms.Padding(0);
             this.movieReleseYearLabel.MaximumSize = new System.Drawing.Size(195, 30);
             this.movieReleseYearLabel.MinimumSize = new System.Drawing.Size(195, 30);
             this.movieReleseYearLabel.Name = "movieReleseYearLabel";
             this.movieReleseYearLabel.Size = new System.Drawing.Size(195, 30);
             this.movieReleseYearLabel.TabIndex = 0;
-            this.movieReleseYearLabel.Text = "Movie relese year";
             // 
             // addRemoveFavoritesButton
             // 
@@ -136,13 +138,14 @@ namespace IMDbTrackerUI {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addRemoveFavoritesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
             this.addRemoveFavoritesButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addRemoveFavoritesButton.Enabled = false;
             this.addRemoveFavoritesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addRemoveFavoritesButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addRemoveFavoritesButton.Location = new System.Drawing.Point(340, 460);
+            this.addRemoveFavoritesButton.Location = new System.Drawing.Point(340, 505);
             this.addRemoveFavoritesButton.Margin = new System.Windows.Forms.Padding(0);
             this.addRemoveFavoritesButton.Name = "addRemoveFavoritesButton";
             this.addRemoveFavoritesButton.Size = new System.Drawing.Size(300, 60);
-            this.addRemoveFavoritesButton.TabIndex = 4;
+            this.addRemoveFavoritesButton.TabIndex = 5;
             this.addRemoveFavoritesButton.Text = "Add Remove Favorites";
             this.addRemoveFavoritesButton.UseVisualStyleBackColor = false;
             this.addRemoveFavoritesButton.Click += new System.EventHandler(this.AddRemoveFavoritesButton_Click);
@@ -154,16 +157,37 @@ namespace IMDbTrackerUI {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.movieDetailsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
             this.movieDetailsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.movieDetailsButton.Enabled = false;
             this.movieDetailsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.movieDetailsButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.movieDetailsButton.Location = new System.Drawing.Point(340, 550);
+            this.movieDetailsButton.Location = new System.Drawing.Point(340, 575);
             this.movieDetailsButton.Margin = new System.Windows.Forms.Padding(0);
             this.movieDetailsButton.Name = "movieDetailsButton";
             this.movieDetailsButton.Size = new System.Drawing.Size(300, 60);
-            this.movieDetailsButton.TabIndex = 5;
+            this.movieDetailsButton.TabIndex = 6;
             this.movieDetailsButton.Text = "Details";
             this.movieDetailsButton.UseVisualStyleBackColor = false;
             this.movieDetailsButton.Click += new System.EventHandler(this.MovieDetailsButton_Click);
+            // 
+            // plotOutlineTextBox
+            // 
+            this.plotOutlineTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.plotOutlineTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.plotOutlineTextBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.plotOutlineTextBox.ForeColor = System.Drawing.Color.Black;
+            this.plotOutlineTextBox.Location = new System.Drawing.Point(320, 400);
+            this.plotOutlineTextBox.MaximumSize = new System.Drawing.Size(330, 90);
+            this.plotOutlineTextBox.MinimumSize = new System.Drawing.Size(330, 90);
+            this.plotOutlineTextBox.Multiline = true;
+            this.plotOutlineTextBox.Name = "plotOutlineTextBox";
+            this.plotOutlineTextBox.ReadOnly = true;
+            this.plotOutlineTextBox.Size = new System.Drawing.Size(330, 90);
+            this.plotOutlineTextBox.TabIndex = 4;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // MoviesForm
             // 
@@ -171,6 +195,7 @@ namespace IMDbTrackerUI {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(684, 661);
+            this.Controls.Add(this.plotOutlineTextBox);
             this.Controls.Add(this.movieDetailsButton);
             this.Controls.Add(this.addRemoveFavoritesButton);
             this.Controls.Add(this.movieReleseYearLabel);
@@ -208,5 +233,7 @@ namespace IMDbTrackerUI {
         private System.Windows.Forms.Label movieReleseYearLabel;
         private System.Windows.Forms.Button addRemoveFavoritesButton;
         private System.Windows.Forms.Button movieDetailsButton;
+        private System.Windows.Forms.TextBox plotOutlineTextBox;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
