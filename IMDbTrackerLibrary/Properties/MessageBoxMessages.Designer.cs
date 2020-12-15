@@ -61,6 +61,15 @@ namespace IMDbTrackerLibrary.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Episode comment added!.
+        /// </summary>
+        internal static string AddEpisodeComment {
+            get {
+                return ResourceManager.GetString("AddEpisodeComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Movie comment added!.
         /// </summary>
         internal static string AddMovieComment {
@@ -84,6 +93,15 @@ namespace IMDbTrackerLibrary.Properties {
         internal static string PasswordResetTokenSend {
             get {
                 return ResourceManager.GetString("PasswordResetTokenSend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Episode comment updated!.
+        /// </summary>
+        internal static string UpdateEpisodeComment {
+            get {
+                return ResourceManager.GetString("UpdateEpisodeComment", resourceCulture);
             }
         }
         

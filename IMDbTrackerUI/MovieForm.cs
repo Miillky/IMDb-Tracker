@@ -25,19 +25,20 @@ namespace IMDbTrackerUI {
         }
 
         private void MovieForm_Load(object sender, EventArgs e) {
-            movieTitleLabel.Text = movie.Title;
-            movieReleseDateDateLabel.Text = DateTime.SpecifyKind((DateTime)movie.ReleseDate, DateTimeKind.Local).ToString("dd.MM.yyyy");
             movieCoverPictureBox.LoadAsync(movie.ImageUrl);
-            movieGenresLabel.Text = movie.Genres;
+
+            movieTitleLabel.Text = movie.Title;
+            movieReleseDateDateLabel.Text = Helpers.FormatReleseDate(movie.ReleseDate);
+            movieGenresLabel.Text = movie.Genres.TrimEnd(',');
             movieRunningTimeMinutesLabel.Text = $"{movie.RunningTimeInMinutes}min";
-            movieRatingNumberLabel.Text = movie.Rating.ToString("N1");
+            movieRatingNumberLabel.Text = Helpers.FormatRating(movie.Rating);
             moviePlotOutlineTextBox.Text = movie.PlotSummary;
         }
 
-        private void saveMovieButton_Click(object sender, EventArgs e) {
+        private void SaveMovieButton_Click(object sender, EventArgs e) {
             if(movieComment == null) {   
 
-                MovieComment movieComment = new MovieComment() {
+                MovieComment mc = new MovieComment() {
                     MovieId = movie.Id,
                     Movie = movie,
                     UserId = user.Id,
@@ -45,7 +46,7 @@ namespace IMDbTrackerUI {
                     Comment = movieCommentTextBox.Text
                 };
 
-                GlobalConfig.Connection.AddMovieComment(movieComment);
+                GlobalConfig.Connection.AddMovieComment(mc);
                 Helpers.ShowMessageBox("AddMovieComment");
 
             } else {

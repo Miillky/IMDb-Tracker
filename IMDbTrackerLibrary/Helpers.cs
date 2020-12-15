@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Resources;
@@ -91,6 +92,18 @@ namespace IMDbTrackerLibrary {
             }
 
             return stringBuilder.ToString();
+        }
+
+        public static string FormatRating(float rating) {
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
+            nfi.NumberDecimalDigits = 1;
+
+            return rating.ToString(nfi);
+        }
+
+        public static string FormatReleseDate(DateTime? date) {
+            return DateTime.SpecifyKind((DateTime)date, DateTimeKind.Local).ToString("dd.MM.yyyy");
         }
     }
 }

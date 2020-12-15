@@ -6,7 +6,7 @@
         public EpisodeRatings Ratings { get; set; }
         public string[] Genres { get; set; }
         public string ReleaseDate { get; set; }
-        public Plotoutline PlotOutline { get; set; }
+        public EpisodePlotoutline PlotOutline { get; set; }
         public EpisodeShow ParentTitle { get; set; }
     }
 
@@ -15,8 +15,6 @@
         public EpisodeImage Image { get; set; }
         public int RunningTimeInMinutes { get; set; }
         public int Season { get; set; }
-        public int SeriesEndYear { get; set; }
-        public int SeriesStartYear { get; set; }
         public string Title { get; set; }
         public int Year { get; set; }
     }
@@ -29,7 +27,7 @@
         public float Rating { get; set; }
     }
 
-    public class Plotoutline {
+    public class EpisodePlotoutline {
         public string Text { get; set; }
     }
 

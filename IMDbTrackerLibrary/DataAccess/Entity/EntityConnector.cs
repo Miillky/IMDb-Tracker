@@ -103,7 +103,7 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
 
         public void AddEpisode(Episode model) {
             context.Episodes.Add(model);
-            context.SaveChangesAsync();
+            context.SaveChanges();
         }
 
         public void AddEpisodes(List<Episode> episodes) {
@@ -112,7 +112,7 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
         }
 
         public Episode FindEpisodeById(string episodeId) {
-            return context.Episodes.Where(e => e.Id == episodeId).SingleOrDefault();
+            return context.Episodes.Where(e => e.EpisodeId == episodeId).SingleOrDefault();
         }
 
         public void AddMovie(Movie model) {
@@ -198,7 +198,7 @@ namespace IMDbTrackerLibrary.DataAccess.Entity {
         }
 
         public EpisodeComment FindEpisodeComment(Episode episode, User user) {
-            return context.EpisodeComments.Where(ec => ec.EpisodeId == episode.Id && ec.UserId == user.Id).SingleOrDefault();
+            return context.EpisodeComments.Where(ec => ec.EpisodeId == episode.EpisodeId && ec.UserId == user.Id).SingleOrDefault();
         }
 
         public void AddMovieComment(MovieComment model) {

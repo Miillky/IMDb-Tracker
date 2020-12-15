@@ -136,5 +136,21 @@ namespace IMDbTrackerLibrary {
                 return show;
             }
         }
+
+        public async Task<EpisodeDetails> GetEpisodeDetails(string episodeId) {
+            HttpClient client = new HttpClient();
+            HttpRequestMessage request = new HttpRequestMessage {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri($"{apiUrl}/title/get-overview-details?tconst={episodeId}&currentCountry={apiCountry}"),
+                Headers = { { "x-rapidapi-key", user.APIKey }, { "x-rapidapi-host", host } }
+            };
+
+            using(HttpResponseMessage response = await client.SendAsync(request)) {
+                response.EnsureSuccessStatusCode();
+                EpisodeDetails episode = await response.Content.ReadFromJsonAsync<EpisodeDetails>();
+                episode.Id = episodeId;
+                return episode;
+            }
+        }
     }
 }

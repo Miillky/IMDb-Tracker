@@ -89,10 +89,10 @@ namespace IMDbTrackerUI {
             this.movieGenresLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.movieGenresLabel.Location = new System.Drawing.Point(15, 70);
             this.movieGenresLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.movieGenresLabel.MaximumSize = new System.Drawing.Size(195, 30);
-            this.movieGenresLabel.MinimumSize = new System.Drawing.Size(195, 30);
+            this.movieGenresLabel.MaximumSize = new System.Drawing.Size(350, 30);
+            this.movieGenresLabel.MinimumSize = new System.Drawing.Size(350, 30);
             this.movieGenresLabel.Name = "movieGenresLabel";
-            this.movieGenresLabel.Size = new System.Drawing.Size(195, 30);
+            this.movieGenresLabel.Size = new System.Drawing.Size(350, 30);
             this.movieGenresLabel.TabIndex = 0;
             // 
             // movieRatingLabel
@@ -224,7 +224,7 @@ namespace IMDbTrackerUI {
             this.saveMovieButton.TabIndex = 2;
             this.saveMovieButton.Text = "Save";
             this.saveMovieButton.UseVisualStyleBackColor = false;
-            this.saveMovieButton.Click += new System.EventHandler(this.saveMovieButton_Click);
+            this.saveMovieButton.Click += new System.EventHandler(this.SaveMovieButton_Click);
             // 
             // MovieForm
             // 

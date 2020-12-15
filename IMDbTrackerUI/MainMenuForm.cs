@@ -15,12 +15,13 @@ namespace IMDbTrackerUI {
         }
 
         private void MoviesButton_Click(object sender, EventArgs e) {
-            //MoviesForm moviesForm = new MoviesForm(user);
-            //moviesForm.Show();
+            MoviesForm moviesForm = new MoviesForm(user);
+            moviesForm.Show();
         }
 
         private void TvShowsButton_Click(object sender, EventArgs e) {
-
+            ShowsForm showsForm = new ShowsForm(user);
+            showsForm.Show();
         }
 
         private void ProfileButton_Click(object sender, EventArgs e) {

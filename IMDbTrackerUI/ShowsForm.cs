@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Net;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMDbTrackerLibrary;
 using IMDbTrackerLibrary.Models;
@@ -31,8 +25,10 @@ namespace IMDbTrackerUI {
         private const string AddToFavoritesText = "Add to favorites";
         private const string RemoveFromFavoritesText = "Remove from favorites";
 
-        public ShowsForm() {
+        public ShowsForm(User userModel) {
             InitializeComponent();
+
+            user = userModel;
 
             api = new API(user);
 
@@ -161,7 +157,8 @@ namespace IMDbTrackerUI {
         }
 
         private void ShowSeasonButton_Click(object sender, EventArgs e) {
-            
+            EpisodesForm episodesForm = new EpisodesForm(user, selectedSeason, selectedShow);
+            episodesForm.Show();
         }
 
         private void GetFavoriteShows() {
