@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using IMDbTrackerLibrary;
 using IMDbTrackerLibrary.Models;
@@ -19,15 +20,35 @@ namespace IMDbTrackerUI {
             this.AcceptButton = UpdateProfileButton;
         }
 
-        private bool ValidateFields() {
+        private bool ValidateFields(bool delete) {
 
             ForgotPasswordLabel.Enabled = false;
             ForgotPasswordLabel.Hide();
 
+            bool validCurrentPassword = Validator.ValidateUserPassword(currentPasswordTextBox, user.Password, currentPasswordValidateErrorLabel);
+
+            if(delete) {
+                firstNameValidateErrorLabel.Hide();
+                lastNameValidateErrorLabel.Hide();
+                emailValidateErrorLabel.Hide();
+                newPasswordValidateErrorLabel.Hide();
+                repeatNewPasswordValidateErrorLabel.Hide();
+                apiKeyValidateErrorLabel.Hide();
+
+                if(!validCurrentPassword) {
+                    if(currentPasswordTextBox.Text.Length > 0) {
+                        ForgotPasswordLabel.Enabled = true;
+                        ForgotPasswordLabel.Show();
+                    }
+                    return false;
+                }
+
+                return true;
+            }
+
             bool validFirstName = Validator.ValidateFirstNameTextBox(firstNameTextBox, firstNameValidateErrorLabel);
             bool validLastName = Validator.ValidateLastNameTextBox(lastNameTextBox, lastNameValidateErrorLabel);
             bool validEmail = Validator.ValidateEmailTextBox(emailTextBox, emailValidateErrorLabel, user.Id);
-            bool validCurrentPassword = Validator.ValidateUserPassword(currentPasswordTextBox, user.Password, currentPasswordValidateErrorLabel);
 
             if(!validCurrentPassword) {
 
@@ -37,12 +58,13 @@ namespace IMDbTrackerUI {
                 }
             }
 
-            bool validNewPassword = Validator.ValidatePasswordTextBox(newPasswordTextBox, newPasswordValidateErrorLabel);
-            bool validRepeatNewPassword = Validator.ValidateRepeatPasswordTextBox(newPasswordTextBox, repeatNewPasswordTextBox, repeatNewPasswordValidateErrorLabel);
+            bool validNewPassword = Validator.ValidatePasswordTextBox(newPasswordTextBox, newPasswordValidateErrorLabel, true);
+            bool validRepeatNewPassword = Validator.ValidateRepeatPasswordTextBox(newPasswordTextBox, repeatNewPasswordTextBox, repeatNewPasswordValidateErrorLabel, true);
             bool validApiKey = Validator.ValidateApiKeyTextBox(apiKeyTextBox, apiKeyValidateErrorLabel, user.Id);
 
-            if(validFirstName && validLastName && validEmail && validCurrentPassword && validNewPassword && validRepeatNewPassword && validApiKey)
+            if(validFirstName && validLastName && validEmail && validCurrentPassword && validNewPassword && validRepeatNewPassword && validApiKey) {
                 return true;
+            }
 
             return false;
         }
@@ -80,7 +102,7 @@ namespace IMDbTrackerUI {
         }
 
         private void UpdateButton_Click(object sender, EventArgs e) {
-            if(!ValidateFields()) {
+            if(!ValidateFields(false)) {
                 return;
             };
 
@@ -92,6 +114,23 @@ namespace IMDbTrackerUI {
 
             Email.SendUpdateProfileMail(user.Email, user, newPasswordTextBox.Text, null);
             Helpers.ShowMessageBox("UserUpdated");
+
+            this.Close();
+            this.Dispose();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e) {
+            if(!ValidateFields(true)) {
+                return;
+            };
+
+            GlobalConfig.Connection.DeleteUser(user);
+
+            Helpers.ShowMessageBox("UserDeleted");
+
+            if(Application.OpenForms.OfType<MainMenuForm>().Count() == 1) {
+                Application.OpenForms.OfType<MainMenuForm>().First().Close();
+            }
 
             this.Close();
             this.Dispose();

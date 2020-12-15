@@ -191,12 +191,18 @@ namespace IMDbTrackerLibrary {
             return true;
         }
 
-        public static bool ValidatePasswordTextBox(TextBox passwordField, Label errorLabel) {
+        public static bool ValidatePasswordTextBox(TextBox passwordField, Label errorLabel, bool isUserProfile) {
             try {
 
                 errorLabel.Hide();
-                Required(passwordField.Text, GlobalConfig.GetExceptionMessage("PasswordRequired"));
-                PasswordStrength(passwordField.Text);
+
+                if(!isUserProfile) {
+                    Required(passwordField.Text, GlobalConfig.GetExceptionMessage("PasswordRequired"));
+                }
+                
+                if(isUserProfile && passwordField.Text.Length > 0) {
+                    PasswordStrength(passwordField.Text);
+                }
 
             } catch(ArgumentException aex) {
                 errorLabel.Show();
@@ -227,12 +233,14 @@ namespace IMDbTrackerLibrary {
             return true;
         }
 
-        public static bool ValidateRepeatPasswordTextBox(TextBox passwordFeild, TextBox repeatPasswordField, Label errorLabel) {
+        public static bool ValidateRepeatPasswordTextBox(TextBox passwordFeild, TextBox repeatPasswordField, Label errorLabel, bool updateProfile) {
             try {
 
                 errorLabel.Hide();
-                Required(repeatPasswordField.Text, GlobalConfig.GetExceptionMessage("RepeatPasswordRequired"));
-                MatchingPassword(passwordFeild.Text, repeatPasswordField.Text);
+                if(!updateProfile || passwordFeild.Text.Length > 0) {
+                    Required(repeatPasswordField.Text, GlobalConfig.GetExceptionMessage("RepeatPasswordRequired"));
+                    MatchingPassword(passwordFeild.Text, repeatPasswordField.Text);
+                }
 
             } catch(ArgumentException aex) {
                 errorLabel.Show();

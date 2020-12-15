@@ -51,6 +51,7 @@ namespace IMDbTrackerUI {
             this.currentPasswordValidateErrorLabel = new System.Windows.Forms.Label();
             this.currentPasswordTextBox = new System.Windows.Forms.TextBox();
             this.currentPasswordLabel = new System.Windows.Forms.Label();
+            this.DeleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IMDbLogoImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -379,12 +380,31 @@ namespace IMDbTrackerUI {
             this.currentPasswordLabel.TabIndex = 0;
             this.currentPasswordLabel.Text = "Current password:";
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(22)))));
+            this.DeleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DeleteButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteButton.Location = new System.Drawing.Point(40, 790);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(0);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(300, 60);
+            this.DeleteButton.TabIndex = 9;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = false;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(384, 811);
+            this.ClientSize = new System.Drawing.Size(384, 861);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.ForgotPasswordLabel);
             this.Controls.Add(this.currentPasswordValidateErrorLabel);
             this.Controls.Add(this.currentPasswordTextBox);
@@ -416,7 +436,7 @@ namespace IMDbTrackerUI {
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(400, 850);
+            this.MaximumSize = new System.Drawing.Size(400, 900);
             this.MinimumSize = new System.Drawing.Size(400, 850);
             this.Name = "ProfileForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -455,5 +475,6 @@ namespace IMDbTrackerUI {
         private System.Windows.Forms.Label currentPasswordValidateErrorLabel;
         private System.Windows.Forms.TextBox currentPasswordTextBox;
         private System.Windows.Forms.Label currentPasswordLabel;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }

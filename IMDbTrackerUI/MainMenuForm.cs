@@ -31,7 +31,7 @@ namespace IMDbTrackerUI {
 
         private void MainMenuForm_FormClosed(object sender, FormClosedEventArgs e) {
             if(Application.OpenForms.OfType<WelcomeForm>().Count() == 1) {
-                Application.OpenForms.OfType<WelcomeForm>().First().Dispose();
+                Application.OpenForms.OfType<WelcomeForm>().First().Show();
             }
         }
     }

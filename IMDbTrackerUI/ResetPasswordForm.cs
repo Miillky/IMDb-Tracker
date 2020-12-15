@@ -15,11 +15,12 @@ namespace IMDbTrackerUI {
             user = model;
 
             this.updateProfile = updateProfile;
+            this.AcceptButton = PasswordResetButton;
         }
 
         private bool ValidatePasswordFields() {
-            bool validPassword = Validator.ValidatePasswordTextBox(passwordTextBox, passwordValidateErrorLabel);
-            bool validRepeatPassword = Validator.ValidateRepeatPasswordTextBox(passwordTextBox, repeatPasswordTextBox, repeatPasswordValidateErrorLabel);
+            bool validPassword = Validator.ValidatePasswordTextBox(passwordTextBox, passwordValidateErrorLabel, false);
+            bool validRepeatPassword = Validator.ValidateRepeatPasswordTextBox(passwordTextBox, repeatPasswordTextBox, repeatPasswordValidateErrorLabel, false);
 
             if(validPassword && validRepeatPassword) {
                 return true;

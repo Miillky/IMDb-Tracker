@@ -135,6 +135,9 @@
   <data name="UpdateMovieComment" xml:space="preserve">
     <value>Movie comment updated!</value>
   </data>
+  <data name="UserDeleted" xml:space="preserve">
+    <value>User deleted!</value>
+  </data>
   <data name="UserRegistered" xml:space="preserve">
     <value>User registered!</value>
   </data>

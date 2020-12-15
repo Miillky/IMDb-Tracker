@@ -84,7 +84,7 @@
             this.passwordTextBox.MaxLength = 150;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(300, 29);
-            this.passwordTextBox.TabIndex = 4;
+            this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // logInPasswordLabel
@@ -112,7 +112,7 @@
             this.LogInButton.Margin = new System.Windows.Forms.Padding(0);
             this.LogInButton.Name = "LogInButton";
             this.LogInButton.Size = new System.Drawing.Size(300, 60);
-            this.LogInButton.TabIndex = 5;
+            this.LogInButton.TabIndex = 3;
             this.LogInButton.Text = "Log in";
             this.LogInButton.UseVisualStyleBackColor = false;
             this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
