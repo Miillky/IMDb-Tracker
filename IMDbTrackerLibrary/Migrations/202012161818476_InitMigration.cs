@@ -38,7 +38,7 @@
                         Rating = c.Double(nullable: false),
                         Genres = c.String(nullable: false, maxLength: 250),
                         Year = c.Int(nullable: false),
-                        ReleseDate = c.DateTime(precision: 7, storeType: "datetime2"),
+                        ReleaseDate = c.DateTime(precision: 7, storeType: "datetime2"),
                         PlotOutline = c.String(nullable: false, maxLength: 500),
                     })
                 .PrimaryKey(t => t.Id)
@@ -59,9 +59,9 @@
                         Rating = c.Double(nullable: false),
                         Genres = c.String(nullable: false, maxLength: 250),
                         Year = c.Int(nullable: false),
-                        ReleseDate = c.DateTime(precision: 7, storeType: "datetime2"),
+                        ReleaseDate = c.DateTime(precision: 7, storeType: "datetime2"),
                         PlotOutline = c.String(nullable: false, maxLength: 500),
-                        PlotSummary = c.String(nullable: false, maxLength: 500),
+                        PlotSummary = c.String(nullable: false, maxLength: 1000),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -107,9 +107,9 @@
                         Rating = c.Double(nullable: false),
                         Genres = c.String(nullable: false, maxLength: 250),
                         Year = c.Int(nullable: false),
-                        ReleseDate = c.DateTime(precision: 7, storeType: "datetime2"),
+                        ReleaseDate = c.DateTime(precision: 7, storeType: "datetime2"),
                         PlotOutline = c.String(nullable: false, maxLength: 500),
-                        PlotSummary = c.String(nullable: false, maxLength: 500),
+                        PlotSummary = c.String(nullable: false, maxLength: 1000),
                     })
                 .PrimaryKey(t => t.Id);
             

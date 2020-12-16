@@ -190,9 +190,9 @@
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="IDataConnection.cs" />
-    <Compile Include="Migrations\202012151943372_InitMigration.cs" />
-    <Compile Include="Migrations\202012151943372_InitMigration.designer.cs">
-      <DependentUpon>202012151943372_InitMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202012161818476_InitMigration.cs" />
+    <Compile Include="Migrations\202012161818476_InitMigration.designer.cs">
+      <DependentUpon>202012161818476_InitMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\API\EpisodeDetails.cs" />
@@ -229,8 +229,8 @@
     <Compile Include="Validator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012151943372_InitMigration.resx">
-      <DependentUpon>202012151943372_InitMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012161818476_InitMigration.resx">
+      <DependentUpon>202012161818476_InitMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\EmailResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

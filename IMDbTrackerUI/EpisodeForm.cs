@@ -28,7 +28,7 @@ namespace IMDbTrackerUI {
             episodeCoverPictureBox.LoadAsync(episode.ImageUrl);
 
             episodeTitleLabel.Text = episode.Title;
-            episodeReleseDateDateLabel.Text = Helpers.FormatReleseDate(episode.ReleseDate);
+            episodeReleseDateDateLabel.Text = Helpers.FormatReleseDate(episode.ReleaseDate);
             episodeGenresLabel.Text = episode.Genres;
             episodeRunningTimeMinutesLabel.Text = $"{episode.RunningTimeInMinutes}min";
             episodeRatingNumberLabel.Text = Helpers.FormatRating(episode.Rating);

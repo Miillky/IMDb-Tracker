@@ -133,6 +133,15 @@
   <data name="IMDb_yellow_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\emailresources\imdb yellow logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NewFavoriteEpisodesMessage" xml:space="preserve">
+    <value>Check out new episodes from the folowing TV Shows!</value>
+  </data>
+  <data name="NewFavoriteEpisodesSubject" xml:space="preserve">
+    <value>IMDB Tracker - New episodes</value>
+  </data>
+  <data name="NewFavoriteEpisodesTitle" xml:space="preserve">
+    <value>New episodes await!</value>
+  </data>
   <data name="PasswordResetMessage" xml:space="preserve">
     <value>Copy the password reset token, to reset your password. </value>
   </data>

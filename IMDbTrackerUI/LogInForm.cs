@@ -32,7 +32,7 @@ namespace IMDbTrackerUI {
             usernameTextBox.Text = user.Username;
         }
 
-        private void ValidateLogInUser() {
+        private async void ValidateLogInUser() {
 
             ForgotPasswordLabel.Enabled = false;
             ForgotPasswordLabel.Hide();
@@ -57,6 +57,10 @@ namespace IMDbTrackerUI {
                 }
 
                 validUser = true;
+
+                if(user.LastLogin != null) {
+                    await Email.SendFavoritesToWatchEmail(user);
+                }
 
                 user.LastLogin = DateTime.UtcNow;
                 GlobalConfig.Connection.UpdateUser(user);

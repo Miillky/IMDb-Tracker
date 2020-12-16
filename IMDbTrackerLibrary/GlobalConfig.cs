@@ -3,7 +3,6 @@ using System.Configuration;
 using IMDbTrackerLibrary.Properties;
 using IMDbTrackerLibrary.DataAccess;
 using IMDbTrackerLibrary.DataAccess.Entity;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace IMDbTrackerLibrary {
     public static class GlobalConfig {

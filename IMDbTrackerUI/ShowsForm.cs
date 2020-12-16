@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMDbTrackerLibrary;
 using IMDbTrackerLibrary.Models;
@@ -176,12 +177,39 @@ namespace IMDbTrackerUI {
             shows = new List<Show>();
 
             var showIds = await api.GetMostPopular("get-most-popular-tv-shows");
-            
-            GetListBoxShows(showIds[0]);
 
-            /*foreach(var showId in showIds) {
-                GetListBoxShows(showId);
-            }*/
+            foreach(var showId in showIds) {
+                Show show = GlobalConfig.Connection.FindShowById(showId);
+
+                if(show != null) {
+                    shows.Add(show);
+                } else {
+
+                    ShowDetails showDetails = await api.GetShowDetails(showId);
+
+                    show = new Show() {
+                        Id = showDetails.Id,
+                        Title = showDetails.Title.Title,
+                        ImageUrl = showDetails.Title.Image.Url,
+                        RunningTimeInMinutes = showDetails.Title.RunningTimeInMinutes,
+                        NumberOfEpisodes = showDetails.Title.NumberOfEpisodes,
+                        SeriesStartYear = showDetails.Title.SeriesStartYear,
+                        SeriesEndYear = showDetails.Title.SeriesEndYear,
+                        Rating = showDetails.Ratings.Rating,
+                        Genres = string.Join(", ", showDetails.Genres),
+                        Year = showDetails.Title.Year,
+                        ReleaseDate = DateTime.Parse(showDetails.ReleaseDate),
+                        PlotOutline = showDetails.PlotOutline.Text,
+                        PlotSummary = showDetails.PlotSummary.Text != null ? showDetails.PlotSummary.Text : ""
+                    };
+
+                    GlobalConfig.Connection.AddShow(show);
+
+                    shows.Add(show);
+                }
+
+                PopulateShowsListBox();
+            } 
         }
 
         private async void GetShowSeasons(string showId) {
@@ -191,39 +219,6 @@ namespace IMDbTrackerUI {
             seasons = showSeasons;
 
             PopulateSeasonsListBox();
-        }
-
-        private async void GetListBoxShows(string showId) {
-            Show show = GlobalConfig.Connection.FindShowById(showId);
-
-            if(show != null) {
-                shows.Add(show);
-            } else {
-
-                ShowDetails showDetails = await api.GetShowDetails(showId);
-
-                show = new Show() {
-                    Id = showDetails.Id,
-                    Title = showDetails.Title.Title,
-                    ImageUrl = showDetails.Title.Image.Url,
-                    RunningTimeInMinutes = showDetails.Title.RunningTimeInMinutes,
-                    NumberOfEpisodes = showDetails.Title.NumberOfEpisodes,
-                    SeriesStartYear = showDetails.Title.SeriesStartYear,
-                    SeriesEndYear = showDetails.Title.SeriesEndYear,
-                    Rating = showDetails.Ratings.Rating,
-                    Genres = string.Join(", ", showDetails.Genres),
-                    Year = showDetails.Title.Year,
-                    ReleseDate = DateTime.Parse(showDetails.ReleaseDate),
-                    PlotOutline = showDetails.PlotOutline.Text,
-                    PlotSummary = showDetails.PlotSummary.Text
-                };
-
-                GlobalConfig.Connection.AddShow(show);
-
-                shows.Add(show);
-            }
-
-            PopulateShowsListBox();
         }
 
         private void PopulateShowsListBox() {

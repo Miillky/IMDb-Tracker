@@ -28,7 +28,7 @@ namespace IMDbTrackerUI {
             movieCoverPictureBox.LoadAsync(movie.ImageUrl);
 
             movieTitleLabel.Text = movie.Title;
-            movieReleseDateDateLabel.Text = Helpers.FormatReleseDate(movie.ReleseDate);
+            movieReleseDateDateLabel.Text = Helpers.FormatReleseDate(movie.ReleaseDate);
             movieGenresLabel.Text = movie.Genres.TrimEnd(',');
             movieRunningTimeMinutesLabel.Text = $"{movie.RunningTimeInMinutes}min";
             movieRatingNumberLabel.Text = Helpers.FormatRating(movie.Rating);

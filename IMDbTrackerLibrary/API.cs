@@ -31,7 +31,7 @@ namespace IMDbTrackerLibrary {
             HttpClient client = new HttpClient();
             HttpRequestMessage request = new HttpRequestMessage {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri($"{apiUrl}/title/{endpoint}?purchaseCountry={apiCountry}&homeCountry={apiCountry}&currentCountry={apiCountry}"),
+                RequestUri = new Uri($"{apiUrl}/title/{endpoint}?homeCountry={apiCountry}&purchaseCountry={apiCountry}&currentCountry={apiCountry}"),
                 Headers = { { "x-rapidapi-key", user.APIKey }, { "x-rapidapi-host", host } }
             };
 

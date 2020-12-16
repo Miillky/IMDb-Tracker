@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMDbTrackerLibrary;
 using IMDbTrackerLibrary.Models;
@@ -73,7 +74,7 @@ namespace IMDbTrackerUI {
             selectedMovie = (Movie)moviesListBox.SelectedItem;
 
             movieTitleLabel.Text = selectedMovie.Title;
-            movieReleseYearLabel.Text = DateTime.SpecifyKind((DateTime)selectedMovie.ReleseDate, DateTimeKind.Local).ToString("yyyy");
+            movieReleseYearLabel.Text = DateTime.SpecifyKind((DateTime)selectedMovie.ReleaseDate, DateTimeKind.Local).ToString("yyyy");
             moviePlotOutlineTextBox.Text = selectedMovie.PlotOutline;
 
             FavoriteMovie fm = new FavoriteMovie() {
@@ -154,7 +155,33 @@ namespace IMDbTrackerUI {
             var movieIds = await api.GetMostPopular("get-most-popular-movies");
 
             foreach(var movieId in movieIds) {
-                GetListBoxMovies(movieId);
+                Movie movie = GlobalConfig.Connection.FindMovieById(movieId);
+
+                if(movie != null) {
+                    movies.Add(movie);
+                } else {
+
+                    MovieDetails movieDetails = await api.GetMovieDetails(movieId);
+
+                    movie = new Movie() {
+                        Id = movieDetails.Id,
+                        Title = movieDetails.Title.Title,
+                        ImageUrl = movieDetails.Title.Image.Url,
+                        RunningTimeInMinutes = movieDetails.Title.RunningTimeInMinutes,
+                        Rating = movieDetails.Ratings.Rating,
+                        Genres = string.Join(", ", movieDetails.Genres),
+                        Year = movieDetails.Title.Year,
+                        ReleaseDate = DateTime.Parse(movieDetails.ReleaseDate),
+                        PlotOutline = movieDetails.PlotOutline.Text,
+                        PlotSummary = movieDetails.PlotSummary.Text != null ? movieDetails.PlotSummary.Text : ""
+                    };
+
+                    GlobalConfig.Connection.AddMovie(movie);
+
+                    movies.Add(movie);
+                }
+
+                PopulateListBox();
             }
         }
 
@@ -165,7 +192,33 @@ namespace IMDbTrackerUI {
             var movieIds = await api.GetPopularMoviesByGenre(endpoint);
 
             foreach(var movieId in movieIds) {
-                GetListBoxMovies(movieId);
+                Movie movie = GlobalConfig.Connection.FindMovieById(movieId);
+
+                if(movie != null) {
+                    movies.Add(movie);
+                } else {
+
+                    MovieDetails movieDetails = await api.GetMovieDetails(movieId);
+
+                    movie = new Movie() {
+                        Id = movieDetails.Id,
+                        Title = movieDetails.Title.Title,
+                        ImageUrl = movieDetails.Title.Image.Url,
+                        RunningTimeInMinutes = movieDetails.Title.RunningTimeInMinutes,
+                        Rating = movieDetails.Ratings.Rating,
+                        Genres = string.Join(", ", movieDetails.Genres),
+                        Year = movieDetails.Title.Year,
+                        ReleaseDate = DateTime.Parse(movieDetails.ReleaseDate),
+                        PlotOutline = movieDetails.PlotOutline.Text,
+                        PlotSummary = movieDetails.PlotSummary.Text
+                    };
+
+                    GlobalConfig.Connection.AddMovie(movie);
+
+                    movies.Add(movie);
+                }
+
+                PopulateListBox();
             }
         }
 
@@ -178,36 +231,6 @@ namespace IMDbTrackerUI {
 
             MovieTypes movieGenres = await api.GetPopularGenres();
             movieGenres.Genres.ToList().ForEach(genre => moviesTypeComboBox.Items.Add(genre));
-        }
-
-        private async void GetListBoxMovies(string movieId) {
-            Movie movie = GlobalConfig.Connection.FindMovieById(movieId);
-
-            if(movie != null) {
-                movies.Add(movie);
-            } else {
-
-                MovieDetails movieDetails = await api.GetMovieDetails(movieId);
-
-                movie = new Movie() {
-                    Id = movieDetails.Id,
-                    Title = movieDetails.Title.Title,
-                    ImageUrl = movieDetails.Title.Image.Url,
-                    RunningTimeInMinutes = movieDetails.Title.RunningTimeInMinutes,
-                    Rating = movieDetails.Ratings.Rating,
-                    Genres = string.Join(", ", movieDetails.Genres),
-                    Year = movieDetails.Title.Year,
-                    ReleseDate = DateTime.Parse(movieDetails.ReleaseDate),
-                    PlotOutline = movieDetails.PlotOutline.Text,
-                    PlotSummary = movieDetails.PlotSummary.Text 
-                };
-
-                GlobalConfig.Connection.AddMovie(movie);
-
-                movies.Add(movie);
-            }
-
-            PopulateListBox();
         }
 
         private void PopulateListBox() {

@@ -108,6 +108,33 @@ namespace IMDbTrackerLibrary.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check out new episodes from the folowing TV Shows!.
+        /// </summary>
+        internal static string NewFavoriteEpisodesMessage {
+            get {
+                return ResourceManager.GetString("NewFavoriteEpisodesMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IMDB Tracker - New episodes.
+        /// </summary>
+        internal static string NewFavoriteEpisodesSubject {
+            get {
+                return ResourceManager.GetString("NewFavoriteEpisodesSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New episodes await!.
+        /// </summary>
+        internal static string NewFavoriteEpisodesTitle {
+            get {
+                return ResourceManager.GetString("NewFavoriteEpisodesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copy the password reset token, to reset your password. .
         /// </summary>
         internal static string PasswordResetMessage {

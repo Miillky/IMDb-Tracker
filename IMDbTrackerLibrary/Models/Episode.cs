@@ -56,7 +56,7 @@ namespace IMDbTrackerLibrary.Models {
         public int Year { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime? ReleseDate { get; set; } = null;
+        public DateTime? ReleaseDate { get; set; } = null;
 
         [StringLength(500)]
         [Required(AllowEmptyStrings = false)]

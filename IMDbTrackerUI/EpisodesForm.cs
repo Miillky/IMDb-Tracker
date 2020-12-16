@@ -76,7 +76,7 @@ namespace IMDbTrackerUI {
                         Rating = episodeDetails.Ratings.Rating,
                         Genres = string.Join(", ", episodeDetails.Genres),
                         Year = episodeDetails.Title.Year,
-                        ReleseDate = DateTime.Parse(episodeDetails.ReleaseDate),
+                        ReleaseDate = DateTime.Parse(episodeDetails.ReleaseDate),
                         PlotOutline = episodeDetails.PlotOutline.Text,
                     };
 
@@ -86,8 +86,7 @@ namespace IMDbTrackerUI {
 
                 }
 
-                PopulateListBox();   
-                
+                PopulateListBox();    
             }
         }
 

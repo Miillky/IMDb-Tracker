@@ -9,6 +9,7 @@ using System.IO;
 using System.Drawing;
 using System.Net.Mime;
 using System.Globalization;
+using IMDbTrackerLibrary.Models.API;
 
 namespace IMDbTrackerLibrary {
     public static class Email {
@@ -130,6 +131,98 @@ namespace IMDbTrackerLibrary {
 
             Email.SendResetToken(user.Email, passwordResetToken, passwordResetTokenValid, null);
             Helpers.ShowMessageBox("PasswordResetTokenSend");
+        }
+
+        public async static Task SendFavoritesToWatchEmail(User user) {
+
+            API api = new API(user);
+
+            List<string> showsWhithNewEpisodes = new List<string>();
+
+            List<FavoriteShow> favoriteShows = GlobalConfig.Connection.FindUserFavoriteShows(user);
+
+            foreach(FavoriteShow favoriteShow in favoriteShows) {
+
+                Show show = GlobalConfig.Connection.FindShowById(favoriteShow.ShowId);
+
+                var seasons = await api.GetShowSeasons(favoriteShow.ShowId);
+
+                bool hasNewEpisode = false;
+
+                foreach(ShowSeason season in seasons.ToList()) {
+                    foreach(ShowSeasonEpisode seasonEpisode in season.Episodes) {
+
+                        if(seasonEpisode.Year < ((DateTime)user.LastLogin).Year) {
+                            break;
+                        }
+
+                        if(seasonEpisode.Year == ((DateTime)user.LastLogin).Year) {
+
+                            Episode episode = GlobalConfig.Connection.FindEpisodeById(seasonEpisode.Id);
+
+                            if(episode == null) {
+
+                                EpisodeDetails episodeDetails = await api.GetEpisodeDetails(seasonEpisode.Id);
+
+                                episode = new Episode() {
+                                    EpisodeId = episodeDetails.Id,
+                                    ShowId = show.Id,
+                                    Show = show,
+                                    Title = episodeDetails.Title.Title,
+                                    EpisodeNumber = episodeDetails.Title.Episode,
+                                    ImageUrl = episodeDetails.Title.Image.Url,
+                                    RunningTimeInMinutes = episodeDetails.Title.RunningTimeInMinutes,
+                                    Season = episodeDetails.Title.Season,
+                                    Rating = episodeDetails.Ratings.Rating,
+                                    Genres = string.Join(", ", episodeDetails.Genres),
+                                    Year = episodeDetails.Title.Year,
+                                    ReleaseDate = DateTime.Parse(episodeDetails.ReleaseDate),
+                                    PlotOutline = episodeDetails.PlotOutline.Text,
+                                };
+
+                                GlobalConfig.Connection.AddEpisode(episode);
+                            }
+
+
+                            if(episode.ReleaseDate > user.LastLogin && episode.ReleaseDate < DateTime.UtcNow) {
+
+                                showsWhithNewEpisodes.Add(show.Title);
+                                hasNewEpisode = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if(hasNewEpisode) {
+                        break;
+                    }
+                }
+
+                if(showsWhithNewEpisodes == null) {
+                    return;
+                }
+
+                string subject = GlobalConfig.GetEmailResourceString("NewFavoriteEpisodesSubject");
+
+                StringBuilder body = new StringBuilder();
+
+                body.AppendLine("<div style='text-align: center;'>");
+                body.AppendLine("<img title='IMDb Tracker logo' alt='IMDb Tracler logo' src='cid:email-logo' />");
+                body.AppendLine("<h1>" + GlobalConfig.GetEmailResourceString("NewFavoriteEpisodesTitle") + "</h1>");
+                body.AppendLine("<p>" + GlobalConfig.GetEmailResourceString("NewFavoriteEpisodesMessage") + "</p>");
+
+                body.AppendLine("<ul>");
+                foreach(string episodeTitle in showsWhithNewEpisodes) {
+                    body.AppendLine("<li><strong>" + episodeTitle + "</strong></li>");
+                }
+
+                body.AppendLine("</ul>");
+                body.AppendLine("<br/>");
+                body.AppendLine("<strong>" + GlobalConfig.GetEmailResourceString("Signature") + "</strong>");
+                body.AppendLine("</div>");
+
+                SendEmail(user.Email, subject, body.ToString(), null);
+            }
         }
     }
 }
