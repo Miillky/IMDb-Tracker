@@ -198,7 +198,7 @@ namespace IMDbTrackerLibrary {
                     }
                 }
 
-                if(showsWhithNewEpisodes == null) {
+                if(showsWhithNewEpisodes.Count() == 0) {
                     return;
                 }
 

@@ -173,7 +173,7 @@ namespace IMDbTrackerUI {
                         Year = movieDetails.Title.Year,
                         ReleaseDate = DateTime.Parse(movieDetails.ReleaseDate),
                         PlotOutline = movieDetails.PlotOutline.Text,
-                        PlotSummary = movieDetails.PlotSummary.Text != null ? movieDetails.PlotSummary.Text : ""
+                        PlotSummary = movieDetails.PlotSummary != null ? movieDetails.PlotSummary.Text : ""
                     };
 
                     GlobalConfig.Connection.AddMovie(movie);
