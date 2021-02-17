@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text;
 using System.Threading.Tasks;
 using IMDbTrackerLibrary.Models;
 using IMDbTrackerLibrary.Models.API;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace IMDbTrackerLibrary {
     public class API {
@@ -19,7 +17,6 @@ namespace IMDbTrackerLibrary {
         private readonly string host;
 
         public API(User model) {
-
             user = model;
             apiUrl = GlobalConfig.AppKeyLookup("apiUrl");
             apiCountry = GlobalConfig.AppKeyLookup("apiCountry");

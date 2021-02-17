@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMDbTrackerLibrary;
 using IMDbTrackerLibrary.Models;
@@ -210,7 +209,7 @@ namespace IMDbTrackerUI {
                         Year = movieDetails.Title.Year,
                         ReleaseDate = DateTime.Parse(movieDetails.ReleaseDate),
                         PlotOutline = movieDetails.PlotOutline.Text,
-                        PlotSummary = movieDetails.PlotSummary.Text
+                        PlotSummary = movieDetails.PlotSummary != null ? movieDetails.PlotSummary.Text : ""
                     };
 
                     GlobalConfig.Connection.AddMovie(movie);

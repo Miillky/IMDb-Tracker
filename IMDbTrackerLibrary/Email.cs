@@ -8,7 +8,6 @@ using IMDbTrackerLibrary.Models;
 using System.IO;
 using System.Drawing;
 using System.Net.Mime;
-using System.Globalization;
 using IMDbTrackerLibrary.Models.API;
 
 namespace IMDbTrackerLibrary {
@@ -129,7 +128,7 @@ namespace IMDbTrackerLibrary {
 
             GlobalConfig.Connection.SetPasswordResetToken(user, passwordResetToken, passwordResetTokenValid);
 
-            Email.SendResetToken(user.Email, passwordResetToken, passwordResetTokenValid, null);
+            SendResetToken(user.Email, passwordResetToken, passwordResetTokenValid, null);
             Helpers.ShowMessageBox("PasswordResetTokenSend");
         }
 

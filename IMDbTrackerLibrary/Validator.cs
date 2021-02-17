@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using IMDbTrackerLibrary.Exceptions;
-using IMDbTrackerLibrary;
 
 namespace IMDbTrackerLibrary {
     public static class Validator {
