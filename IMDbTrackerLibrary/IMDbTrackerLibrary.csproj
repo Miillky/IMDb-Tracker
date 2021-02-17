@@ -189,7 +189,7 @@
     <Compile Include="Exceptions\UsernameExistsException.cs" />
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="Helpers.cs" />
-    <Compile Include="IDataConnection.cs" />
+    <Compile Include="DataAccess\IDataConnection.cs" />
     <Compile Include="Migrations\202012161818476_InitMigration.cs" />
     <Compile Include="Migrations\202012161818476_InitMigration.designer.cs">
       <DependentUpon>202012161818476_InitMigration.cs</DependentUpon>
