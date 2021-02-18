@@ -198,7 +198,7 @@ namespace IMDbTrackerUI {
                         Genres = string.Join(", ", showDetails.Genres),
                         Year = showDetails.Title.Year,
                         ReleaseDate = DateTime.Parse(showDetails.ReleaseDate),
-                        PlotOutline = showDetails.PlotOutline.Text,
+                        PlotOutline = showDetails.PlotOutline != null ? showDetails.PlotOutline.Text : "",
                         PlotSummary = showDetails.PlotSummary != null ? showDetails.PlotSummary.Text : ""
                     };
 

@@ -171,7 +171,7 @@ namespace IMDbTrackerUI {
                         Genres = string.Join(", ", movieDetails.Genres),
                         Year = movieDetails.Title.Year,
                         ReleaseDate = DateTime.Parse(movieDetails.ReleaseDate),
-                        PlotOutline = movieDetails.PlotOutline.Text,
+                        PlotOutline = movieDetails.PlotOutline != null ? movieDetails.PlotOutline.Text : "",
                         PlotSummary = movieDetails.PlotSummary != null ? movieDetails.PlotSummary.Text : ""
                     };
 
@@ -208,7 +208,7 @@ namespace IMDbTrackerUI {
                         Genres = string.Join(", ", movieDetails.Genres),
                         Year = movieDetails.Title.Year,
                         ReleaseDate = DateTime.Parse(movieDetails.ReleaseDate),
-                        PlotOutline = movieDetails.PlotOutline.Text,
+                        PlotOutline = movieDetails.PlotOutline != null ? movieDetails.PlotOutline.Text : "",
                         PlotSummary = movieDetails.PlotSummary != null ? movieDetails.PlotSummary.Text : ""
                     };
 

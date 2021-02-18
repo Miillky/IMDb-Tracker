@@ -77,7 +77,7 @@ namespace IMDbTrackerUI {
                         Genres = string.Join(", ", episodeDetails.Genres),
                         Year = episodeDetails.Title.Year,
                         ReleaseDate = DateTime.Parse(episodeDetails.ReleaseDate),
-                        PlotOutline = episodeDetails.PlotOutline.Text,
+                        PlotOutline = episodeDetails.PlotOutline != null ? episodeDetails.PlotOutline.Text : ""
                     };
 
                     GlobalConfig.Connection.AddEpisode(episode);

@@ -40,11 +40,11 @@ namespace IMDbTrackerLibrary.Models {
         [Column(TypeName = "datetime2")]
         public DateTime? ReleaseDate { get; set; } = null;
 
-        [StringLength(500)]
-        [Required(AllowEmptyStrings = false)]
+        [StringLength(1000)]
+        [Required(AllowEmptyStrings = true)]
         public string PlotOutline { get; set; }
 
-        [StringLength(1000)]
+        [StringLength(5000)]
         [Required(AllowEmptyStrings = true)]
         public string PlotSummary { get; set; } = null;
     }

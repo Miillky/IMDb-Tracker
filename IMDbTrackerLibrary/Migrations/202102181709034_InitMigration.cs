@@ -39,7 +39,7 @@
                         Genres = c.String(nullable: false, maxLength: 250),
                         Year = c.Int(nullable: false),
                         ReleaseDate = c.DateTime(precision: 7, storeType: "datetime2"),
-                        PlotOutline = c.String(nullable: false, maxLength: 500),
+                        PlotOutline = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Shows", t => t.ShowId, cascadeDelete: true)
@@ -60,8 +60,8 @@
                         Genres = c.String(nullable: false, maxLength: 250),
                         Year = c.Int(nullable: false),
                         ReleaseDate = c.DateTime(precision: 7, storeType: "datetime2"),
-                        PlotOutline = c.String(nullable: false, maxLength: 500),
-                        PlotSummary = c.String(nullable: false, maxLength: 1000),
+                        PlotOutline = c.String(nullable: false, maxLength: 1000),
+                        PlotSummary = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -108,8 +108,8 @@
                         Genres = c.String(nullable: false, maxLength: 250),
                         Year = c.Int(nullable: false),
                         ReleaseDate = c.DateTime(precision: 7, storeType: "datetime2"),
-                        PlotOutline = c.String(nullable: false, maxLength: 500),
-                        PlotSummary = c.String(nullable: false, maxLength: 1000),
+                        PlotOutline = c.String(nullable: false, maxLength: 1000),
+                        PlotSummary = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
